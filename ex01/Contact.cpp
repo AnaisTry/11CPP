@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 19:22:56 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/03 14:30:29 by angassin         ###   ########.fr       */
+/*   Created: 2024/02/04 18:33:55 by angassin          #+#    #+#             */
+/*   Updated: 2024/02/04 19:23:27 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Contact.hpp"
 #include <iostream>
 
-int main(int argc, char **argv)
+Contact::Contact(std::string firstName, std::string lastName,
+	std::string nickname, std::string phoneNumber, std::string darkestSecret)
 {
+		 
 
-	if (argc > 1)
-	{
-		for (int i = 1; i < argc; ++i)
-		{
-			for (int j = 0; argv[i][j]; ++j)
-			{
-				std::cout << (char)toupper(argv[i][j]);
-		}
-			std::cout << " ";
-		}
-	}
-	else
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	}
-	std::cout << std::endl;
-	return (0);
+}
+
+Contact::~Contact()
+{
+	std::cout << "Contact destroyed" << std::endl;
 }
