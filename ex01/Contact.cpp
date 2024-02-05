@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:33:55 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/05 15:08:08 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:23:38 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ Contact::Contact(std::string firstName, std::string lastName, std::string nickna
 	phoneNumber_(phoneNumber)
 {
 	std::cout << "Constructor called" << std::endl;
-	std::string Contact::getFirstName() const{
-		return firstName_;
-	}
-
 }
 
 Contact::~Contact()
 {
 	std::cout << "Contact destroyed" << std::endl;
 }
+
+std::string Contact::getFirstName() const{
+		return firstName_;
+	}
