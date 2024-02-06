@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/03 13:56:13 by angassin          #+#    #+#              #
-#    Updated: 2024/02/03 23:52:53 by angassin         ###   ########.fr        #
+#    Updated: 2024/02/06 19:47:23 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CC	= c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = PhoneBook.cpp main.cpp
+SRCS = PhoneBook.cpp Contact.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

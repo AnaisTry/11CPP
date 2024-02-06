@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:33:55 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/06 19:36:12 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:50:02 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Contact::Contact(std::string firstName, std::string lastName, std::string nickname,
 	std::string phoneNumber, std::string darkestSecret) :
 	firstName_(firstName), lastName_(lastName), nickname_(nickname), 
-	phoneNumber_(phoneNumber)
+	phoneNumber_(phoneNumber), darkestSecret_(darkestSecret)
 {
 	std::cout << "Constructor called" << std::endl;
 }
