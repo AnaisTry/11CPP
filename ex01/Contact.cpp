@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:33:55 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/05 15:23:38 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:36:12 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,20 @@ Contact::~Contact()
 
 std::string Contact::getFirstName() const{
 		return firstName_;
+	}
+
+std::string Contact::getLastName() const{
+		return lastName_;
+	}
+
+std::string Contact::getNickname() const{
+		return nickname_;
+	}
+
+std::string Contact::getPhoneNumber() const{
+		return phoneNumber_;
+	}
+
+std::string Contact::getDarkestSecret() const{
+		return darkestSecret_;
 	}
