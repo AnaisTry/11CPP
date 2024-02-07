@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/07 14:58:09 by angassin          #+#    #+#             */
+/*   Updated: 2024/02/07 15:03:52 by angassin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
@@ -15,10 +27,11 @@ class Contact
 		
 
 	public:
-		// constructor and destructor
-		//default constructor automatically initalized to empty strings 
+		// constructors and destructor
+		// default constructor automatically initalized to empty strings 
 		//(non-class types need to be explicitly initiallized)
-		Contact(); 
+		Contact();
+		// parameterized constructor
 		Contact(std::string firstName, std::string lastName, std::string nickname,
 		 		std::string phoneNumber, std::string darkestSecret);
 		// factory method
