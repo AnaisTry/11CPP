@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:53:25 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/06 20:30:16 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:16:28 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ class PhoneBook
 	
 		Contact contacts_[8];
 		int contactsNumber_;
-		int oldestContact_;
+		int oldestContactIndex_;
 
 	public:
 	
 		PhoneBook();
 		~PhoneBook();
-		void addContact(Contact contact);
+		void addContact(Contact contact);ß
 		Contact getContact(int index) const;
 };
 
