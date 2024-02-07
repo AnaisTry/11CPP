@@ -12,18 +12,19 @@ class Contact
 		std::string phoneNumber_;
 		std::string darkestSecret_;
 
-		//default constructor automatically initalized to empty strings 
-		//(non-class types need to be explicitly initiallized)
-		Contact(); 
+		
 
 	public:
 		// constructor and destructor
-		// Contact(std::string firstName, std::string lastName, std::string nickname,
-		//  		std::string phoneNumber, std::string darkestSecret);
+		//default constructor automatically initalized to empty strings 
+		//(non-class types need to be explicitly initiallized)
+		Contact(); 
+		Contact(std::string firstName, std::string lastName, std::string nickname,
+		 		std::string phoneNumber, std::string darkestSecret);
 		// factory method
-		static Contact createContact(){
-			return Contact();
-		};
+		// static Contact createContact(){
+		// 	return Contact();
+		// };
 		~Contact();
 		// getters
 		std::string getFirstName() const;
