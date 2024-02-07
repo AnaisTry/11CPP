@@ -18,8 +18,12 @@ class Contact
 
 	public:
 		// constructor and destructor
-		Contact(std::string firstName, std::string lastName, std::string nickname,
-		 		std::string phoneNumber, std::string darkestSecret);
+		// Contact(std::string firstName, std::string lastName, std::string nickname,
+		//  		std::string phoneNumber, std::string darkestSecret);
+		// factory method
+		static Contact createContact(){
+			return Contact();
+		};
 		~Contact();
 		// getters
 		std::string getFirstName() const;
