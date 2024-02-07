@@ -6,19 +6,27 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:33:55 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/06 20:54:19 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:07:54 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <iostream>
 
+// default constructor
+Contact::Contact() : firstName_(""), lastName_(""), nickname_(""), 
+	phoneNumber_(""), darkestSecret_("")
+{
+	std::cout << "Default constructor called" << std::endl;
+}
+
+// parameterized constructor
 Contact::Contact(std::string firstName, std::string lastName, std::string nickname,
 	std::string phoneNumber, std::string darkestSecret) :
 	firstName_(firstName), lastName_(lastName), nickname_(nickname), 
 	phoneNumber_(phoneNumber), darkestSecret_(darkestSecret)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Parameterized constructor called" << std::endl;
 }
 
 Contact::~Contact()
