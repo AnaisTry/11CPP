@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:53:25 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/07 16:42:17 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/08 07:31:18 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 # include "Contact.hpp"
 class PhoneBook 
 {
-	private:
-	
-		Contact contacts_[8];
-		int contactsNumber_;
-		int oldestContactIndex_;
-
 	public:
 	
 		PhoneBook();
 		~PhoneBook();
+		static const int MAX_CONTACTS = 8;
 		void addContact(const Contact &contact);
 		Contact getContact(int index) const;
+
+	private:
+	
+		Contact contacts_[MAX_CONTACTS];
+		int contactsNumber_;
+		int oldestContactIndex_;
 };
 
 #endif
