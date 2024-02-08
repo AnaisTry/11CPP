@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:53:25 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/08 07:31:18 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/08 07:54:37 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class PhoneBook
 	
 		PhoneBook();
 		~PhoneBook();
+		//class-wide constant (only one copy indifferent of the number of objects created)
 		static const int MAX_CONTACTS = 8;
 		void addContact(const Contact &contact);
 		Contact getContact(int index) const;
