@@ -6,12 +6,16 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 19:22:56 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/03 14:30:29 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/09 19:51:34 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
+/*
+	toupper behavior undefined if the argument passed is not representable as 
+	unsigned char and is not equal to EOF
+*/
 int main(int argc, char **argv)
 {
 
@@ -19,11 +23,11 @@ int main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; ++i)
 		{
-			for (int j = 0; argv[i][j]; ++j)
-			{
-				std::cout << (char)toupper(argv[i][j]);
-		}
-			std::cout << " ";
+			std::string arg(argv[i]);
+			for (std::size_t j = 0; j < arg.size(); ++j)
+				arg[j] = static_cast<char>(std::toupper(static_cast<unsigned char>(arg[j])));
+
+			std::cout << arg;
 		}
 	}
 	else
