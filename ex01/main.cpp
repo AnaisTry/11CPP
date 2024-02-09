@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 23:36:30 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/09 12:22:18 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/09 18:49:53 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,28 @@
 
 int main()
 {
+	// Create a PhoneBook object
+    PhoneBook phoneBook;
+	std::string command;
+	
+	do
+	{
+		if (!phoneBook.getInput(command, "Enter a command (ADD, SEARCH, EXIT): "))
+			break;
+
+		if (command == "ADD")
+			phoneBook.addContactPrompt();
+		else if (command == "SEARCH")
+			phoneBook.searchContactPrompt();
+	} 
+	while (command != "EXIT");
+
+	/* Dev tests*/
 //     // Create some Contact objects
 //    Contact contact1("John", "Doe", "Johnny", "1234567890", "None");
 //    Contact contact2("Jane", "Doe", "Jenny", "0987654321", "None");
 
-	// Create a PhoneBook object
-    PhoneBook phoneBook;
+	
 
     // // Add the contacts to the phoneBook
     //SE phoneBook.addContact(contact1);
@@ -43,17 +59,5 @@ int main()
 	// 	} catch (const std::out_of_range& e) {
 	// 		std::cerr << "Caught an out-of-range exception: " << e.what() << std::endl;}
 
-	std::string command;
-	while (true)
-	{
-		if (!phoneBook.getInput(command, "Enter a command (ADD, SEARCH, EXIT): ") || command == "EXIT")
-			break;	
-		else if (command == "ADD")
-			phoneBook.addContactPrompt();
-		else if (command == "SEARCH")
-			phoneBook.searchContactPrompt();
-		else
-			std::cout << "Invalid command" << std::endl;
-	}
     return 0;
 }
