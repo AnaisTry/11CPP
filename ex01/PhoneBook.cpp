@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:53:33 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/09 18:38:31 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/09 19:07:45 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,12 @@ bool PhoneBook::getInput(std::string &input, const std::string &prompt) const
 {
 	std::cout << prompt;
 	std::getline(std::cin, input);
-	if (std::cin.fail() || std::cin.eof())
+	if (std::cin.eof())
+	{
+		std::cerr << "EOF detected\n";
+		return false;
+	}
+	if (std::cin.fail())
 	{
 		std::cerr << "Error reading input\n";
         std::cin.clear();
