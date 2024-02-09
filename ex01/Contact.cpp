@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:33:55 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/08 15:05:53 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:06:57 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 Contact::Contact() : firstName_(""), lastName_(""), nickname_(""), 
 	phoneNumber_(""), darkestSecret_("")
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Contact default constructor called" << std::endl;
 }
 
 // parameterized constructor
@@ -27,7 +27,7 @@ Contact::Contact(std::string firstName, std::string lastName, std::string nickna
 	firstName_(firstName), lastName_(lastName), nickname_(nickname), 
 	phoneNumber_(phoneNumber), darkestSecret_(darkestSecret)
 {
-	std::cout << "Parameterized constructor called" << std::endl;
+	// std::cout << "Parameterized constructor called" << std::endl;
 }
 
 Contact::~Contact()

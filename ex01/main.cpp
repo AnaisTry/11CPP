@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 23:36:30 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/09 08:43:05 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:22:18 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,8 @@ int main()
 	std::string command;
 	while (true)
 	{
-		std::cout << "Enter a command: ";
-		std::getline(std::cin, command);
-		if (std::cin.fail())
+		if (!phoneBook.getInput(command, "Enter a command (ADD, SEARCH, EXIT): ") || command == "EXIT")
 			break;	
-
-		if (command == "EXIT")
-			break;
 		else if (command == "ADD")
 			phoneBook.addContactPrompt();
 		else if (command == "SEARCH")

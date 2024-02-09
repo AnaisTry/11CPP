@@ -6,13 +6,14 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:53:33 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/09 10:32:08 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:32:16 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <stdexcept>
 #include <iomanip>
+#include <sstream>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
@@ -43,7 +44,7 @@ void PhoneBook::addContact_(const Contact &contact)
 	
 }
 
-bool PhoneBook::getInput_(std::string &input, const std::string &prompt) const
+bool PhoneBook::getInput(std::string &input, const std::string &prompt) const
 {
 	std::cout << prompt;
 	std::getline(std::cin, input);
@@ -64,11 +65,11 @@ void PhoneBook::addContactPrompt()
 {
 	std::string firstName, lastName, nickname, phoneNumber, darkestSecret;
 
-	if (!getInput_(firstName, "Enter the first name: ")) return;
-	if (!getInput_(lastName, "Enter the last name: ")) return;
-	if (!getInput_(nickname, "Enter the nickname: ")) return;
-	if (!getInput_(phoneNumber, "Enter the phone number: ")) return;
-	if (!getInput_(darkestSecret, "Enter the darkest secret: ")) return;
+	if (!getInput(firstName, "Enter the first name: ")) return;
+	if (!getInput(lastName, "Enter the last name: ")) return;
+	if (!getInput(nickname, "Enter the nickname: ")) return;
+	if (!getInput(phoneNumber, "Enter the phone number: ")) return;
+	if (!getInput(darkestSecret, "Enter the darkest secret: ")) return;
 
 	Contact newContact(firstName, lastName, nickname, phoneNumber, darkestSecret);
 	this->addContact_(newContact);
@@ -114,22 +115,23 @@ void PhoneBook::searchContactPrompt() const
 {
 	printSearchTable_();
 	
-	std::cout << "Enter the index of the contact you want to display: ";
-	
-	int chosenIndex = -1;
-	std::cin >> chosenIndex;
-	if (std::cin.fail())
+	std::string chosenIndex;
+	if (!getInput(chosenIndex, "Enter the index of the contact you want to display: "))
+		return;
+
+	std::stringstream converted(chosenIndex); //similar to std::stoi
+	int i = -1;
+	converted >> i;
+	if (converted.fail())
 	{
-		std::cerr << "Invalid input\n";
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cerr << "Invalid input\n"<< std::endl;
+		return;
 	}
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	if (chosenIndex >= 0 && chosenIndex < PhoneBook::MAX_CONTACTS)
+	if (i >= 0 && i < PhoneBook::MAX_CONTACTS)
 	{
 		try
 		{
-			Contact contact = getContact_(chosenIndex);
+			Contact contact = getContact_(i);
 			std::cout << "First name: " << contact.getFirstName() << std::endl;
 			std::cout << "Last name: " << contact.getLastName() << std::endl;
 			std::cout << "Nickname: " << contact.getNickname() << std::endl;

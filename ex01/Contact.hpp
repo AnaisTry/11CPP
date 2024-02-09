@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:58:09 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/09 10:26:32 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/09 10:41:21 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Contact
 		// constructors and destructor
 
 		// default constructor automatically initalized to empty strings 
-		//(non-class types need to be explicitly initialized)
+		//(Doesn't need to be explicitly initialized because it has no non-class types members)
 		Contact();
 
 		// parameterized constructor
