@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 23:36:30 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/08 09:09:47 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/09 08:43:05 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
     PhoneBook phoneBook;
 
     // // Add the contacts to the phoneBook
-    // phoneBook.addContact(contact1);
+    //SE phoneBook.addContact(contact1);
     // phoneBook.addContact(contact2);
 
 	// try {
@@ -47,56 +47,16 @@ int main()
 	while (true)
 	{
 		std::cout << "Enter a command: ";
-		if (std::getline(std::cin, command).fail())
+		std::getline(std::cin, command);
+		if (std::cin.fail())
 			break;	
 
 		if (command == "EXIT")
 			break;
 		else if (command == "ADD")
-		{
-			std::string firstName;
-			std::string lastName;
-			std::string nickname;
-			std::string phoneNumber;
-			std::string darkestSecret;
-
-			std::cout << "Enter the first name: ";
-			// if (std::getline(std::cin, firstName).fail())
-			// 	break;
-			if (!std::getline(std::cin, firstName)) 
-			{
-				if (std::cin.eof()) {
-					break; // Exit the loop if EOF is encountered
-				}
-				std::cerr << "Error reading first name\n";
-				std::cin.clear(); // Clear the error state
-				continue; // Skip the rest of the loop and start the next iteration
-			}
-			std::cout << "Enter the last name: ";
-			if (std::getline(std::cin, lastName).fail())
-				break;
-			std::cout << "Enter the nickname: ";
-			if (std::getline(std::cin, nickname).fail())
-				break;
-			std::cout << "Enter the phone number: ";
-			if (std::getline(std::cin, phoneNumber).fail())
-				break;
-			std::cout << "Enter the darkest secret: ";
-			if (std::getline(std::cin, darkestSecret).fail())
-				break;
-
-			Contact newContact(firstName, lastName, nickname, phoneNumber, darkestSecret);
-			phoneBook.addContact(newContact);
-		}
+			phoneBook.addContactPrompt();
 		else if (command == "SEARCH")
-		{
-			std::cout << "     Index|First Name| Last Name|  Nickname" << std::endl;
-			for (int i = 0; i < PhoneBook::MAX_CONTACTS; i++)
-			{
-				Contact contact = phoneBook.getContact(i);
-				std::cout << "         " << i << "|" << contact.getFirstName() << "|" << contact.getLastName() << "|" << contact.getNickname() << std::endl;
-			}
-		}
+			phoneBook.searchContactPrompt();
 		else
 			std::cout << "Invalid command" << std::endl;
 	}

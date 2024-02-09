@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:58:09 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/07 15:55:23 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/09 10:26:32 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,11 @@ class Contact
 		std::string phoneNumber_;
 		std::string darkestSecret_;
 
-		
-
 	public:
 		// constructors and destructor
 
 		// default constructor automatically initalized to empty strings 
-		//(non-class types need to be explicitly initiallized)
+		//(non-class types need to be explicitly initialized)
 		Contact();
 
 		// parameterized constructor
@@ -50,6 +48,9 @@ class Contact
 		std::string getNickname() const;
 		std::string getPhoneNumber() const;
 		std::string getDarkestSecret() const;
+
+		// formatting function
+		static std::string formatString(std::string str);
 };
 
 #endif 

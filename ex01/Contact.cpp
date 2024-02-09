@@ -6,12 +6,13 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:33:55 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/07 15:07:54 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/08 15:05:53 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <iostream>
+#include <string>
 
 // default constructor
 Contact::Contact() : firstName_(""), lastName_(""), nickname_(""), 
@@ -31,25 +32,44 @@ Contact::Contact(std::string firstName, std::string lastName, std::string nickna
 
 Contact::~Contact()
 {
-	std::cout << "Contact destroyed" << std::endl;
+	// std::cout << "Contact destroyed" << std::endl;
 }
 
-std::string Contact::getFirstName() const{
-		return firstName_;
-	}
+std::string Contact::getFirstName() const
+{
+	return firstName_;
+}
 
-std::string Contact::getLastName() const{
-		return lastName_;
-	}
+std::string Contact::getLastName() const
+{
+	return lastName_;
+}
 
-std::string Contact::getNickname() const{
-		return nickname_;
-	}
+std::string Contact::getNickname() const
+{
+	return nickname_;
+}
 
-std::string Contact::getPhoneNumber() const{
-		return phoneNumber_;
-	}
+std::string Contact::getPhoneNumber() const
+{
+	return phoneNumber_;
+}
 
-std::string Contact::getDarkestSecret() const{
-		return darkestSecret_;
+std::string Contact::getDarkestSecret() const
+{
+	return darkestSecret_;
+}
+
+std::string Contact::formatString(std::string str)
+{
+	if (str.length() > 10)
+	{
+		str.resize(9);
+		str.append(".");
 	}
+	if (str.length() < 10)
+	{
+		str.insert(0, 10 - str.length(), ' ');
+	}
+	return str;
+}
