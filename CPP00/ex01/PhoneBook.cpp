@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:53:33 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/21 21:12:15 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:26:54 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ std::string PhoneBook::truncate_(const std::string &str) const
 {
 	return str.length() > 10 ? str.substr(0, 9) + "." : str;
 }
+
 void PhoneBook::printSearchTable_() const
 {
 	// std::cout <<

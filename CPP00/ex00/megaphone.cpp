@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 19:22:56 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/09 19:51:34 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:27:25 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ int main(int argc, char **argv)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	}
 	std::cout << std::endl;
-	return (0);
+	return 0;
 }
