@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:53:33 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/21 21:26:54 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/21 22:52:58 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void PhoneBook::addContact_(const Contact &contact)
 
 bool PhoneBook::getInput(std::string &input, const std::string &prompt) const
 {
+	do {
 	std::cout << prompt;
 	std::getline(std::cin, input);
 	if (std::cin.eof())
@@ -61,6 +62,9 @@ bool PhoneBook::getInput(std::string &input, const std::string &prompt) const
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
 	}
+	if (input.empty())
+	{ std::cout << "Input cannot be empty\n"; }
+	} while (input.empty());
 	return true;
 }
 
