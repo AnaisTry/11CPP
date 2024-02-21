@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:58:09 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/09 10:41:21 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:00:29 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ class Contact
 		std::string getDarkestSecret() const;
 
 		// formatting function
-		static std::string formatString(std::string str);
+		// static std::string formatString(std::string str);
 };
 
 #endif 

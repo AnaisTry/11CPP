@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:33:55 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/09 12:06:57 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:17:31 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,16 @@ std::string Contact::getDarkestSecret() const
 	return darkestSecret_;
 }
 
-std::string Contact::formatString(std::string str)
-{
-	if (str.length() > 10)
-	{
-		str.resize(9);
-		str.append(".");
-	}
-	if (str.length() < 10)
-	{
-		str.insert(0, 10 - str.length(), ' ');
-	}
-	return str;
-}
+// std::string Contact::formatString(std::string str)
+// {
+// 	if (str.length() > 10)
+// 	{
+// 		str.resize(9);
+// 		str.append(".");
+// 	}
+// 	if (str.length() < 10)
+// 	{
+// 		str.insert(0, 10 - str.length(), ' ');
+// 	}
+// 	return str;
+// }
