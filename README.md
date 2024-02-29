@@ -1,6 +1,30 @@
 
 # Theory
 
+## Namespace
+
+Small bags of related variables
+
+https://www.ibm.com/docs/en/i/7.5?topic=expressions-scope-resolution-operator-c-only
+
+## Stdio
+
+https://www.geeksforgeeks.org/cin-in-c/
+https://www.geeksforgeeks.org/manipulators-in-c-with-examples/
+
+## Classes
+
+declaration : .h or .hpp
+definition : .cpp
+
+destructors and constructors don't have return types
+
+class instance : type <name> ex : ```Sample instance;```
+
+member attributes 
+member functions
+	- definition type <function>
+
 ## Input validation
 
 Input validation is crucial for ensuring that your program behaves correctly and securely. Here are some common techniques for input validation in C++:
