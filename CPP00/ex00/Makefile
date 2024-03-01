@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/03 13:56:13 by angassin          #+#    #+#              #
-#    Updated: 2024/02/03 20:17:45 by angassin         ###   ########.fr        #
+#    Updated: 2024/02/22 21:48:11 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ RED='\033[1;91m'
 
 NAME = megaphone
 
-CC	= c++
+CXX	= c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -36,11 +36,11 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CPPFLAGS) -o $(NAME) $(OBJS)
+	@$(CXX) $(CPPFLAGS) -o $(NAME) $(OBJS)
 	
 %.o: %.cpp
 	@echo $(GRAY)"Compiling...";
-	@$(CC) $(CPPFLAGS) -c $< -o $@
+	@$(CXX) $(CPPFLAGS) -c $< -o $@
 
 
 
