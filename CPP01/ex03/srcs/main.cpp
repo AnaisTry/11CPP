@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 22:01:20 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/22 22:49:33 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:03:26 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int main()
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
-		// bob.attack();
+		bob.attack();
 		club.setType("some other type of club");
-		// bob.attack();
+		bob.attack();
 	}
 	// {
 	// 	Weapon club = Weapon("crude spiked club");

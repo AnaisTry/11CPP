@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:28:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/22 22:09:22 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:54:41 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Weapon
 	public:
 		Weapon(std::string type);
 		~Weapon();
-		const std::string& getType();
+		const std::string& getType() const;
 		void setType(std::string type);
 };
 
