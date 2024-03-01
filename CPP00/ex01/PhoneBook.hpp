@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:53:25 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/16 12:59:41 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:08:12 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class PhoneBook
 		void addContact_(const Contact &contact);
 		Contact getContact_(int index) const;
 		void printSearchTable_() const;
+		std::string truncate_(const std::string &str) const;
 
 	public:
 	

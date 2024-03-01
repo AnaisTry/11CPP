@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 21:41:09 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/22 18:48:04 by angassin         ###   ########.fr       */
+/*   Created: 2024/02/09 20:42:39 by angassin          #+#    #+#             */
+/*   Updated: 2024/02/22 19:52:23 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main(void)
+# include <iostream>
+
+class Zombie
 {
-	Zombie *heapZombie = newZombie("HeapZombie");
-	heapZombie->announce();
-	std::cout << std::endl;
+	private:
+		std::string name_;
 
-	randomChump("StackZombie");
-	std::cout << std::endl;
-	
-	delete heapZombie;
-	return 0;
-}
+	public:
+		Zombie(); //default constructor
+		Zombie(std::string name);
+		~Zombie();
+
+		void announce(void);
+};
+
+Zombie* zombieHorde(int N, std::string name);
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:53:33 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/09 19:07:45 by angassin         ###   ########.fr       */
+/*   Updated: 2024/02/21 22:52:58 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdexcept>
 #include <iomanip>
 #include <sstream>
+#include <limits>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
@@ -46,6 +47,7 @@ void PhoneBook::addContact_(const Contact &contact)
 
 bool PhoneBook::getInput(std::string &input, const std::string &prompt) const
 {
+	do {
 	std::cout << prompt;
 	std::getline(std::cin, input);
 	if (std::cin.eof())
@@ -60,6 +62,9 @@ bool PhoneBook::getInput(std::string &input, const std::string &prompt) const
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
 	}
+	if (input.empty())
+	{ std::cout << "Input cannot be empty\n"; }
+	} while (input.empty());
 	return true;
 }
 
@@ -82,6 +87,11 @@ void PhoneBook::addContactPrompt()
 	std::cout << std::endl;
 }
 
+std::string PhoneBook::truncate_(const std::string &str) const
+{
+	return str.length() > 10 ? str.substr(0, 9) + "." : str;
+}
+
 void PhoneBook::printSearchTable_() const
 {
 	// std::cout <<
@@ -97,10 +107,16 @@ void PhoneBook::printSearchTable_() const
 	for (int i = 0; i < PhoneBook::contactsNumber_; i++)
 	{
 		Contact contact = getContact_(i);
-		std::cout << Contact::formatString(std::to_string(i)) << "| " <<
-		Contact::formatString(contact.getFirstName()) << "| " <<
-		Contact::formatString(contact.getLastName()) << "| " <<
-		Contact::formatString(contact.getNickname()) << std::endl;
+
+		// std::cout << std::setw(10) << std::setfill(' ') << i << "| " <<
+		// Contact::formatString(contact.getFirstName()) << "| " <<
+		// Contact::formatString(contact.getLastName()) << "| " <<
+		// Contact::formatString(contact.getNickname()) << std::endl;
+
+		std::cout << std::setw(10) << std::setfill(' ') << i << "| " <<
+		std::setw(10) << std::setfill(' ') << truncate_(contact.getFirstName()) << "| " <<
+		std::setw(10) << std::setfill(' ') << truncate_(contact.getLastName()) << "| " <<
+		std::setw(10) << std::setfill(' ') << truncate_(contact.getNickname()) << std::endl;
 	}
 	std::cout << std::endl;
 }
