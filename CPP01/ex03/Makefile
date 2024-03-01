@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/03 13:56:13 by angassin          #+#    #+#              #
-#    Updated: 2024/02/22 22:03:03 by angassin         ###   ########.fr        #
+#    Updated: 2024/02/22 22:52:41 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
 
 SRC_DIR = srcs
 
-SRCS = srcs/main.cpp srcs/Weapon.cpp # HumanA.cpp HumanB.cpp
+SRCS = srcs/main.cpp srcs/Weapon.cpp srcs/HumanA.cpp # HumanB.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
