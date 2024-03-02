@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/03 13:56:13 by angassin          #+#    #+#              #
-#    Updated: 2024/02/22 22:52:41 by angassin         ###   ########.fr        #
+#    Updated: 2024/03/02 07:35:48 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RED='\033[1;91m'
 
 #-------------------------------VARIABLES---------------------------------------
 
-NAME = brain
+NAME = fight
 
 CXX	= c++
 
@@ -29,7 +29,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
 
 SRC_DIR = srcs
 
-SRCS = srcs/main.cpp srcs/Weapon.cpp srcs/HumanA.cpp # HumanB.cpp
+SRCS = srcs/main.cpp srcs/Weapon.cpp srcs/HumanA.cpp srcs/HumanB.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
