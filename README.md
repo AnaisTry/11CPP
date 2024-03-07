@@ -25,6 +25,10 @@ member attributes
 member functions
 	- definition type <function>
 
+## Reference
+
+When an object is passed by reference, the function receives a reference to the original object, not a copy of it. It's then possible to use the address-of operator (&) to get the address of the original object and assign this address to a pointer.
+
 ## Input validation
 
 Input validation is crucial for ensuring that your program behaves correctly and securely. Here are some common techniques for input validation in C++:
