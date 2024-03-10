@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:42:39 by angassin          #+#    #+#             */
-/*   Updated: 2024/02/09 21:32:23 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:52:14 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@
 
 class Zombie
 {
-	private:
-		std::string name_;
-
 	public:
 
 		Zombie(std::string name);
 		~Zombie();
 
 		void announce(void);
+		
+	private:
+
+		std::string name_;
 };
 
 Zombie* newZombie(std::string name);
