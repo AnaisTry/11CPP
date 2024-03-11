@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/11 11:20:55 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:19:21 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include <sstream> // std::stringstream
 # include <ios> // std::ios_base
 
+FileHandler::FileHandler() : filename_("")
+{
+	std::cout << "FilHandler constructed with default constructor";
+}
+
 FileHandler::FileHandler(std::string filename): filename_(filename)
 {
 	std::cout << "FileHandler constructed" << std::endl;
@@ -25,6 +30,12 @@ FileHandler::FileHandler(std::string filename): filename_(filename)
 FileHandler::~FileHandler()
 {
 	std::cout << "FileHandler destroyed" << std::endl;
+}
+
+
+void setFilename(std::string filename)
+{
+	filename_ = filemane;
 }
 
 /*
@@ -58,7 +69,7 @@ bool FileHandler::createOutputFile(std::ofstream& outputFile_)
 	outputFile_.exceptions(std::ofstream::failbit | std::ofstream::badbit);
 	try
 	{
-		outputFile_.open(filename_.c_str());
+		outputFile_.open(filename_+".replace".c_str());
 		return true;
 	}
 	catch (std::ios_base::failure& e)
