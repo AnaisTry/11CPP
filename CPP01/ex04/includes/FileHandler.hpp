@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 19:17:16 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/11 09:04:51 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:53:31 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ class FileHandler
 		FileHandler(std::string filename);
 		~FileHandler();
 		bool openInputFile();
-		// bool openOutputFile();
+		void closeInputFile();
+		bool openOutputFile();
+		void closeOutputFile();
 		// void readFile();
 		// void writeFile(std::string content);
 

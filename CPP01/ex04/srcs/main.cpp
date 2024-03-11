@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 08:45:13 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/11 09:20:01 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:55:27 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main()
 		std::cout << "Passed : File opened successfully.\n";
 	else
 		std::cout << "Failed : File could not be opened.\n";
+	
 
 	FileHandler fh2("invalidFilename.txt");
 	if (!fh2.openInputFile())
