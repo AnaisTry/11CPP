@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/11 09:19:13 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:49:27 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,18 @@ bool FileHandler::openInputFile()
 		return false;
 	}
 	
+}
 
+bool FileHandler::openOutputFile()
+{
+	outputFile_.exceptions(std::ofstream::failbit | std::ofstream::badbit);
+	try
+	{
+		outputFile_.open(filename_.c_str());
+		return true;
+	}
+	catch (std::ios_base::failure& e)
+	{
+		return false;
+	}
 }
