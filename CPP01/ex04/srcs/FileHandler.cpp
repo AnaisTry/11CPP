@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/11 10:53:40 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:20:55 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void FileHandler::closeInputFile()
 	inputFile_.close();
 }
 
-bool FileHandler::openOutputFile()
+bool FileHandler::createOutputFile(std::ofstream& outputFile_)
 {
 	outputFile_.exceptions(std::ofstream::failbit | std::ofstream::badbit);
 	try
