@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FileHandler.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/10 21:10:09 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/11 08:50:03 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,17 @@ FileHandler::~FileHandler()
 /*
 	std::ios_base::badbit: Indicates a fatal I/O error, such as a disk read error.
 	std::ios_base::failbit: Indicates a non-fatal I/O error, such as a format error.
+	c_str converts std::string to const char*
 */
 bool FileHandler::openInputFile()
 {
 	inputFile_.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 	try
 	{
-		inputFile_.open(filename_);
+		inputFile_.open(filename_.c_str);
 		return true;
 	}
-	catch (std::ifstream::failure& e)
+	catch (std::ios_base::failure& e)
 	{
 		return false;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FileHandler.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 19:17:16 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/10 20:53:27 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:04:51 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class FileHandler
 		FileHandler(std::string filename);
 		~FileHandler();
 		bool openInputFile();
-		bool openOutputFile();
-		void readFile();
-		void writeFile(std::string content);
+		// bool openOutputFile();
+		// void readFile();
+		// void writeFile(std::string content);
 
 		
 	private:
