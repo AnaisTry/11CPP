@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/03 13:56:13 by angassin          #+#    #+#              #
-#    Updated: 2024/03/07 16:34:11 by angassin         ###   ########.fr        #
+#    Updated: 2024/03/10 20:43:24 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
 
 SRC_DIR = srcs
 
-SRCS = srcs/main.cpp 
+SRCS = srcs/main.cpp srcs/FileHandler.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
