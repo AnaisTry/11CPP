@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/11 08:50:03 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:19:13 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ bool FileHandler::openInputFile()
 	inputFile_.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 	try
 	{
-		inputFile_.open(filename_.c_str);
+		inputFile_.open(filename_.c_str());
 		return true;
 	}
 	catch (std::ios_base::failure& e)
