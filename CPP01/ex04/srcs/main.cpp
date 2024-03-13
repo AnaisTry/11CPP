@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 08:45:13 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/11 12:08:25 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:25:50 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main()
 
 	
 	
-	closeInputFile();
+	fh.closeInputFile();
 
 	FileHandler fh2("invalidFilename.txt");
 	if (!fh2.openInputFile())

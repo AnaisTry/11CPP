@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FileHandler.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/11 12:19:21 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:11:25 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 # include <sstream> // std::stringstream
 # include <ios> // std::ios_base
 
-FileHandler::FileHandler() : filename_("")
+FileHandler::FileHandler() : fileName_("")
 {
-	std::cout << "FilHandler constructed with default constructor";
+	std::cout << "FileHandler constructed with default constructor";
 }
 
-FileHandler::FileHandler(std::string filename): filename_(filename)
+FileHandler::FileHandler(std::string fileName): fileName_(fileName)
 {
 	std::cout << "FileHandler constructed" << std::endl;
 }
@@ -33,9 +33,9 @@ FileHandler::~FileHandler()
 }
 
 
-void setFilename(std::string filename)
+void FileHandler::setFileName(std::string fileName)
 {
-	filename_ = filemane;
+	fileName_ = fileName;
 }
 
 /*
@@ -49,7 +49,7 @@ bool FileHandler::openInputFile()
 	inputFile_.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 	try
 	{
-		inputFile_.open(filename_.c_str());
+		inputFile_.open(fileName_.c_str());
 		return true;
 	}
 	catch (std::ios_base::failure& e)
@@ -69,7 +69,7 @@ bool FileHandler::createOutputFile(std::ofstream& outputFile_)
 	outputFile_.exceptions(std::ofstream::failbit | std::ofstream::badbit);
 	try
 	{
-		outputFile_.open(filename_+".replace".c_str());
+		outputFile_.open((fileName_+".replace").c_str());
 		return true;
 	}
 	catch (std::ios_base::failure& e)
