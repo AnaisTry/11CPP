@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FileHandler.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/13 11:11:25 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:07:12 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ FileHandler::~FileHandler()
 void FileHandler::setFileName(std::string fileName)
 {
 	fileName_ = fileName;
+}
+
+std::ofstream FileHandler::getOutputFile()
+{
+	return outputFile_;
 }
 
 /*
