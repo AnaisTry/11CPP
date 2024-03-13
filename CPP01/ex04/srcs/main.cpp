@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 08:45:13 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/13 12:07:42 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:19:21 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main()
 		std::cout << "Failed : opened a file that should not exist.\n";
 	
 	fh.setFileName("Makefile");
-	if (fh.createOutputFile(fh.outputFile_))
+	if (fh.createOutputFile(fh.getOutputFile()))
 		std::cout << "Passed : Output file created succesfully.\n";
 	else
 		std::cout << "Failed : Output file could not be created.\n";
