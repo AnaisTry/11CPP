@@ -25,6 +25,26 @@ member attributes
 member functions
 	- definition type <function>
 
+### Best practices for organizing and structuring classes in C++:
+
+1. Encapsulation: Keep data members private, and provide public getter and setter methods if necessary. This hides the internal representation of the class and makes it easier to change the implementation without affecting other parts of the code.
+
+2. Single Responsibility Principle: Each class should have a single responsibility or a single reason to change. This makes the class easier to understand, test, and maintain.
+
+3. Consistent Ordering: It's common to declare public members before private ones, as the public interface is typically of more interest to users of the class.
+
+4. Initialization: Initialize all member variables. This can be done in the constructor or at the point of declaration.
+
+5. Use of Constructors and Destructors: Constructors should establish all class invariants and destructors should clean up any resources the class has acquired.
+
+6. Avoid Public Data Members: Except in rare cases, data members should be private. This encapsulates and protects them from being modified directly.
+
+7. Use const Correctly: If a member function doesn't modify the state of the object, declare it as const.
+
+8. Use of Header Files: Class declarations should be in header files (.h or .hpp), and definitions should be in source files (.cpp).
+
+9. Use of Include Guards: To prevent header files from being included multiple times.
+
 ## Reference
 
 When an object is passed by reference, the function receives a reference to the original object, not a copy of it. It's then possible to use the address-of operator (&) to get the address of the original object and assign this address to a pointer.

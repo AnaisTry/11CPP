@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/13 12:21:48 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:01:21 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ void FileHandler::setFileName(std::string fileName)
 	fileName_ = fileName;
 }
 
-const std::ofstream& FileHandler::getOutputFile() const
-{
-	return outputFile_;
-}
-
 /*
 	std::ios_base::badbit: Indicates a fatal I/O error, such as a disk read error.
 	std::ios_base::failbit: Indicates a non-fatal I/O error, such as a format error.
@@ -69,7 +64,7 @@ void FileHandler::closeInputFile()
 	inputFile_.close();
 }
 
-bool FileHandler::createOutputFile(std::ofstream& outputFile_)
+bool FileHandler::createOutputFile()
 {
 	outputFile_.exceptions(std::ofstream::failbit | std::ofstream::badbit);
 	try
@@ -86,4 +81,16 @@ bool FileHandler::createOutputFile(std::ofstream& outputFile_)
 void FileHandler::closeOutputFile()
 {
 	outputFile_.close();
+}
+
+void FileHandler::readFile()
+{
+	std::string line;
+	if (inputFile_.is_open())
+	{
+		while(getline(inputFile_, line))
+		{
+			
+		}
+	}
 }
