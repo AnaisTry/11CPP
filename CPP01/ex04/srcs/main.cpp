@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 08:45:13 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/14 12:08:54 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:14:16 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,8 @@ int	main(int argc, char **argv)
 	if (!fh.createOutputFile())
 		return 2;
 
+	fh.copyAndReplaceFile(argv[2], argv[3]);
 	
-
-	
-	
-
-
 	return 0;
 }
 
@@ -58,7 +54,6 @@ int	main(int argc, char **argv)
 
 	
 	
-// 	// fh.closeInputFile();
 
 // 	// fh.setFileName("NonexistentFile");
 // 	// if (!fh.openInputFile())

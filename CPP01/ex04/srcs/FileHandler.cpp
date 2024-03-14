@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/14 12:06:38 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:12:11 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,6 @@ bool FileHandler::openInputFile()
 	
 }
 
-void FileHandler::closeInputFile()
-{
-	inputFile_.close();
-}
 
 bool FileHandler::createOutputFile()
 {
@@ -79,22 +75,20 @@ bool FileHandler::createOutputFile()
 	}
 }
 
-void FileHandler::closeOutputFile()
+
+void FileHandler::copyAndReplaceFile(const std::string& from, const std::string& to)
 {
+	std::string line;
+	if (inputFile_.is_open())
+	{
+		while(getline(inputFile_, line))
+		{
+			outputFile_ << replace(line, from, to) << std::endl;
+		}
+	}
+	inputFile_.close();
 	outputFile_.close();
 }
-
-// void FileHandler::readFile()
-// {
-// 	std::string line;
-// 	if (inputFile_.is_open())
-// 	{
-// 		while(getline(inputFile_, line))
-// 		{
-			
-// 		}
-// 	}
-// }
 
 std::string replace(const std::string& str, const std::string& from, const std::string& to)
 {
