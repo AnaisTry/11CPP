@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 19:17:16 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/13 12:48:51 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:05:49 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ class FileHandler
 		void closeInputFile();
 		bool createOutputFile();
 		void closeOutputFile();
-		void readFile();
-		// void writeFile(std::string content);
+		void copyAndReplaceFile();
 
 		
 	private:
@@ -37,5 +36,7 @@ class FileHandler
 		std::ifstream inputFile_;
 		std::ofstream outputFile_;
 };
+
+std::string replace(const std::string& str, const std::string& from, const std::string& to);
 
 #endif

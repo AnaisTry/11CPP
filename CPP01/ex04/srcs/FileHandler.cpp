@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/13 13:01:21 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:06:38 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 # include <sstream> // std::stringstream
 # include <ios> // std::ios_base
 
+
 FileHandler::FileHandler() : fileName_("")
 {
-	std::cout << "FileHandler constructed with default constructor";
+	std::cout << "FileHandler constructed with default constructor" << std::endl;
 }
 
 FileHandler::FileHandler(std::string fileName): fileName_(fileName)
@@ -83,14 +84,29 @@ void FileHandler::closeOutputFile()
 	outputFile_.close();
 }
 
-void FileHandler::readFile()
-{
-	std::string line;
-	if (inputFile_.is_open())
-	{
-		while(getline(inputFile_, line))
-		{
+// void FileHandler::readFile()
+// {
+// 	std::string line;
+// 	if (inputFile_.is_open())
+// 	{
+// 		while(getline(inputFile_, line))
+// 		{
 			
-		}
+// 		}
+// 	}
+// }
+
+std::string replace(const std::string& str, const std::string& from, const std::string& to)
+{
+	if(from.empty())
+		return str;
+	std::string replacedStr = str;
+	std::string::size_type pos = 0;
+	while ((pos = replacedStr.find(from, pos)) != std::string::npos)
+	{
+		replacedStr.erase(pos, from.length());
+		replacedStr.insert(pos, to);
+		pos += from.length();
 	}
+	return replacedStr;
 }
