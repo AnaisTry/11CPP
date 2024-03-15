@@ -6,13 +6,14 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 19:17:16 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/15 18:03:17 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:12:38 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILEHANDLER_HPP
 # define FILEHANDLER_HPP
 
+# include <string>
 # include <fstream> // std::ifstream, std::ofstream
 # include <sstream> // std::stringstream 
 

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   FileHandler.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/15 17:17:16 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:24:30 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "FileHandler.hpp"
 
 # include <iostream>
+# include <string>
 # include <fstream> // std::ifstream, std::ofstream
 # include <sstream> // std::stringstream
 # include <ios> // std::ios_base
@@ -97,7 +98,7 @@ void FileHandler::copyAndReplaceFile(const std::string& from, const std::string&
 }
 
 /* 
-	static const size_t npos = -1; used to state not found 
+	static const size_t npos = -1; used to state "not found" 
 	to.find(from) != std::string::npos check is used to determine 
 	if the from string is a substring of the to string.	
 */
