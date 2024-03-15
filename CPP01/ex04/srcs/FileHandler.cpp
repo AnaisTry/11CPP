@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/15 16:58:00 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:17:16 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,17 @@ void FileHandler::copyAndReplaceFile(const std::string& from, const std::string&
 		while(getline(inputFile_, line))
 		{
 			outputFile_ << replace(line, from, to) << std::endl;
-				if (!outputFile_) {
-				std::cerr << "Error writing to output file.\n";
+			if (!outputFile_) 
+			{
+				std::cerr << "Error writing to output file." << std::endl;
 				break;
 			}
 			if (inputFile_.fail() && !inputFile_.eof()) 
-				std::cerr << "Error reading from input file.\n";
+				std::cerr << "Error reading from input file." << std::endl;
 		}
 	}
 	else
-	    std::cerr << "Input file is not open.\n";
+	    std::cerr << "Input file is not open." << std::endl;
 
 	inputFile_.close();
 	outputFile_.close();
