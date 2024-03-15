@@ -65,6 +65,8 @@
 		"charconv": "cpp",
 		"clocale": "cpp",
 		"variant": "cpp",
-		"iomanip": "cpp"
+		"iomanip": "cpp",
+		"fstream": "cpp",
+		"execution": "cpp"
 	}
 }
