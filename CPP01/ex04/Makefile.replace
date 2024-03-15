@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/03 13:56:13 by angassin          #+#    #+#              #
-#    Updated: 2024/03/10 20:43:24 by angassin         ###   ########.fr        #
+#    Updated: 2024/03/15 14:50:04 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,11 @@ RED='\033[1;91m'
 
 #-------------------------------VARIABLES---------------------------------------
 
-NAME = machin
+NAME = sed
 
 CXX	= c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincleanudes
 
 SRC_DIR = srcs
 
@@ -61,12 +61,12 @@ $(SRC_DIR)/%o: $(SRC_DIR)/%.cpp
 	@$(CXX) $(CPPFLAGS)  -c $< -o $@
 
 
-clean:
+cleanean:
 	@rm -f $(OBJS)
 
-fclean: clean
+fcleanean: cleanean
 	@rm -f $(NAME)
 
-re: fclean all
+re: fcleanean all
 
-.PHONY: all clean fclean re
+.PHONY: all cleanean fcleanean re

@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:38:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/14 13:12:11 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:58:00 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,17 @@ void FileHandler::setFileName(std::string fileName)
 	std::ios_base::badbit: Indicates a fatal I/O error, such as a disk read error.
 	std::ios_base::failbit: Indicates a non-fatal I/O error, such as a format error.
 	| : bitwise OR operator : creates a bit pattern that combines both masks
-	c_str converts std::string to const char*
+	c_str() converts std::string to const char*
 */
 bool FileHandler::openInputFile()
 {
-	inputFile_.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-	try
+	inputFile_.open(fileName_.c_str());
+	if(!inputFile_.is_open())
 	{
-		inputFile_.open(fileName_.c_str());
-		return true;
-	}
-	catch (std::ios_base::failure& e)
-	{
+		std::cerr << "Failed to open file." << std::endl;
 		return false;
 	}
-	
+	return true;	
 }
 
 
@@ -84,12 +80,26 @@ void FileHandler::copyAndReplaceFile(const std::string& from, const std::string&
 		while(getline(inputFile_, line))
 		{
 			outputFile_ << replace(line, from, to) << std::endl;
+				if (!outputFile_) {
+				std::cerr << "Error writing to output file.\n";
+				break;
+			}
+			if (inputFile_.fail() && !inputFile_.eof()) 
+				std::cerr << "Error reading from input file.\n";
 		}
 	}
+	else
+	    std::cerr << "Input file is not open.\n";
+
 	inputFile_.close();
 	outputFile_.close();
 }
 
+/* 
+	static const size_t npos = -1; used to state not found 
+	to.find(from) != std::string::npos check is used to determine 
+	if the from string is a substring of the to string.	
+*/
 std::string replace(const std::string& str, const std::string& from, const std::string& to)
 {
 	if(from.empty())
@@ -100,7 +110,7 @@ std::string replace(const std::string& str, const std::string& from, const std::
 	{
 		replacedStr.erase(pos, from.length());
 		replacedStr.insert(pos, to);
-		pos += from.length();
-	}
+		pos += to.length();
+    }
 	return replacedStr;
 }

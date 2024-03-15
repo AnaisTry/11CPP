@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 08:45:13 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/14 13:14:16 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:46:04 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,8 @@ int	main(int argc, char **argv)
 
 	fh.setFileName(argv[1]);
 
-	if (!fh.openInputFile())
-	{
-		std::cout << " Input file can't be accessed or doesn't exist" << std::endl;
+	if (!fh.openInputFile())	
 		return 1;
-	}
 
 	if (!fh.createOutputFile())
 		return 2;
