@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:54:21 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/15 18:13:11 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/17 22:42:05 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ class Harl
 		void info(void);
 		void warning(void);
 		void error(void);
+
+		struct Complaint
+		{
+			std::string level;
+			void (Harl::*complaint)(void);
+		};
+
+		static Complaint complaints[4];
 };
 
 #endif
