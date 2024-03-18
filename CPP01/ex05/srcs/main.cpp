@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 22:49:23 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/18 12:41:41 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/18 12:56:24 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ int main()
 
 	std::cout << "[ ERROR ]" << std::endl;
 	harl.complain("ERROR");
+	std::cout << std::endl;
 
-	std::cout << "" << std::endl;
+	std::cout << "[ ]" << std::endl;
 	harl.complain("");
+	std::cout << std::endl;
 
 	return 0;
 }
