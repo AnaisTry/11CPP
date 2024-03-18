@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 22:49:23 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/18 12:36:39 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:14:27 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,19 @@ int main(int argc, char **argv)
 			std::cout << "[ DEBUG ]" << std::endl;
 			h.complain("DEBUG");
 			std::cout << std::endl;
+			// fall through
 
 		case 1:
 		std::cout << "[ INFO ]" << std::endl;
 			h.complain("INFO");
 			std::cout << std::endl;
+			// fall through
 			
 		case 2:
 		std::cout << "[ WARNING ]" << std::endl;
 			h.complain("WARNING");
 			std::cout << std::endl;
+			// fall through
 			
 		case 3:
 			std::cout << "[ ERROR ]" << std::endl;
