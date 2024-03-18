@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 21:23:36 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/17 22:52:59 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/18 12:45:53 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,13 @@ void Harl::info()
 
 void Harl::warning()
 {
-	std::cout << "I’ve been coming here for years and you just started "
-	"working here last month. "
-	"I cannot believe you are already raising prices!" << std::endl;
+	std::cout << "I think I deserve to have some extra bacon for free. " 
+	"I’ve been coming for years whereas you started working here since last month."<< std::endl;
 }
 
 void Harl::error()
 {
-	std::cout << "I can’t eat this. I’m allergic to pickles. "
-	"Also, I asked for no pickles." << std::endl;
+	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
 Harl::Complaint Harl::complaints[4] = {
