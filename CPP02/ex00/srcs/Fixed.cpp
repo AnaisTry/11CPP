@@ -3,31 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:13:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/19 16:43:20 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/20 10:57:24 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <iostream>
 
 Fixed::Fixed() : fixedPointValue_(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-int Fixed::getRawBits() const
+Fixed::Fixed(const Fixed &other)
 {
-	return this->fixedPointValue_;
+	std::cout << "Copy constructor called" << std::endl;
+	*this = other;
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Assignation operator called from " << this->fixedPointValue_;
-	std::cout << "to " << other.getRawBits() << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 
-	this->FixedPointValue_ = other.getRawBits();
+	if ( this != &other)
+		this->fixedPointValue_ = other.getRawBits();
 
 	return *this;
+}
+
+int Fixed::getRawBits() const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return this->fixedPointValue_;
 }
