@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:13:40 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/21 17:33:14 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/24 12:46:42 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Fixed
 
 		int getRawBits() const;
 		void setRawBits(int const raw);
-		const float toFloat();
-		const int toInt();
+		float toFloat() const;
+		int toInt() const;
 		
 	private:
 	
