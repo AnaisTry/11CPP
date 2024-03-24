@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:13:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/21 16:19:54 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:05:20 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 Fixed::Fixed() : fixedPointValue_(0)
 {
 	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int intValue) : fixedPointValue(intValue << FRACTIONAL_BITS)
+{
+	std::cout << "int constructor called" << std::endl;	
+}
+
+Fixed::Fixed(const float floatValue)
+{
+	std::cout << "float constuctor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &other)
@@ -44,6 +54,7 @@ int Fixed::getRawBits() const
 	std::cout << "getRawBits member function called" << std::endl;
 	return this->fixedPointValue_;
 }
+
 
 std::ostream &operator<<(std::ostream &out, const Fixed &other)
 {
