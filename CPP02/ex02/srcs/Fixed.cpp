@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:13:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/25 10:36:18 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:59:32 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,18 @@ int Fixed::toInt() const
 	return this->fixedPointValue_ >> FRACTIONAL_BITS_;
 }
 
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+	if (a.fixedPointValue_ > b.fixedPointValue_)
+		return a;
+	else
+		return b;
+}
+
 std::ostream& operator<<(std::ostream& out, const Fixed& obj)
 {
 	out << obj.toFloat();
 	return out;
 }
+
