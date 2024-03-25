@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:13:40 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/24 12:46:42 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/25 10:25:22 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Fixed
 		Fixed(); // default constructor
 		Fixed(const int intValue);
 		Fixed(const float floatValue);
-		Fixed(const Fixed &other); // copy constructor
-		Fixed &operator=(const Fixed &other); // copy asssignment operator overload
+		Fixed(const Fixed& other); // copy constructor
+		Fixed& operator=(const Fixed& other); // copy asssignment operator overload
 		~Fixed(); // destructor
 
 		int getRawBits() const;
@@ -37,5 +37,5 @@ class Fixed
 		
 };
 
-std::ostream &operator<<(std::ostream &out, const Fixed &other);
+std::ostream& operator<<(std::ostream& out, const Fixed& obj);
 #endif
