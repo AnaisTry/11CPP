@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:13:40 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/25 11:55:11 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:17:30 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,27 @@ class Fixed
 		void setRawBits(int const raw);
 		float toFloat() const;
 		int toInt() const;
-		// static Fixed& min(Fixed& a, Fixed& b);
-		// static const Fixed& min(const Fixed& a, const Fixed& b);
-		// static Fixed& max(Fixed& a, Fixed& b);
+		static Fixed& min(Fixed& a, Fixed& b);
+		static const Fixed& min(const Fixed& a, const Fixed& b);
+		static Fixed& max(Fixed& a, Fixed& b);
 		static const Fixed& max(const Fixed& a, const Fixed& b);
+
+		bool operator>(const Fixed& other) const;
+		bool operator<(const Fixed& other) const;
+		bool operator>=(const Fixed& other) const;
+		bool operator<=(const Fixed& other) const;
+		bool operator==(const Fixed& other) const;
+		bool operator!=(const Fixed& other) const;
+
+		Fixed operator+(const Fixed& other) const;
+		Fixed operator-(const Fixed& other) const;
+		Fixed operator*(const Fixed& other) const;
+		Fixed operator/(const Fixed& other) const;
+		
+		Fixed& operator++(); // prefix increment
+		Fixed operator++(int); // postfix increment
+		Fixed& operator--(); // prefix decrement
+		Fixed operator--(int); // postfix decrement
 		
 	private:
 	
