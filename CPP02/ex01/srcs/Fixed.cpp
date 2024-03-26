@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:13:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/25 18:13:05 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/26 09:56:05 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int Fixed::getRawBits() const
 	return this->fixedPointValue_;
 }
 
-int Fixed::setRawBits(int const raw)
+void Fixed::setRawBits(int const raw)
 {
 	fixedPointValue_ =	raw;
 }

@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:12:02 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/25 10:33:33 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/26 10:16:57 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,10 @@ std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 
+std::cout << "a in raw bits: "<< a.getRawBits() << std::endl;
+std::cout << "set a raw bits to 5" << std::endl;
+a.setRawBits(5);
+std::cout << "a in raw bits: "<< a.getRawBits() << std::endl; // = 5/2^8 = fixed-point value / 2^FRACTIONAL_BITS
+std::cout << "a is " << a << std::endl; 
 return 0;
 }
