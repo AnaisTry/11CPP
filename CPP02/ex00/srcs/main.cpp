@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:12:02 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/20 10:50:59 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/25 18:15:18 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int main( void )
 	Fixed a;
 	Fixed b( a );
 	Fixed c;
-
+	a.setRawBits(5);
+	
 	c = b;
 
 	std::cout << a.getRawBits() << std::endl;

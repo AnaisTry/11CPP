@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:13:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/20 10:57:24 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/25 18:13:41 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,10 @@ int Fixed::getRawBits() const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return this->fixedPointValue_;
+}
+
+int Fixed::setRawBits(int const raw)
+{
+	std::cout << "setRawBits member function called" << std::endl;
+	fixedPointValue_ =	raw;
 }
