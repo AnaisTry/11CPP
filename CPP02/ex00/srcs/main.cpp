@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:12:02 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/25 18:15:18 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/26 09:52:33 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main( void )
 	Fixed a;
 	Fixed b( a );
 	Fixed c;
-	a.setRawBits(5);
+	// a.setRawBits(5);
 	
 	c = b;
 
