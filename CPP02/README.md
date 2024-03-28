@@ -27,6 +27,12 @@ Floating-point numbers can represent a very wide range of values (both very larg
 
 Fixed-point numbers have a fixed precision, but a limited range. They can represent numbers within a certain range with a fixed number of decimal places. The range and precision are determined by the number of bits used for the integer and fractional parts.
 
+The range is determined by the number of bits allocated for the integer part. For example, if you have 8 bits for the integer part, you can represent integers from -128 to 127.
+
+The precision is determined by the number of bits allocated for the fractional part. For example, if you have 8 bits for the fractional part, you can represent fractions with a precision of 1/256.
+
+So, a fixed-point number with 8 bits for the integer part and 8 bits for the fractional part can represent numbers from -128 to 127 with a precision of 1/256. This means you can represent numbers like -127.996, -0.004, 0, 0.004, 0.008, ..., 126.992, 126.996, but not numbers like 0.002 or 128.
+
 3. Performance:
 
 Floating-point operations can be slower than fixed-point operations, especially on hardware without a floating-point unit (FPU). However, many modern CPUs have an FPU that can perform floating-point operations quickly.
