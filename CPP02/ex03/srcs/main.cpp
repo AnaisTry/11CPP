@@ -6,14 +6,14 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:12:02 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/28 11:59:35 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:29:33 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include <iostream>
 
-int main( void ) 
+int main() 
 {
     Point a(0, 0);
     Point b(1, 0);

@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 11:32:56 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/28 11:50:48 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:45:02 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include "Fixed.hpp"
 
 /*
+	Binary space partitioning :
+	https://www.researchgate.net/publication/238348725_A_Tutorial_on_Binary_Space_Partitioning_Trees
+	
 	In this function, a, b, and c are the vertices of the triangle,
 	and point is the point to check. 
 	The function calculates the cross products of the vectors formed by the
