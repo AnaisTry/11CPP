@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:13:40 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/25 16:17:30 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/28 13:23:08 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,4 @@ class Fixed
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& obj);
-// std::ostream& operator>()
 #endif

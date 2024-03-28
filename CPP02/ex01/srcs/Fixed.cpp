@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:13:07 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/26 09:56:05 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/28 13:21:10 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ float Fixed::toFloat() const
 	return (float)this->fixedPointValue_ / (1 << FRACTIONAL_BITS_);
 }
 
+/*
+	shifts the bits of the number to the right and fills the leftmost bits with zeros.
+	Example:
+		- 5 >> 1 = 2
+		- 5 in binary is 101
+		- 101 >> 1 = 10
+		- 10 in binary is 2
+*/
 int Fixed::toInt() const
 {
 	return this->fixedPointValue_ >> FRACTIONAL_BITS_;

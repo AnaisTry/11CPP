@@ -44,3 +44,11 @@ Fixed-point operations can be faster than floating-point operations, especially 
 Floating-point numbers are used when the range of values is large or unpredictable, and when the exact precision of each operation is not critical. They are commonly used in scientific calculations, graphics, and machine learning.
 
 Fixed-point numbers are used when the range of values is known and limited, and when a certain precision is required. They are commonly used in financial calculations, signal processing, and embedded systems.
+
+5. Fixed-point to Float :
+
+When converting a floating-point number to a fixed-point number, the floating-point number is typically multiplied by a scale factor to preserve the fractional part when the number is stored as an integer. This scale factor is usually 2^FRACTIONAL_BITS_.
+
+For example, if FRACTIONAL_BITS_ is 8, the scale factor would be 2^8 = 256. If you have a floating-point number like 1.23, you would multiply it by 256 to get 314.88, and then round to the nearest integer to get 315. This integer represents the fixed-point number.
+
+When converting back from a fixed-point number to a floating-point number, you need to divide by the scale factor to undo the scaling. This is why (1 << FRACTIONAL_BITS_), which calculates 2^FRACTIONAL_BITS_, is used as the divisor.
