@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:12:02 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/28 12:29:45 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/28 15:30:30 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,21 @@ int main()
     std::cout << "a != b: " << std::boolalpha << (a != b) << std::endl;
 
     // Test increment/decrement operators
+    a = 42;
+    std::cout << "a = " << a << std::endl;
+    
     ++a;
-    std::cout << "++b = " << b << std::endl;
+    std::cout << "++a = " << a << std::endl;
     
     --a;
-    std::cout << "--b = " << b << std::endl;
+    std::cout << "--a = " << a << std::endl;
 
     a++;
-    std::cout << "b++ = " << b << std::endl;
+    std::cout << "a++ = " << a << std::endl;
+
 
     a--;
-    std::cout << "b-- = " << b << std::endl;
+    std::cout << "a-- = " << a << std::endl;
 
     // Test setRawBits
     std::cout << "a in raw bits: "<< a.getRawBits() << std::endl;

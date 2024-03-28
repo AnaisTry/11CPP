@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 11:32:56 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/28 12:45:02 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/28 15:23:23 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 /*
 	Binary space partitioning :
 	https://www.researchgate.net/publication/238348725_A_Tutorial_on_Binary_Space_Partitioning_Trees
+	
+	http://totologic.blogspot.com/2014/01/accurate-point-in-triangle-test.html
 	
 	In this function, a, b, and c are the vertices of the triangle,
 	and point is the point to check. 
