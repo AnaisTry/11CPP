@@ -6,14 +6,14 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:12:02 by angassin          #+#    #+#             */
-/*   Updated: 2024/03/26 09:52:33 by angassin         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:30:10 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 
-int main( void ) 
+int main() 
 {
 	Fixed a;
 	Fixed b( a );
