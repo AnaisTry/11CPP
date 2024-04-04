@@ -6,11 +6,12 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:31:53 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/04 18:06:10 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:25:33 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include <iostream>
 
 ClapTrap::ClapTrap():name_(""), hitPoints_(10), energyPoints_(10),
 	attackDamage_(0)
@@ -31,15 +32,24 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 	
 }
 
-ClapTrap::ClapTrap& operator=(const ClapTrap& other)
-{
-	if (this != &other)
-		this
-}
-
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap& operator=(const ClapTrap& other)
+{
+	std::cout << "Assignation operator called from " << this->name_;
+	std::cout << " to " << other.getName() << std::endl; 
+	if (this != &other)
+		this->name_ = other.getName();
+
+	return *this;
+}
+
+std::string ClapTrap::getName() const
+{
+	return this->name_;
 }
 
 void ClapTrap::attack(const std::string &target)
