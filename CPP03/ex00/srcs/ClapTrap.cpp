@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:31:53 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/04 18:25:33 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/04 19:15:46 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap(std::string name): name_(name), hitPoints_(10), energyPoints_
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-	std::cout << "copied " << other.name_ << " in " << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 	
 }
@@ -37,9 +37,9 @@ ClapTrap::~ClapTrap()
 	std::cout << "Destructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap& operator=(const ClapTrap& other)
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	std::cout << "Assignation operator called from " << this->name_;
+	std::cout << "Assignment operator called from " << this->name_;
 	std::cout << " to " << other.getName() << std::endl; 
 	if (this != &other)
 		this->name_ = other.getName();
