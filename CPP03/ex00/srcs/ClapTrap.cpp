@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:31:53 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/04 16:42:56 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:06:10 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,24 @@ ClapTrap::ClapTrap(std::string name): name_(name), hitPoints_(10), energyPoints_
 	attackDamage_(0)
 {
 	std::cout << "ClapTrap " << this->name_ << " created" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other)
+{
+	std::cout << "copied " << other.name_ << " in " << std::endl;
+	*this = other;
+	
+}
+
+ClapTrap::ClapTrap& operator=(const ClapTrap& other)
+{
+	if (this != &other)
+		this
+}
+
+ClapTrap::~ClapTrap()
+{
+	std::cout << "Destructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
