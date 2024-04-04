@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:31:53 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/04 16:17:16 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:42:56 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ ClapTrap::ClapTrap(std::string name): name_(name), hitPoints_(10), energyPoints_
 	std::cout << "ClapTrap " << this->name_ << " created" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name)
 void ClapTrap::attack(const std::string &target)
 {
 	std::cout << "ClapTrap " << this->name_ << " attacks " << target
