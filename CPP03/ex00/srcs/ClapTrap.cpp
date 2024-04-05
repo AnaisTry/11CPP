@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:31:53 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/04 19:15:46 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:35:29 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,12 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	std::cout << "Assignment operator called from " << this->name_;
 	std::cout << " to " << other.getName() << std::endl; 
 	if (this != &other)
+	{
 		this->name_ = other.getName();
+		this->hitPoints_ = other.getHitPoints();
+		this->energyPoints_ = other.getEnergyPoints();
+		this->attackDamage_ = other.getDamage();
+	}
 
 	return *this;
 }
@@ -50,6 +55,21 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 std::string ClapTrap::getName() const
 {
 	return this->name_;
+}
+
+int ClapTrap::getHitPoints() const
+{
+	return this->hitPoints_;
+}
+
+int ClapTrap::getEnergyPoints() const
+{
+	return this->energyPoints_;
+}
+
+int ClapTrap::getDamage() const
+{
+	return this->attackDamage_;
 }
 
 void ClapTrap::attack(const std::string &target)
