@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:07:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/05 19:34:01 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/05 21:02:21 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main()
 
 		
 	
-	std::cout << "Robot's attributes before battle:" << std::endl;
+	std::cout << "ClapTrap's attributes before battle:" << std::endl;
 	std::cout <<  robot.getName() << " has " << robot.getHitPoints() << " hitPoints, " <<
 	robot.getEnergyPoints() << " energyPoints, and " <<
 	robot.getDamage() << " attackDamage" << std::endl << std::endl;
@@ -34,8 +34,11 @@ int	main()
 	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;
 	
 	robot.beRepaired(5);
+	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;
+	robot.beRepaired(0);
 	robot.beRepaired(1000); // This should not cause hitPoints_ to go above its maximum value
 	robot.takeDamage(1000); // This should not cause hitPoints_ to go below 0
+	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;
 	
 	while (robot.getEnergyPoints() > 0)
 	{
@@ -50,12 +53,11 @@ int	main()
 	// test copy constructor
 	ClapTrap robotCopy(robot);
 	std::cout << "robotCopy's name: " << robotCopy.getName() << " has : " << robotCopy.getEnergyPoints() << " energy points, " 
-		<< robotCopy.getHitPoints() << " hit points and " << robotCopy.getDamage() << " attackDamage : "  << std::endl << std::endl;
+		<< robotCopy.getHitPoints() << " hit points and " << robotCopy.getDamage() << " attackDamage"  << std::endl << std::endl;
 
 	// test assignment operator
 	anonymous = robot;
 	std::cout << "Anonymous' name: " << anonymous.getName() << std::endl << std::endl;
-
 
 	return 0;
 }
