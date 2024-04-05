@@ -8,7 +8,7 @@
 				"name": "(lldb) Launch",
 				"type": "cppdbg",
 				"request": "launch",
-				"program": "${workspaceFolder}/cpp01/ex04/sed",
+				"program": "${workspaceFolder}/cpp03/ex00/clap-trap",
 				"args": ["Makefile", "clean", "cleanclean"],
 				"stopAtEntry": false,
 				"cwd": "${workspaceFolder}",
