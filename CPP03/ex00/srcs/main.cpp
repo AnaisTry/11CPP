@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:07:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/05 18:15:17 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:34:01 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,17 @@ int	main()
 	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;
 	
 	robot.beRepaired(5);
-
+	robot.beRepaired(1000); // This should not cause hitPoints_ to go above its maximum value
+	robot.takeDamage(1000); // This should not cause hitPoints_ to go below 0
+	
+	while (robot.getEnergyPoints() > 0)
+	{
+		robot.attack("Target");
+	}
+	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;	
+	std::cout << robot.getName() << "'s energy points: " << robot.getEnergyPoints() << std::endl;
+	robot.attack("Target");
+		
 	std::cout << std::endl;
 
 	// test copy constructor
@@ -45,6 +55,7 @@ int	main()
 	// test assignment operator
 	anonymous = robot;
 	std::cout << "Anonymous' name: " << anonymous.getName() << std::endl << std::endl;
+
 
 	return 0;
 }
