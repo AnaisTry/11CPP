@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:31:53 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/05 12:35:29 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:23:21 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,33 @@ int ClapTrap::getDamage() const
 
 void ClapTrap::attack(const std::string &target)
 {
-	std::cout << "ClapTrap " << this->name_ << " attacks " << target
-	<< ", causing " << this->attackDamage_ << " points of damage!" << std::endl;
+	if (this->energyPoints_ > 0 && this->hitPoints_ > 0)
+	{
+		std::cout << "ClapTrap " << this->name_ << " attacks " << target
+		<< ", causing " << this->attackDamage_ << " points of damage!" << std::endl;
+		this->energyPoints_ -= 1;
+	}
+
 }
 
+void ClapTrap::takeDamage(unsigned int amount)
+{
+	if (this->energyPoints_ > 0 && this->hitPoints_ > 0)
+	{
+		this->hitPoints_ -= amount;
+		std::cout << "ClapTrap " << this->name_ << " takes " << amount
+		<< " points of damage!" << std::endl;
+	}
+	
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
+	if (this->energyPoints_ > 0 && this->hitPoints_ > 0)
+	{
+		this->hitPoints_ += amount;
+		std::cout << "ClapTrap " << this->name_ << " is repaired for " << amount
+		<< " points!" << std::endl;
+		this->energyPoints_ -= 1;
+	}
+}
