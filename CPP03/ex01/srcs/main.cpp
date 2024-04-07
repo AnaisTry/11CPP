@@ -6,58 +6,64 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:07:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/05 21:02:21 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:11:28 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+
+#include <iostream>
 
 int	main()
 {
-	ClapTrap anonymous;
-	ClapTrap robot("robot");
 	
+	ScavTrap scavonymous;
 
-	std::cout << std::endl;	
+	std::cout << std::endl;
 
-		
+	ScavTrap scav("scav");
+
+	std::cout << std::endl;
+
 	
-	std::cout << "ClapTrap's attributes before battle:" << std::endl;
-	std::cout <<  robot.getName() << " has " << robot.getHitPoints() << " hitPoints, " <<
-	robot.getEnergyPoints() << " energyPoints, and " <<
-	robot.getDamage() << " attackDamage" << std::endl << std::endl;
+	std::cout << "ScavTrap's attributes before battle:" << std::endl;
+	std::cout <<  scav.getName() << " has " << scav.getHitPoints() << " hitPoints, " <<
+	scav.getEnergyPoints() << " energyPoints, and " <<
+	scav.getDamage() << " attackDamage" << std::endl << std::endl;
 
 	// test attack, takeDamage and beRepaired
-	robot.attack("Target");
-	std::cout << robot.getName() << "'s energy points: " << robot.getEnergyPoints() << std::endl;
-	robot.takeDamage(5);
-	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;
+	scav.attack("Target");
+	std::cout << scav.getName() << "'s energy points: " << scav.getEnergyPoints() << std::endl;
+	scav.takeDamage(20);
+	std::cout << scav.getName() <<"'s hit points: " << scav.getHitPoints() << std::endl << std::endl;
 	
-	robot.beRepaired(5);
-	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;
-	robot.beRepaired(0);
-	robot.beRepaired(1000); // This should not cause hitPoints_ to go above its maximum value
-	robot.takeDamage(1000); // This should not cause hitPoints_ to go below 0
-	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;
+	scav.beRepaired(5);
+	std::cout << scav.getName() <<"'s hit points: " << scav.getHitPoints() << std::endl << std::endl;
+	scav.beRepaired(0);
+	scav.beRepaired(10); // This should not cause hitPoints_ to go above its maximum value
+	scav.takeDamage(500); // This should not cause hitPoints_ to go below 0
+	std::cout << scav.getName() <<"'s hit points: " << scav.getHitPoints() << std::endl << std::endl;
 	
-	while (robot.getEnergyPoints() > 0)
+	while (scav.getEnergyPoints() > 0 && scav.getHitPoints() > 0)
 	{
-		robot.attack("Target");
+		scav.attack("Target");
 	}
-	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;	
-	std::cout << robot.getName() << "'s energy points: " << robot.getEnergyPoints() << std::endl;
-	robot.attack("Target");
+	std::cout << scav.getName() <<"'s hit points: " << scav.getHitPoints() << std::endl << std::endl;	
+	std::cout << scav.getName() << "'s energy points: " << scav.getEnergyPoints() << std::endl;
+	scav.attack("Target");
 		
 	std::cout << std::endl;
 
 	// test copy constructor
-	ClapTrap robotCopy(robot);
-	std::cout << "robotCopy's name: " << robotCopy.getName() << " has : " << robotCopy.getEnergyPoints() << " energy points, " 
-		<< robotCopy.getHitPoints() << " hit points and " << robotCopy.getDamage() << " attackDamage"  << std::endl << std::endl;
+	ClapTrap scavCopy(scav);
+	std::cout << "scavCopy's name: " << scavCopy.getName() << " has : " << scavCopy.getEnergyPoints() << " energy points, " 
+		<< scavCopy.getHitPoints() << " hit points and " << scavCopy.getDamage() << " attackDamage"  << std::endl << std::endl;
 
 	// test assignment operator
-	anonymous = robot;
-	std::cout << "Anonymous' name: " << anonymous.getName() << std::endl << std::endl;
+	scavonymous = scav;
+	std::cout << "Scavonymous' name: " << scavonymous.getName() << " has : " << scavonymous.getEnergyPoints() << " energy points, " 
+		<< scavonymous.getHitPoints() << " hit points and " << scavonymous.getDamage() << " attackDamage"  << std::endl << std::endl;
 
 	return 0;
 }

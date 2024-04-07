@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/03 13:56:13 by angassin          #+#    #+#              #
-#    Updated: 2024/04/03 14:18:33 by angassin         ###   ########.fr        #
+#    Updated: 2024/04/06 19:41:03 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RED='\033[1;91m'
 
 #-------------------------------VARIABLES---------------------------------------
 
-NAME = clap-trap
+NAME = scav-trap
 
 CXX	= c++
 
@@ -29,7 +29,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
 
 SRC_DIR = srcs
 
-SRCS = srcs/ClapTrap.cpp srcs/main.cpp
+SRCS = srcs/main.cpp srcs/ClapTrap.cpp srcs/ScavTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
