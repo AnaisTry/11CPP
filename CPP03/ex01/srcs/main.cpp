@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:07:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/07 18:11:28 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:44:47 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ int	main()
 	scavonymous = scav;
 	std::cout << "Scavonymous' name: " << scavonymous.getName() << " has : " << scavonymous.getEnergyPoints() << " energy points, " 
 		<< scavonymous.getHitPoints() << " hit points and " << scavonymous.getDamage() << " attackDamage"  << std::endl << std::endl;
+
+	// test guardgate
+	scavonymous.guardGate();
+
+	std::cout << std::endl;
 
 	return 0;
 }
