@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:07:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/05 21:02:21 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/08 12:00:21 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main()
 	robot.beRepaired(5);
 	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;
 	robot.beRepaired(0);
-	robot.beRepaired(1000); // This should not cause hitPoints_ to go above its maximum value
+	robot.beRepaired(1000); 
 	robot.takeDamage(1000); // This should not cause hitPoints_ to go below 0
 	std::cout << robot.getName() <<"'s hit points: " << robot.getHitPoints() << std::endl << std::endl;
 	

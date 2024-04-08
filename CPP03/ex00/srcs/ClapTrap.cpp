@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:31:53 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/05 19:29:42 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/08 11:58:55 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap():name_(""), hitPoints_(10), energyPoints_(10),
+ClapTrap::ClapTrap():name_("Default"), hitPoints_(10), energyPoints_(10),
 	attackDamage_(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name): name_(name), hitPoints_(10), energyPoints_(10),
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 	
-}
+}ß
 
 ClapTrap::~ClapTrap()
 {

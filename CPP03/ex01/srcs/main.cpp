@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:07:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/07 19:05:40 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/08 12:02:20 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main()
 	scav.beRepaired(5);
 	std::cout << scav.getName() <<"'s hit points: " << scav.getHitPoints() << std::endl << std::endl;
 	scav.beRepaired(0);
-	scav.beRepaired(10); // This should not cause hitPoints_ to go above its maximum value
+	scav.beRepaired(10);
 	scav.takeDamage(500); // This should not cause hitPoints_ to go below 0
 	std::cout << scav.getName() <<"'s hit points: " << scav.getHitPoints() << std::endl << std::endl;
 	
