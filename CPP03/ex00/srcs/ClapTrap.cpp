@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:31:53 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/08 11:58:55 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/08 12:09:03 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 	
-}ß
+}
 
 ClapTrap::~ClapTrap()
 {
