@@ -12,6 +12,13 @@ https://www.ibm.com/docs/en/i/7.5?topic=expressions-scope-resolution-operator-c-
 https://www.geeksforgeeks.org/cin-in-c/
 https://www.geeksforgeeks.org/manipulators-in-c-with-examples/
 
+
+## Reference
+
+When an object is passed by reference, the function receives a reference to the original object, not a copy of it.
+It's then possible to use the address-of operator (&) to get the address of the original object and assign this address to a pointer.
+
+
 ## Classes
 
 declaration : .h or .hpp
@@ -35,7 +42,19 @@ member functions
 
  = virtual member function
 
-### Best practices for organizing and structuring classes in C++:
+## Shallow and deep copy
+
+https://www.geeksforgeeks.org/shallow-copy-and-deep-copy-in-c/
+https://www.linkedin.com/pulse/understanding-deep-copy-shallow-c-object-oriented-yamil-garcia-qaoze
+
+In shallow copy, an object is created by simply copying the data of all variables of the original object. This works well if none of the variables of the object are defined in the heap section of memory.
+If some variables are dynamically allocated memory from heap section, then the copied object variable will also reference the same memory location.
+This will create ambiguity and run-time errors, dangling pointer. Since both objects will reference to the same memory location, then change made by one will reflect those change in another object as well.
+Since we wanted to create a replica of the object, this purpose will not be filled by Shallow copy. 
+
+
+
+## Best practices for organizing and structuring classes in C++:
 
 1. Encapsulation: Keep data members private, and provide public getter and setter methods if necessary. This hides the internal representation of the class and makes it easier to change the implementation without affecting other parts of the code.
 
@@ -55,9 +74,6 @@ member functions
 
 9. Use of Include Guards: To prevent header files from being included multiple times.
 
-## Reference
-
-When an object is passed by reference, the function receives a reference to the original object, not a copy of it. It's then possible to use the address-of operator (&) to get the address of the original object and assign this address to a pointer.
 
 ## Input validation
 
