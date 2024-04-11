@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:54:20 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/10 12:31:23 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/11 19:11:04 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,23 @@
 
 int main()
 {
-	// const Animal* dog = new Dog();
-	// const Animal* cat = new Cat();
+	Dog dog;
+	Dog dog2;
+	std::cout << std::endl;
+	
+	dog.setIdea(0, "Idea 0");
+	dog2 = dog;
+
+	dog.setIdea(1, "another idea");
+
+	std::cout << dog.getIdea(0) << std::endl;
+	std::cout << dog2.getIdea(0) << std::endl;
+	
+	
+
+	std::cout << std::endl;
+
+	
 	const int size = 4;
 	Animal* animals[size];
 

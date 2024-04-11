@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 18:09:58 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/09 18:10:36 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:09:32 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,14 @@ Brain& Brain::operator=(const Brain& other)
 			this->ideas_[i] = other.ideas_[i];
 	}
 	return *this;
+}
+
+void Brain::setIdea(int index, std::string idea)
+{
+	ideas_[index] = idea;
+}
+
+std::string Brain::getIdea(int index) const
+{
+	return ideas_[index];
 }

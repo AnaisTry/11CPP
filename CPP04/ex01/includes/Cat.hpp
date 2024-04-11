@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 23:38:20 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/09 18:15:31 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:05:42 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class Cat : public Animal
 		Cat& operator=(Cat const& other);
 
 		void makeSound() const;
+		std::string getIdea(int index) const;
+		void setIdea(int index, std::string idea);
 
 	private:
 		Brain* brain_;
