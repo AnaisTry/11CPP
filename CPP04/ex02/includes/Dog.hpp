@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 17:35:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/12 18:22:40 by angassin         ###   ########.fr       */
+/*   Created: 2024/04/08 22:46:59 by angassin          #+#    #+#             */
+/*   Updated: 2024/04/12 17:54:31 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include <iostream>
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class Animal 
+class Dog : public AAnimal
 {
 	public:
-		Animal();
-		virtual ~Animal();
-		Animal(const Animal& other);
-		Animal& operator=(const Animal& other);
+		Dog();
+		virtual ~Dog();
+		Dog(const Dog& other);
+		Dog& operator=(Dog const& other);
 
-		std::string getType() const;
-		virtual void makeSound() const; // To allow runtime polymorphism
+		void makeSound() const;
+		std::string getIdea(int index) const;
+		void setIdea(int index, std::string idea);
 
-	protected:
-		std::string type_;
+	private:
+		Brain* brain_;
 };
 
 #endif

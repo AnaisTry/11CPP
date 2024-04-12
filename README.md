@@ -50,9 +50,11 @@ https://www.linkedin.com/pulse/understanding-deep-copy-shallow-c-object-oriented
 In shallow copy, an object is created by simply copying the data of all variables of the original object. This works well if none of the variables of the object are defined in the heap section of memory.
 If some variables are dynamically allocated memory from heap section, then the copied object variable will also reference the same memory location.
 This will create ambiguity and run-time errors, dangling pointer. Since both objects will reference to the same memory location, then change made by one will reflect those change in another object as well.
-Since we wanted to create a replica of the object, this purpose will not be filled by Shallow copy. 
+Since we wanted to create a replica of the object, this purpose will not be filled by Shallow copy.
 
+## Interfaces emulation :
 
+https://accu.org/journals/overload/12/62/radford_233/
 
 ## Best practices for organizing and structuring classes in C++:
 

@@ -6,18 +6,21 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:54:20 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/12 18:07:22 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/12 18:14:17 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
+#include "WrongAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
 
 #include <iostream>
 
 int main()
 {
+
 	/* Tests for the deep copy */
 	Dog dog;
 	Dog dog2;
@@ -54,32 +57,31 @@ int main()
 		and cats as Animals. The appropriate destructors must be called in the expected order.
 	*/
 	const int size = 4;
-	Animal* animals[size];
+	AAnimal* AAnimals[size];
 
 	std::cout << std::endl;
 	
 	// Creates an array of 4 animals
 	for(int i = 0; i < size/2; i++)
-		animals[i] = new Dog();
+		AAnimals[i] = new Dog();
 
 	for(int i = size/2; i < size; i++)
-		animals[i] = new Cat();
+		AAnimals[i] = new Cat();
 
 	std::cout << std::endl;
 
 	// Uses the animals
 	for (int i = 0; i < size; i++)
 	{
-		std::cout << animals[i]->getType() << " says: ";
-		animals[i]->makeSound();
-		std::cout << std::endl;
+		std::cout << AAnimals[i]->getType() << " says: ";
+		AAnimals[i]->makeSound();
 	}
 
-	std::cout << std::endl << std::endl;
+	std::cout << std::endl;
 	
 	// Deletes the animals
 	for (int i = 0; i < size; i++)
-		delete animals[i];
+		delete AAnimals[i];
 
 
 	return 0;

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 17:35:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/12 18:22:40 by angassin         ###   ########.fr       */
+/*   Created: 2024/04/09 16:26:15 by angassin          #+#    #+#             */
+/*   Updated: 2024/04/09 16:29:08 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 # include <iostream>
 
-class Animal 
+class WrongAnimal
 {
 	public:
-		Animal();
-		virtual ~Animal();
-		Animal(const Animal& other);
-		Animal& operator=(const Animal& other);
+		WrongAnimal();
+		virtual ~WrongAnimal();
+		WrongAnimal(const WrongAnimal& other);
+		WrongAnimal& operator=(const WrongAnimal& other);
 
 		std::string getType() const;
-		virtual void makeSound() const; // To allow runtime polymorphism
+		void makeSound() const;
 
 	protected:
 		std::string type_;
