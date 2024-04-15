@@ -6,23 +6,25 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:17:46 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/15 12:20:20 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/15 14:36:51 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
 #include "Character.hpp"
 
 // Constructors
 Character::Character() : name_("default")
 {
 	for (int i = 0; i < 4; i++)
-		inventory_[i] = nullptr;
+		inventory_[i] = NULL;
 }
 
 Character::Character(std::string name) : name_(name)
 {
 	for (int i = 0; i < 4; i++)
-		inventory_[i] = nullptr;
+		inventory_[i] = NULL;
 }
 
 // Destructor
@@ -43,7 +45,7 @@ Character::Character(const Character& other) : name_(other.name_)
 		if (other.inventory_[i])
 			inventory_[i] = other.inventory_[i]->clone();
 		else
-			inventory_[i] = nullptr;
+			inventory_[i] = NULL;
 	}
 }
 
@@ -60,7 +62,7 @@ Character& Character::operator=(Character const& other)
 			if (other.inventory_[i])
 				inventory_[i] = other.inventory_[i]->clone();
 			else
-				inventory_[i] = nullptr;
+				inventory_[i] = NULL;
 		}
 	}
 	return *this;
@@ -88,7 +90,7 @@ void Character::equip(AMateria* m)
 void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4)
-		inventory_[idx] = nullptr;
+		inventory_[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)

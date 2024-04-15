@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 10:40:29 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/15 14:34:05 by angassin         ###   ########.fr       */
+/*   Created: 2024/04/15 12:30:38 by angassin          #+#    #+#             */
+/*   Updated: 2024/04/15 12:31:23 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
+# include "IMateriaSource.hpp"
 
-# include <iostream>
-
-class ICharacter;
-
-class AMateria
+class MateriaSource : public IMateriaSource
 {
 	public:
-		AMateria();
-		AMateria(const std::string& type);
-		virtual ~AMateria();
-		AMateria(const AMateria& other);
-		AMateria& operator=(AMateria const& other);
+		MateriaSource();
+		virtual ~MateriaSource();
+		MateriaSource(const MateriaSource& other);
+		MateriaSource& operator=(MateriaSource const& other);
 
-		const std::string& getType() const;
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		virtual void learnMateria(AMateria* materia);
+		virtual AMateria* createMateria(const std::string& type);
 
-	protected:
-		std::string type_;
+	private:
+		AMateria* inventory_[4];
 };
 
 #endif

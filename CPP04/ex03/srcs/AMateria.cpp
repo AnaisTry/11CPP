@@ -6,11 +6,12 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:08:02 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/15 11:22:27 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/15 14:44:47 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
 // Default constructor
@@ -52,4 +53,9 @@ AMateria& AMateria::operator=(const AMateria& other)
 const std::string& AMateria::getType() const
 {
 	return this->type_;
+}
+
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "AMateria " << type_ << " used on " << target.getName() << std::endl;
 }

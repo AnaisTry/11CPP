@@ -6,10 +6,11 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:50:20 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/15 11:56:15 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/15 14:00:31 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AMateria.hpp"
 #include "Ice.hpp"
 
 // Default constructor

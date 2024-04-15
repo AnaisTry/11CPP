@@ -6,10 +6,11 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:56:49 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/15 12:00:42 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/15 15:02:29 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AMateria.hpp"
 #include "Cure.hpp"
 #include <iostream>
 
@@ -23,7 +24,6 @@ Cure::Cure() : AMateria("cure")
 Cure::~Cure()
 {
 	std::cout << "Cure destroyed" << std::endl;
-	//Delete?
 }
 
 // Copy constructor
