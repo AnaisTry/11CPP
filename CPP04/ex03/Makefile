@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: angassin <angassin@student.42.fr>          +#+  +:+       +#+         #
+#    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/03 13:56:13 by angassin          #+#    #+#              #
-#    Updated: 2024/04/15 10:32:35 by angassin         ###   ########.fr        #
+#    Updated: 2024/04/15 11:07:42 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
 
 SRC_DIR = srcs
 
-SRCS = srcs/main.cpp srcs/AAnimal.cpp srcs/Dog.cpp srcs/Cat.cpp srcs/WrongAnimal.cpp \
-	   srcs/WrongCat.cpp srcs/Brain.cpp
+SRCS = srcs/main.cpp srcs/AMateria.cpp srcs/Character.cpp srcs/Cure.cpp srcs/Ice.cpp srcs/MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

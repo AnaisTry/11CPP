@@ -15,13 +15,13 @@
 // Default constructor
 AAnimal::AAnimal()
 {
-	std::cout << "AAnimal created" << std::endl;
+	std::cout << "Animal created" << std::endl;
 }
 
 // Destructor
 AAnimal::~AAnimal()
 {
-	std::cout << "AAnimal destroyed" << std::endl;
+	std::cout << "Animal destroyed" << std::endl;
 }
 
 // Copy constructor
