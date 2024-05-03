@@ -8,7 +8,7 @@
 				"name": "(lldb) Launch",
 				"type": "cppdbg",
 				"request": "launch",
-				"program": "${workspaceFolder}/cpp03/ex00/clap-trap",
+				"program": "${workspaceFolder}/cpp04/ex03/materia",
 				"args": ["Makefile", "clean", "cleanclean"],
 				"stopAtEntry": false,
 				"cwd": "${workspaceFolder}",

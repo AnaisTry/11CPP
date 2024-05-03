@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:50:20 by angassin          #+#    #+#             */
-/*   Updated: 2024/04/15 14:00:31 by angassin         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:19:52 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ Ice::Ice() : AMateria("ice")
 Ice::~Ice()
 {
 	std::cout << "Ice destroyed" << std::endl;
-	//Delete?
 }
 
 // Copy constructor

@@ -56,6 +56,26 @@ Since we wanted to create a replica of the object, this purpose will not be fill
 
 https://accu.org/journals/overload/12/62/radford_233/
 
+## Nested classes :
+
+Usefull for helper/utilities class : queries validation, handling errors, formatting etc
+
+### Advantages:
+
+1. Encapsulation: Nested classes can encapsulate functionality that is only relevant to the containing class, improving code organization and readability.
+
+2. Access Control: Nested classes have access to the private and protected members of the containing class, which can be useful for creating helper classes that work closely with the containing class.
+
+3. Logical Grouping: If a class is only used in the context of another class, it can make sense to define it as a nested class. This can make the code more organized and easier to understand.
+
+### Disadvantages:
+
+1. Increased Complexity: Nested classes can make the code more complex and harder to understand, especially for those not familiar with this concept.
+
+2. Limited Portability: If a nested class could be useful in other contexts, nesting it limits its reusability. It might be better to define it as a standalone class.
+
+3. Name Hiding: A nested class can hide a class of the same name in an outer scope. This can lead to confusion and bugs.
+
 ## Best practices for organizing and structuring classes in C++:
 
 1. Encapsulation: Keep data members private, and provide public getter and setter methods if necessary. This hides the internal representation of the class and makes it easier to change the implementation without affecting other parts of the code.
