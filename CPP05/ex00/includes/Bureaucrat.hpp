@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:45:50 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/04 11:18:59 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/04 12:22:31 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class Bureaucrat
 		// Constructors
 		Bureaucrat();
 		Bureaucrat(const std::string &name, int grade);
+		// Copy constructor
+		Bureaucrat(const Bureaucrat &other);
 		// Destructor
 		virtual ~Bureaucrat();
 		
@@ -51,10 +53,7 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 		
-	private:
-		// Copy constructor
-		Bureaucrat(const Bureaucrat &other);
-		
+	private:	
 		const std::string _name;
 		int _grade;
 

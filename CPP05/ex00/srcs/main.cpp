@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:39:04 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/04 11:44:31 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/04 12:25:20 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,17 @@ int main()
     }
 	std::cout << std::endl;
 
-	// // Test copy constructor
-	// try 
-	// {
-	// 	Bureaucrat bcopy = b0;  
-	// 	std::cout << bcopy << std::endl;
-	// } 
-	// catch(std::exception& e) 
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-	// std::cout << std::endl;
+	std::cout << GREEN << "Test copy constructor" << RESET << std::endl;
+	try 
+	{
+		Bureaucrat bcopy = b0;  
+		std::cout << bcopy << std::endl;
+	} 
+	catch(std::exception& e) 
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
 
 
 	std::cout << GREEN << "Test increment and decrement" << RESET << std::endl;
