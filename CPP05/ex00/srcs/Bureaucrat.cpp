@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:22:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/04 12:24:04 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/04 12:34:44 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 }
 
 // Default constructor
-Bureaucrat::Bureaucrat() : _name("default"), _grade(150) 
+Bureaucrat::Bureaucrat() : _name("anonymous"), _grade(150) 
 {
 	std::cout << "Default bureaucrat created" << std::endl;
 }
@@ -46,8 +46,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade
 // Copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
-	*this = other;
+	std::cout << "Bureaucrat " << _name << " copy constructor called" << std::endl;
 }
 
 // Destructor
