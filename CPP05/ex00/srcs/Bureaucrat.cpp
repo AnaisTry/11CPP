@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:22:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/03 17:15:30 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:11:39 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,19 @@ Bureaucrat::~Bureaucrat()
 }
 
 // Copy constructor
-Bureaucrat::Bureaucrat(const Bureaucrat& other) 
+Bureaucrat::Bureaucrat(const Bureaucrat &other) 
 {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = other;
 }
 
 // Assignment operator
-Bureaucrat& Bureaucrat::operator=(Bureaucrat const& other) 
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other) 
 {
 	std::cout << "Bureaucrat assignment operator called" << std::endl;
-	if (this != &other) {
-		// Copy data members from other
-	}
+	if (this != &other) 
+		_grade = other._grade;
+		
 	return *this;
 }
 
@@ -77,8 +77,23 @@ int Bureaucrat::getGrade() const
 	return _grade;
 }
 
+// Increment and decrement grade
+void Bureaucrat::incrementGrade() 
+{
+	if (_grade == 1)
+		throw GradeTooHighException();
+	_grade--;
+}
+
+void Bureaucrat::decrementGrade() 
+{
+	if (_grade == 150)
+		throw GradeTooLowException();
+	_grade++;
+}
+
 // Overload << operator
-std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat) 
+std::ostream& operator<<(std::ostream &out, const Bureaucrat &bureaucrat) 
 {
 	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 	return out;

@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:45:50 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/03 17:13:45 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:18:59 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,9 @@ class Bureaucrat
 		Bureaucrat(const std::string &name, int grade);
 		// Destructor
 		virtual ~Bureaucrat();
-		// Copy constructor
-		Bureaucrat(const Bureaucrat& other);
+		
 		// Assignment operator
-		Bureaucrat& operator=(Bureaucrat const& other);
+		Bureaucrat& operator=(const Bureaucrat &other);
 
 	
 		
@@ -48,15 +47,19 @@ class Bureaucrat
 		const std::string getName() const;
 		int getGrade() const;
 
-		//increment and decrement grade
-
+		// Increment and decrement grade
+		void incrementGrade();
+		void decrementGrade();
 		
 	private:
+		// Copy constructor
+		Bureaucrat(const Bureaucrat &other);
+		
 		const std::string _name;
 		int _grade;
 
 };
 // Overload << operator
-std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
+std::ostream& operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
 
 #endif
