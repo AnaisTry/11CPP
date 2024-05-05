@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 12:00:42 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/05 15:23:55 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/06 00:07:26 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ AForm::AForm(const AForm &other) : _name(other._name), _signed(other._signed),
 	_signGrade(other._signGrade), _execGrade(other._execGrade) 
 {
 	std::cout << "Form " << _name << " copy constructor called" << std::endl;
-	*this = other;
+	// *this = other;
 }
 
 // Assignment operator
