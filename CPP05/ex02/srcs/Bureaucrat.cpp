@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:22:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/05 18:14:46 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:48:02 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,19 @@ void Bureaucrat::signForm(AForm &form)
 	{
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const &form) 
+{
+	if (form.getExecGrade() < _grade)
+	{
+		std::cout << _name << " couldn't execute " << form.getName() << " because his grade is too low" << std::endl;
+	}
+	else
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
 	}
 }
 

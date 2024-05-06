@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 12:00:42 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/06 00:07:26 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:52:04 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,23 @@ bool AForm::isSigned() const
 	return _signed;
 }
 
-// Sign form
+// Member functions
 void AForm::beSigned(const Bureaucrat &bureaucrat) 
 {
 	if (bureaucrat.getGrade() > _signGrade)
 		throw GradeTooLowException();
 	
 	_signed = true;
+}
+
+void AForm::execute(const Bureaucrat &executor) const
+{
+
+	if (!isSigned())
+		throw std::runtime_error("Form not signed");
+	if (executor.getGrade() > _execGrade)
+		throw GradeTooLowException();
+	executeAction();
 }
 
 // Overload << operator

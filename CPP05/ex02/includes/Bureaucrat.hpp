@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:45:50 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/05 18:26:22 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:47:50 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ class Bureaucrat
 		const std::string getName() const;
 		int getGrade() const;
 
-		// Increment and decrement grade
+		// Member functions
 		void incrementGrade();
 		void decrementGrade();
-		
 		void signForm(AForm &form);
+		void executeForm(AForm const &form);
 		
 	private:	
 		const std::string _name;

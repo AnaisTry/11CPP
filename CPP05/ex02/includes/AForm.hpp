@@ -53,7 +53,8 @@ class AForm
 
 		// Member functions
 		void beSigned(const Bureaucrat &bureaucrat);
-		// virtual void execute(const Bureaucrat &executor) const = 0;
+		void execute(const Bureaucrat &executor) const;
+		virtual void executeAction() const = 0;
 		
 	private:
 		const std::string _name;
