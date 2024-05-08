@@ -6,12 +6,14 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:39:04 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/07 00:03:05 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/08 08:57:13 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
 
 #include <sstream> 
 
@@ -21,26 +23,39 @@
 
 int main()
 {
-	std::cout << GREEN << "Test constructors and assignment operator:" << RESET << std::endl;
+	std::cout << GREEN << "Test constructors :" 
+		<< RESET << std::endl << std::endl;
 	std::cout << BLUE << "Test default constructor:" << RESET << std::endl;
+	ShrubberyCreationForm s0;
 	RobotomyRequestForm r0;
-	std::cout << r0 << std::endl << std::endl;
+	PresidentialPardonForm p0;
+	std::cout << s0 << std::endl;
+	std::cout << r0 << std::endl;
+	std::cout << p0 << std::endl << std::endl;
 
-	RobotomyRequestForm r1("r1");
-	std::cout << r1 << std::endl << std::endl;
+	std::cout << BLUE << "Test parameterized constructor:" << RESET << std::endl;
+	ShrubberyCreationForm s1("Garden");	
+	RobotomyRequestForm r1("Narval");
+	PresidentialPardonForm p1("Innocent");
+	std::cout << s1 << std::endl;
+	std::cout << r1 << std::endl;
+	std::cout << p1 << std::endl << std::endl;
 
-	r0 = r1;
-	std::cout << r0 << std::endl << std::endl;
-	RobotomyRequestForm r2(r1);
-	std::cout << r2 << std::endl << std::endl;
-	std::cout << std::endl;
 
-	std::cout << GREEN << "test signing and executing form" << RESET << std::endl;
+	std::cout << GREEN << "test signing and executing form" << RESET << std::endl
+		<< std::endl;
 	std::cout << BLUE << "test successful" << RESET << std::endl;
+	Bureaucrat b;
+	Bureaucrat b0("b0", 137);
 	Bureaucrat b1("b1", 45);
+	b0.signForm(s1);
+	std::cout << s1 << std::endl;
+	b0.executeForm(s1);
+	std::cout << std::endl;
+	
 	b1.signForm(r1);
 	std::cout << r1 << std::endl;
-	for (int i = 0; i < 10; ++i)
+	for (int i = 0; i < 6; ++i)
 		b1.executeForm(r1);
 	std::cout << std::endl;
 
@@ -63,14 +78,83 @@ int main()
 
     double successRate = static_cast<double>(numSuccesses) / numTrials;
 
-    std::cout << "Success rate: " << successRate << std::endl;
+    std::cout << "Success rate: " << successRate << std::endl << std::endl;
 
-	std::cout << BLUE << "test unsuccessful executing" << RESET << std::endl;
+	std::cout << std::endl << BLUE << "test signing" << RESET << std::endl;
+	std::cout << b.getName() << " grade is " << b.getGrade() << std::endl;
+	b.signForm(s1);
+	b.signForm(r1);
+	std::cout << b1.getName() << " grade is " << b1.getGrade() << std::endl;
+	b1.signForm(p1);
+	std::cout << std::endl;
 	
-	std::cout << BLUE << "test unsuccessful signing" << RESET << std::endl;
-
-
+	for (int i = 0; i < 20; ++i)
+		b1.incrementGrade();
+	std::cout << b1.getName() << " grade is " << b1.getGrade() << std::endl;
+	b1.signForm(s1);
+	b1.signForm(r1);
+	b1.signForm(p1);
 	
+
+
+	std::cout << std::endl << BLUE << "test executing" << RESET << std::endl;
+	std::cout << b.getName() << " grade is " << b.getGrade() << std::endl;
+	b.executeForm(s1);
+	b.executeForm(r1);
+	std::cout << b1.getName() << " grade is " << b1.getGrade() << std::endl;
+	b1.executeForm(p1);
+	std::cout << std::endl;
+	
+	for (int i = 0; i < 20; ++i)
+		b1.incrementGrade();
+	std::cout << b1.getName() << " grade is " << b1.getGrade() << std::endl;
+	b1.executeForm(s1);	
+	b1.executeForm(r1);
+	b1.executeForm(p1);	
+	std::cout << std::endl << std::endl;
+
+	std::cout << GREEN << "Test copy constructor and assignment operator:" << RESET 
+		<< std::endl << std::endl;
+	std::cout << BLUE << "Test assignment operator :" << RESET << std::endl;
+	ShrubberyCreationForm s2("Patio");
+	s1 = s2;
+	b1.signForm(s1);
+	b1.executeForm(s1);
+	std::cout << std::endl;
+
+	RobotomyRequestForm r2("Donkey");
+	r1 = r2;
+	b1.signForm(r1);
+	b1.executeForm(r1);
+	std::cout << std::endl;
+
+	PresidentialPardonForm p2("Guilty");
+	p1 = p2;
+	b1.signForm(p1);
+	b1.executeForm(p1);
+
+	std::cout << std::endl << BLUE << "Test copy constructor and unsigned forms execution:"
+		<< RESET << std::endl;
+	ShrubberyCreationForm s3(s0);
+	b1.executeForm(s3); // not signed
+	b1.signForm(s3);
+	b1.executeForm(s3); // creates "_shrubbery" file
+	std::cout << std::endl;
+
+	RobotomyRequestForm r4("Human");
+	RobotomyRequestForm r3(r4);  
+	b1.executeForm(r3); // not signed
+	b1.signForm(r3);
+	b1.executeForm(r3);
+	std::cout << std::endl;
+
+	PresidentialPardonForm p4("Fool");
+	PresidentialPardonForm p3(p4);
+	b1.executeForm(p3); // not signed
+	b1.signForm(p3);
+	b1.executeForm(p3);
+	std::cout << std::endl << std::endl;
+
 
 	return 0;
 }

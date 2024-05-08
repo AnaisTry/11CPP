@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:16:35 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/06 17:51:42 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/07 21:30:32 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@
 RobotomyRequestForm:: RobotomyRequestForm() : AForm("robotomyBlankForm", 72, 45){}
 
 // Parameterized constructor
-RobotomyRequestForm:: RobotomyRequestForm(const std::string &target) : 
-	AForm(target, 72, 45), _target(target){}
+RobotomyRequestForm:: RobotomyRequestForm(const std::string& target) : 
+	AForm("robotomyRequestForm", 72, 45), _target(target){}
 
 // Destructor
  RobotomyRequestForm::~ RobotomyRequestForm(){}
 
 // Copy constructor
- RobotomyRequestForm:: RobotomyRequestForm(const  RobotomyRequestForm &other) : AForm(other)
+ RobotomyRequestForm:: RobotomyRequestForm(const  RobotomyRequestForm& other) : AForm(other)
  {
 	_target = other._target;
  }
 
 // Assignment operator
- RobotomyRequestForm&  RobotomyRequestForm::operator=(const  RobotomyRequestForm &other) 
+ RobotomyRequestForm&  RobotomyRequestForm::operator=(const  RobotomyRequestForm& other) 
 {
 	std::cout << "Form assignment operator called" << std::endl;
 	if (this != &other) 
