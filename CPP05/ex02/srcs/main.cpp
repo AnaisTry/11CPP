@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:39:04 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/09 16:49:39 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:02:35 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,10 @@ int main()
 
 	std::cout << std::endl << BLUE << "test executing" << RESET << std::endl;
 	std::cout << b.getName() << " grade is " << b.getGrade() << std::endl;
-	b.executeForm(s1);
-	b.executeForm(r1);
+	try{ b.executeForm(s1);} catch(const std::exception &e){}
+	try{b.executeForm(r1);} catch(const std::exception &e){}
 	std::cout << b1.getName() << " grade is " << b1.getGrade() << std::endl;
-	b1.executeForm(p1);
+	try{ b1.executeForm(p1);} catch(const std::exception &e){}
 	std::cout << std::endl;
 	
 	for (int i = 0; i < 20; ++i)
@@ -136,21 +136,21 @@ int main()
 	std::cout << std::endl << BLUE << "Test copy constructor and unsigned forms execution:"
 		<< RESET << std::endl;
 	ShrubberyCreationForm s3(s0);
-	b1.executeForm(s3); // not signed
+	try {b1.executeForm(s3);} catch(const std::exception &e){} // not signed
 	b1.signForm(s3);
 	b1.executeForm(s3); // creates "_shrubbery" file
 	std::cout << std::endl;
 
 	RobotomyRequestForm r4("Human");
 	RobotomyRequestForm r3(r4);  
-	b1.executeForm(r3); // not signed
+	try {b1.executeForm(r3);} catch(const std::exception &e){}  // not signed
 	b1.signForm(r3);
 	b1.executeForm(r3);
 	std::cout << std::endl;
 
 	PresidentialPardonForm p4("Fool");
 	PresidentialPardonForm p3(p4);
-	b1.executeForm(p3); // not signed
+	try {b1.executeForm(p3);} catch(const std::exception &e){} // not signed
 	b1.signForm(p3);
 	b1.executeForm(p3);
 	std::cout << std::endl << std::endl;

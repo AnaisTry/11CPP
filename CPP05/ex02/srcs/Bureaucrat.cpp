@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:22:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/09 16:44:33 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:57:28 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,21 +109,15 @@ void Bureaucrat::signForm(AForm &form)
 
 void Bureaucrat::executeForm(AForm const &form) 
 {
-	if (form.getExecGrade() < _grade)
+	try
 	{
-		std::cout << _name << " couldn't execute " << form.getName() << " because his grade is too low" << std::endl;
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
 	}
-	else
+	catch(AForm::GradeTooLowException &e)
 	{
-		try
-		{
-			form.execute(*this);
-			std::cout << _name << " executed " << form.getName() << std::endl;	
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}		
+		std::cerr << _name << " couldn't execute " << form.getName() << " because " << e.what() << '\n';
+		throw;
 	}
 }
 
