@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:39:04 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/08 08:57:13 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:49:39 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,10 @@ int main()
 
 	std::cout << std::endl << BLUE << "test signing" << RESET << std::endl;
 	std::cout << b.getName() << " grade is " << b.getGrade() << std::endl;
-	b.signForm(s1);
-	b.signForm(r1);
+	try{ b.signForm(s1); } catch(const std::exception &e){}
+	try{ b.signForm(r1); } catch(const std::exception &e){}
 	std::cout << b1.getName() << " grade is " << b1.getGrade() << std::endl;
-	b1.signForm(p1);
+	try{b1.signForm(p1); } catch(const std::exception &e){}
 	std::cout << std::endl;
 	
 	for (int i = 0; i < 20; ++i)
