@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:39:04 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/04 23:47:45 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:35:58 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,7 @@ int main()
     try 
 	{
         bureaucrat.signForm(form);
-    } catch (const std::exception &e) 
-	{
-        std::cerr << e.what() << '\n';
-    }
+    } catch (const std::exception &e){}
 
 	std::cout << std::endl << BLUE << "Test that the bureaucrat can sign the form if his grade is high enough:" 
 		<< RESET << std::endl;
