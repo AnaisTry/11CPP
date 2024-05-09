@@ -6,11 +6,12 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:22:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/04 12:34:44 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:36:58 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 
 // Exceptions
@@ -89,6 +90,20 @@ void Bureaucrat::decrementGrade()
 	if (_grade == 150)
 		throw GradeTooLowException();
 	_grade++;
+}
+
+
+void Bureaucrat::signForm(Form &form) 
+{
+	if (form.getSignGrade() < _grade)
+	{
+		std::cout << _name << " couldn't sign " << form.getName() << " because his grade is too low" << std::endl;
+	}
+	else
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
 }
 
 // Overload << operator

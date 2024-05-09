@@ -6,15 +6,17 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:45:50 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/04 12:22:31 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/04 20:31:59 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+# include "Form.hpp"
 # include <iostream>
 
+class Form;
 class Bureaucrat 
 {
 	public:
@@ -43,8 +45,6 @@ class Bureaucrat
 		// Assignment operator
 		Bureaucrat& operator=(const Bureaucrat &other);
 
-	
-		
 		// Getters
 		const std::string getName() const;
 		int getGrade() const;
@@ -52,6 +52,8 @@ class Bureaucrat
 		// Increment and decrement grade
 		void incrementGrade();
 		void decrementGrade();
+		
+		void signForm(Form &form);
 		
 	private:	
 		const std::string _name;
