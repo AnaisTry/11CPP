@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:22:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/09 16:57:28 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:20:39 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,12 @@ void Bureaucrat::executeForm(AForm const &form)
 		form.execute(*this);
 		std::cout << _name << " executed " << form.getName() << std::endl;
 	}
-	catch(AForm::GradeTooLowException &e)
+	catch(AForm::GradeTooLowException& e)
+	{
+		std::cerr << _name << " couldn't execute " << form.getName() << " because " << e.what() << '\n';
+		throw;
+	}
+	catch(std::runtime_error& e)
 	{
 		std::cerr << _name << " couldn't execute " << form.getName() << " because " << e.what() << '\n';
 		throw;

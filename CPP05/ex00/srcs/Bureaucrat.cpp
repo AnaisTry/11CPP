@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:22:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/09 14:47:43 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/09 15:12:35 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ Bureaucrat::Bureaucrat() : _name("anonymous"), _grade(150)
 // Parameterized constructor
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade) 
 {
-
 	// handle exceptions
 	if (grade < 1)
 		throw GradeTooHighException();

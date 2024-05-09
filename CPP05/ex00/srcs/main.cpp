@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:39:04 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/04 12:31:12 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/09 15:26:55 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 	{
 		Bureaucrat b1("b1", 150);
 		
-		std::cout << BLUE << "test getters and overload << : " << RESET << std::endl;
+		std::cout << BLUE << "test getters and overload operator : " << RESET << std::endl;
 		std::cout << b1 << std::endl; 
 	}
 	catch (std::exception &e)
@@ -62,7 +62,7 @@ int main()
 	{
 		Bureaucrat b4("b4", 1);
 
-		std::cout << BLUE << "test getters and overload << : " << RESET << std::endl;
+		std::cout << BLUE << "test getters and overload operator : " << RESET << std::endl;
 		std::cout << b4 << std::endl;
 	}
 	catch(std::exception& e)
