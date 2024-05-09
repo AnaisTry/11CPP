@@ -8,7 +8,7 @@
 				"name": "(lldb) Launch",
 				"type": "cppdbg",
 				"request": "launch",
-				"program": "${workspaceFolder}/cpp04/ex03/materia",
+				"program": "${workspaceFolder}/cpp05/ex01/maggots",
 				"args": ["Makefile", "clean", "cleanclean"],
 				"stopAtEntry": false,
 				"cwd": "${workspaceFolder}",
