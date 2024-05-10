@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:07:11 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/08 15:58:59 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:32:53 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 	for (int i = 0; i < 3; ++i)
 	{
 		if (formName == _formTypes[i].name)
+		{
+			std::cout << "Intern creates ";
 			return (this->*_formTypes[i].creator)(target);
+		}
 	}
 	std::cerr << "Error: form name not found" << std::endl;
 	return NULL;
