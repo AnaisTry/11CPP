@@ -76,6 +76,16 @@ Usefull for helper/utilities class : queries validation, handling errors, format
 
 3. Name Hiding: A nested class can hide a class of the same name in an outer scope. This can lead to confusion and bugs.
 
+## Casts :
+
+### Dynamic cast :
+
+Only cast happening at runtime.
+Only in case of polymorphism (needs the class to have at list one method (virtual))
+Works only on pointers or references.
+
+dynamic_cast<type>(variable)
+
 ## Best practices for organizing and structuring classes in C++:
 
 1. Encapsulation: Keep data members private, and provide public getter and setter methods if necessary. This hides the internal representation of the class and makes it easier to change the implementation without affecting other parts of the code.
