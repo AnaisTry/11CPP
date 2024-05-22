@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:13:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/22 17:54:31 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:43:41 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,26 @@ class ScalarConverter
 		ScalarConverter& operator=(ScalarConverter const& other);
 };
 
-template <typename T, typename V>
-void printValue(const T& value, const std::string& typeName)
+/*
+	prints the numeric value in the casted type	(C) after checking if it doesn't overflow
+*/
+template <typename T, typename C>
+void printNum(const T& value, const std::string& typeName)
 {
-	if (value >= std::numeric_limits<V>::lowest() && value <= std::numeric_limits<V>::max())
-		std::cout << typeName << ": " << static_cast<V>(value);
+	if (value != value && typeName != "int")
+		std::cout << typeName << ": nan" << (typeName == "float" ? "f" : "");
+	else if (value < std::numeric_limits<C>::lowest() && typeName != "int")
+		std::cout << typeName << ": -inf" << (typeName == "float" ? "f" : "");
+	else if (value > std::numeric_limits<C>::max() && typeName != "int")
+		std::cout << typeName << ": +inf" << (typeName == "float" ? "f" : "");
+	else if (value >= std::numeric_limits<C>::lowest() && value <= std::numeric_limits<C>::max())
+	{
+		std::cout << typeName << ": " << static_cast<C>(value);
+		if (typeName == "float" || typeName == "double")
+			std::cout << (typeName == "float" ? ".0f" : ".0");
+	}
 	else
 		std::cout << typeName << ": impossible";
-	if (typeName == "float" || typeName == "double")
-		std::cout << (typeName == "float" ? ".0f" : ".0");
 	std::cout << std::endl;
 }
 
@@ -51,9 +62,9 @@ void printValues(const T& value)
             std::cout << "Non displayable" << std::endl;
         else
             std::cout << "impossible" << std::endl;
-        printValue<T, int>(value, "int");
-        printValue<T, float>(value, "float");
-		printValue<T, double>(value, "double");
+        printNum<T, int>(value, "int");
+        printNum<T, float>(value, "float");
+		printNum<T, double>(value, "double");
 }
 
 template <typename T>

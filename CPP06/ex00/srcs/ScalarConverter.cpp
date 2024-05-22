@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:36:05 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/22 16:59:38 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:45:26 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ void ScalarConverter::convert(const std::string& input)
 		convertAndPrint<int>(input);
 	}
 	// Check if the input is a float
-	else if (input.find_first_not_of("0123456789.-") == std::string::npos)
+	else if (input.find_first_not_of("0123456789.-f") == std::string::npos || input == "nanf" 
+		|| input == "+inff" || input == "-inff")
 	{
 		convertAndPrint<float>(input);
 	}
 	// Check if the input is a double
-	else if (input.find_first_not_of("0123456789.-") == std::string::npos)
+	else if (input.find_first_not_of("0123456789.-") == std::string::npos || input == "nan" 
+		|| input == "+inf" || input == "-inf")
 	{
 		convertAndPrint<double>(input);
 	}
