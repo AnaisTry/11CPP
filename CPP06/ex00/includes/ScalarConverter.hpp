@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:13:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/23 16:11:09 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:46:22 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <sstream>
 # include <cctype>
+# include <limits>
 
 class ScalarConverter
 {
@@ -37,11 +38,11 @@ void printNum(const T& value, const std::string& typeName)
 {
 	if (value != value && typeName != "int")
 		std::cout << typeName << ": nan" << (typeName == "float" ? "f" : "");
-	else if (value < std::numeric_limits<C>::lowest() && typeName != "int")
+	else if (value < -std::numeric_limits<C>::max() && typeName != "int")
 		std::cout << typeName << ": -inf" << (typeName == "float" ? "f" : "");
 	else if (value > std::numeric_limits<C>::max() && typeName != "int")
 		std::cout << typeName << ": +inf" << (typeName == "float" ? "f" : "");
-	else if (value >= std::numeric_limits<C>::lowest() && value <= std::numeric_limits<C>::max())
+	else if (value >= -std::numeric_limits<C>::max() && value <= std::numeric_limits<C>::max())
 	{
 		std::cout << typeName << ": " << static_cast<C>(value);
 		if (typeName == "float" || typeName == "double")
