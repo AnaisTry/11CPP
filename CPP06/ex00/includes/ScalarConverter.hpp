@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:13:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/22 18:43:41 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:11:09 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,22 @@ template <typename T>
 void convertAndPrint(const std::string& input)
 {
 	T value;
-	std::istringstream iss(input);
-	iss >> value;
-	if (iss.fail())
+
+	if (input == "nanf")
+		value = std::numeric_limits<T>::quiet_NaN();
+	else if (input == "+inff")
+		value = std::numeric_limits<T>::infinity();
+	else if (input == "-inff")
+		value = -std::numeric_limits<T>::infinity();
+	else
 	{
-		std::cout << "Value out of range" << std::endl;
-		return;
+		std::istringstream iss(input);
+		iss >> value;
+		if (iss.fail())
+		{
+			std::cout << "Value out of range" << std::endl;
+			return;
+		}
 	}
 	printValues(value);
 }
