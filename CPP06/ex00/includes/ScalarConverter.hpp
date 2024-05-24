@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:13:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/24 12:10:15 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:21:22 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void printValues(const T& value)
         printNum<T, float>(value, "float");
 		printNum<T, double>(value, "double");
 }
+
+// Template functions
 
 /*
 	Checks the conversion and call print values checking first if it's a nan or inf literal
