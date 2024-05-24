@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:13:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/23 16:46:22 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/24 12:10:15 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class ScalarConverter
 
 /*
 	prints the numeric value in the casted type	(C) after checking if it doesn't overflow
+	or isn't a nan or inf literal
 */
 template <typename T, typename C>
 void printNum(const T& value, const std::string& typeName)
@@ -68,16 +69,20 @@ void printValues(const T& value)
 		printNum<T, double>(value, "double");
 }
 
+/*
+	Checks the conversion and call print values checking first if it's a nan or inf literal
+	and if it doesn't overflow
+*/
 template <typename T>
 void convertAndPrint(const std::string& input)
 {
 	T value;
 
-	if (input == "nanf")
+	if (input == "nanf" || input == "nan")
 		value = std::numeric_limits<T>::quiet_NaN();
-	else if (input == "+inff")
+	else if (input == "+inff" || input == "+inf")
 		value = std::numeric_limits<T>::infinity();
-	else if (input == "-inff")
+	else if (input == "-inff" || input == ("-inf"))
 		value = -std::numeric_limits<T>::infinity();
 	else
 	{
