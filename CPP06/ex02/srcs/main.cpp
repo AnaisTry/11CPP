@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:13:29 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/27 16:21:10 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:29:46 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ Base* generate(void)
 
 void identify(Base* p)
 {
-	if (dynamic_cast<A*>(p)) std::cout << "A\n";
-	else if  (dynamic_cast<B*>(p)) std::cout << "B\n";
-	else if  (dynamic_cast<C*>(p)) std::cout << "C\n";
+	if (dynamic_cast<A*>(p) != NULL) std::cout << "A\n";
+	else if  (dynamic_cast<B*>(p) != NULL) std::cout << "B\n";
+	else if  (dynamic_cast<C*>(p) != NULL) std::cout << "C\n";
 }
 
 void identify(Base& p) 
