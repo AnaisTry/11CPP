@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:13:43 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/24 14:21:22 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:00:04 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class ScalarConverter
 		ScalarConverter(const ScalarConverter& other);
 		ScalarConverter& operator=(ScalarConverter const& other);
 };
+
+// Template functions
 
 /*
 	prints the numeric value in the casted type	(C) after checking if it doesn't overflow
@@ -68,8 +70,6 @@ void printValues(const T& value)
         printNum<T, float>(value, "float");
 		printNum<T, double>(value, "double");
 }
-
-// Template functions
 
 /*
 	Checks the conversion and call print values checking first if it's a nan or inf literal
