@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:36:05 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/22 18:45:26 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:38:21 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,3 @@ ScalarConverter& ScalarConverter::operator=(ScalarConverter const& other)
 	(void)other;
 	return *this;
 }
-

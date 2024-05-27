@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:13:29 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/24 15:26:04 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:21:10 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Base* generate(void)
 		case 1: return new B;
 		case 2: return new C;
 	}
-	return nullptr;
+	return NULL;
 }
 
 void identify(Base* p)
@@ -35,24 +35,28 @@ void identify(Base* p)
 	else if  (dynamic_cast<C*>(p)) std::cout << "C\n";
 }
 
-void identify(Base& p) {
-    try {
+void identify(Base& p) 
+{
+    try 
+	{
         (void)dynamic_cast<A&>(p);
         std::cout << "A\n";
-    } catch (std::bad_cast&) {}
-    try {
+    } catch (std::exception&) {}
+    try 
+	{
         (void)dynamic_cast<B&>(p);
         std::cout << "B\n";
-    } catch (std::bad_cast&) {}
-    try {
+    } catch (std::exception&) {}
+    try 
+	{
         (void)dynamic_cast<C&>(p);
         std::cout << "C\n";
-    } catch (std::bad_cast&) {}
+    } catch (std::exception&) {}
 }
 
 int main()
 {
-	srand(time(NULL));
+	srand(time(NULL)); // Seed the random number generator
 	Base* base = generate();
 	identify(base);
 	identify(*base);
