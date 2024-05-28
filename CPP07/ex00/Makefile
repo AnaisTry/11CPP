@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 19:00:06 by angassin          #+#    #+#              #
-#    Updated: 2024/05/28 20:31:53 by angassin         ###   ########.fr        #
+#    Updated: 2024/05/28 20:34:28 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,9 @@ clean:
 	@rm -f $(OBJS)
 
 fclean: clean
+	@rm -f $(DEPS)
 	@rm -f $(NAME)
+
 
 re: fclean all
 
