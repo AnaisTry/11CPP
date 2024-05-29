@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 20:10:22 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/28 21:59:07 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:51:47 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ T min(T a, T b)
 {
 	return (a < b ? a : b);
 }
-
 
 template <typename T>
 T max(T a, T b)
