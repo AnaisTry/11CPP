@@ -6,17 +6,12 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:04:23 by angassin          #+#    #+#             */
-/*   Updated: 2024/05/30 13:36:50 by angassin         ###   ########.fr       */
+/*   Updated: 2024/05/30 13:50:25 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #include <iostream>
-
-void print(const std::string& str)
-{
-	std::cout << str << std::endl;
-}
 
 int main()
 {
