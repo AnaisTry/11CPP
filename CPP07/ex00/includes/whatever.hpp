@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manip.hpp                                          :+:      :+:    :+:   */
+/*   whatever.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MANIP_HPP
-# define MANIP_HPP
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 # include <iostream>
 
 template <typename T>
