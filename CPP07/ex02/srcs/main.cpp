@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:59:20 by angassin          #+#    #+#             */
-/*   Updated: 2024/06/04 15:39:51 by angassin         ###   ########.fr       */
+/*   Updated: 2024/06/04 18:41:05 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,22 @@ int main()
 		std::cout << "a2[0] = " << a2[0] << std::endl;
 	}
 	std::cout << std::endl;
+
+	std::cout << GREEN << "Test array of pointers to int:" << RESET << std::endl;
+	Array<int*> ap(5);
+	for (unsigned int i = 0; i < ap.size(); ++i) 
+		ap[i] = new int(i);
+	
+	for (unsigned int i = 0; i < ap.size(); ++i) 
+	{
+		std::cout << "ap[" << i << "]: " << *ap[i] << " address :" << &ap[i] << std::endl;
+	}
+	// delete array of pointers allocated memory
+	for (unsigned int i = 0; i < ap.size(); ++i) {
+		delete ap[i];
+	}
+	std::cout << std::endl;
+
 
 	return 0;
 }
