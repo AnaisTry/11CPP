@@ -86,6 +86,12 @@ Works only on pointers or references.
 
 dynamic_cast<type>(variable)
 
+## STL :
+
+### Containers :
+
+https://www.quantstart.com/articles/C-Standard-Template-Library-Part-I-Containers/
+
 ## Best practices for organizing and structuring classes in C++:
 
 1. Encapsulation: Keep data members private, and provide public getter and setter methods if necessary. This hides the internal representation of the class and makes it easier to change the implementation without affecting other parts of the code.
