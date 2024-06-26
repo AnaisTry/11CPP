@@ -3,10 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:51:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/06/26 10:51:23 by angassin         ###   ########.fr       */
+/*   Updated: 2024/06/26 12:51:47 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "easyfind.hpp"
+#include <iostream>
+#include <list>
+
+template <typename C>
+void searchContainer(const C& container, int needle)
+{
+	typename C::const_iterator it;
+	try
+	{
+		it = easyfind(container, needle);
+		std::cout << "Found value" << *it << " in container." << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Value " << needle << "not found in container." << std::endl;
+	}
+	std::cout << endl;
+}
+
+int main()
+{
+	// test empty container
+	std::list<int> lst;
+
+	searchContainer(lst, 5);
+	
+	// test with number missing
+
+	lst.push_back(0);
+	lst.push_back(4);
+	lst.push_back(10);
+
+	searchContainer(lst, 5);
+
+	// test with number included
+	lst.push_back(5);
+
+	searchContainer(lst, 5);
+	
+	return 0;
+}
