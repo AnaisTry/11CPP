@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 19:56:27 by angassin          #+#    #+#             */
-/*   Updated: 2024/06/26 12:30:47 by angassin         ###   ########.fr       */
+/*   Updated: 2024/06/26 12:58:42 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@
 
 
 template <typename T>
-typename T::iterator easyfind(T& container, int value)
+typename T::const_iterator easyfind(T& container, int value)
 {
-	typename T::iterator it = std::find(std::begin(container),
-		std::end(container), value);
-	if (it == std::end(container))
+	typename T::const_iterator it = std::find(container.begin(), container.end(), value);
+	if (it == container.end())
 	{
 		throw std::exception();
 	}

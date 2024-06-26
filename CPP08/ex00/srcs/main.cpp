@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:51:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/06/26 12:51:47 by angassin         ###   ########.fr       */
+/*   Updated: 2024/06/26 12:59:05 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void searchContainer(const C& container, int needle)
 	{
 		std::cout << "Value " << needle << "not found in container." << std::endl;
 	}
-	std::cout << endl;
+	std::cout << std::endl;
 }
 
 int main()
