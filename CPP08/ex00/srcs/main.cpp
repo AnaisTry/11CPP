@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:51:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/06/26 12:59:05 by angassin         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:00:30 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void searchContainer(const C& container, int needle)
 	try
 	{
 		it = easyfind(container, needle);
-		std::cout << "Found value" << *it << " in container." << std::endl;
+		std::cout << "Found value " << *it << " in container." << std::endl;
 	}
 	catch (std::exception& e)
 	{
-		std::cout << "Value " << needle << "not found in container." << std::endl;
+		std::cout << "Value " << needle << " not found in container." << std::endl;
 	}
 	std::cout << std::endl;
 }
