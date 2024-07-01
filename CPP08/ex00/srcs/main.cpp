@@ -6,13 +6,14 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:51:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/01 12:41:18 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:47:44 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 #include <iostream>
 #include <list>
+#include <vector>
 
 #define GREEN   "\033[32m"
 #define RESET   "\033[0m"
@@ -48,10 +49,18 @@ int main()
 	lst.push_back(4);
 	lst.push_back(10);
 	searchContainer(lst, "lst", 5);
+	
+	myVector.push_back(0);
+	myVector.push_back(4);
+	myVector.push_back(10);
+	searchContainer(myVector, "myVector", 5);
 
 	std::cout << GREEN << "Test with number included" << RESET << std::endl;
 	lst.push_back(5);
 	searchContainer(lst, "lst", 5);
+	
+	myVector.push_back(5);
+	searchContainer(myVector, "myVector", 5);
 	
 	return 0;
 }
