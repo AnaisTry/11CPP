@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:51:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/01 12:47:44 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/02 11:22:09 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include <deque>
+
 
 #define GREEN   "\033[32m"
 #define RESET   "\033[0m"
@@ -37,11 +39,15 @@ void searchContainer(const C& container, const std::string& containerName, int n
 int main()
 {
 	std::cout << GREEN << "Test empty container" << RESET << std::endl;
+
 	std::list<int> lst;
 	searchContainer(lst, "lst", 5);
 
 	std::vector<int> myVector;
 	searchContainer(myVector, "myVector", 5);
+
+	std::deque<int> deq;
+	searchContainer(deq, "deq", 5);
 	
 	std::cout << GREEN << "Test with number missing" << RESET << std::endl;
 
@@ -55,12 +61,20 @@ int main()
 	myVector.push_back(10);
 	searchContainer(myVector, "myVector", 5);
 
+	deq.push_back(0);
+	deq.push_back(4);
+	deq.push_back(10);
+	searchContainer(deq, "deq", 5);
+
 	std::cout << GREEN << "Test with number included" << RESET << std::endl;
 	lst.push_back(5);
 	searchContainer(lst, "lst", 5);
 	
 	myVector.push_back(5);
 	searchContainer(myVector, "myVector", 5);
+	
+	deq.push_back(5);
+	searchContainer(deq, "deq", 5);
 	
 	return 0;
 }
