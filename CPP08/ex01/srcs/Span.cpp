@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:14:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/03 21:32:50 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/04 00:46:45 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <climits>
 #include <exception>
+#include <stdexcept>
 
 // Default constructor
 Span::Span() : maxN_(INT_MAX)
@@ -62,16 +63,19 @@ void Span::addNumber(int number)
 void Span::printContainer() const
 {
 	std::multiset<int>::iterator it;
+
+	std::cout << "content : ";
 	for (it = container_.begin(); it != container_.end(); ++it)
 	{
-		std::cout << *it << std::endl;
+		std::cout << *it << " ";
 	}
+	std::cout << std::endl;
 }
 
 size_t Span::shortestSpan() const
 {
 	if (container_.size() < 2)
-		throw std::exception();
+		throw std::logic_error("Not enough elements for span detection");
 	
 	 
 	std::multiset<int>::iterator it;
@@ -88,5 +92,12 @@ size_t Span::shortestSpan() const
 			shortestSpan = currentSpan;
 	}
 	return shortestSpan;
-	
+}
+
+size_t Span::longestSpan() const
+{
+	if (container_.size() < 2)
+		throw std::logic_error("Not enough elements for span detection");
+		
+	return *container_.rbegin() - *container_.begin();
 }

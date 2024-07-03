@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:16:44 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/03 21:33:23 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/04 00:45:33 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main()
 	sp.addNumber(9); 
 	sp.addNumber(11);
 
-	//sp.printContainer();
+	sp.printContainer();
 	std::cout << sp.shortestSpan() << std::endl; 
-	//std::cout << sp.longestSpan() << std::endl; 
+	std::cout << sp.longestSpan() << std::endl; 
 	return 0; 
 }

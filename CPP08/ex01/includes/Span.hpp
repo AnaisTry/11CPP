@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:20:10 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/03 21:31:48 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/04 00:10:28 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Span
 		void addNumber(int number);
 		void printContainer() const;
 		size_t shortestSpan() const;
+		size_t longestSpan() const;
 
 
 	 private:
