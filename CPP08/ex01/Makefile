@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 19:00:06 by angassin          #+#    #+#              #
-#    Updated: 2024/06/25 19:56:01 by angassin         ###   ########.fr        #
+#    Updated: 2024/07/03 11:45:25 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RED='\033[1;91m'
 
 #-------------------------------VARIABLES---------------------------------------
 
-NAME = easyfind
+NAME = ex01
 
 CXX	= c++
 
@@ -30,7 +30,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes -MMD -MP
 
 SRC_DIR = srcs
 
-SRCS = srcs/main.cpp
+SRCS = srcs/main.cpp srcs/Span.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
