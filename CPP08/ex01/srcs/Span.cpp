@@ -6,13 +6,14 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:14:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/03 11:46:41 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/03 21:32:50 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <iostream>
 #include <climits>
+#include <exception>
 
 // Default constructor
 Span::Span() : maxN_(INT_MAX)
@@ -48,4 +49,44 @@ Span& Span::operator=(Span const& other)
 		this->container_ = other.container_;
 	}
 	return *this;
+}
+
+void Span::addNumber(int number)
+{
+	if (container_.size() < maxN_)
+		container_.insert(number);
+	else 
+		throw std::exception();
+}
+
+void Span::printContainer() const
+{
+	std::multiset<int>::iterator it;
+	for (it = container_.begin(); it != container_.end(); ++it)
+	{
+		std::cout << *it << std::endl;
+	}
+}
+
+size_t Span::shortestSpan() const
+{
+	if (container_.size() < 2)
+		throw std::exception();
+	
+	 
+	std::multiset<int>::iterator it;
+	it = container_.begin();
+	std::multiset<int>::iterator nextIt;
+	nextIt = ++container_.begin();
+
+	size_t shortestSpan = *nextIt - *it; // implicit cast
+	
+	for (; nextIt != container_.end(); ++it, ++nextIt)
+	{
+		size_t currentSpan = *nextIt - *it;
+		if (currentSpan < shortestSpan)
+			shortestSpan = currentSpan;
+	}
+	return shortestSpan;
+	
 }
