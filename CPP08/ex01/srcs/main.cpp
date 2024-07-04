@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:16:44 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/04 00:45:33 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:37:09 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int main() 
 { 
+	Span spMax;
 	Span sp = Span(5); 
 
 	sp.addNumber(6); 

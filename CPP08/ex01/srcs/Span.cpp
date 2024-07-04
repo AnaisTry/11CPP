@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:14:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/04 00:46:45 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:40:37 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include <climits>
 #include <exception>
 #include <stdexcept>
+#include <algorithm> // min_element
+#include <numeric> // adjacent_difference
+#include <vector>
 
 // Default constructor
 Span::Span() : maxN_(INT_MAX)
@@ -24,7 +27,8 @@ Span::Span() : maxN_(INT_MAX)
 
 Span::Span(unsigned int maxN) : maxN_(maxN)
 {
-	std::cout << "Span container of max " << maxN_ << " integers created" << std::endl;
+	std::cout << "Span container of max " << maxN_ << " integers created" 
+		<< std::endl;
 }
 
 // Destructor
@@ -72,26 +76,42 @@ void Span::printContainer() const
 	std::cout << std::endl;
 }
 
+// size_t Span::shortestSpan() const
+// {
+// 	if (container_.size() < 2)
+// 		throw std::logic_error("Not enough elements for span detection");
+	
+	 
+// 	std::multiset<int>::iterator it;
+// 	it = container_.begin();
+// 	std::multiset<int>::iterator nextIt;
+// 	nextIt = ++container_.begin();
+
+// 	size_t shortestSpan = *nextIt - *it; // implicit cast
+	
+// 	for (; nextIt != container_.end(); ++it, ++nextIt)
+// 	{
+// 		size_t currentSpan = *nextIt - *it;
+// 		if (currentSpan < shortestSpan)
+// 			shortestSpan = currentSpan;
+// 	}
+// 	return shortestSpan;
+// }
+
+/*
+	returns the smallest difference between two numbers stored in the container
+	copying the result of the differences in the vector and returning 
+	the smallest difference
+*/
 size_t Span::shortestSpan() const
 {
 	if (container_.size() < 2)
 		throw std::logic_error("Not enough elements for span detection");
-	
-	 
-	std::multiset<int>::iterator it;
-	it = container_.begin();
-	std::multiset<int>::iterator nextIt;
-	nextIt = ++container_.begin();
 
-	size_t shortestSpan = *nextIt - *it; // implicit cast
-	
-	for (; nextIt != container_.end(); ++it, ++nextIt)
-	{
-		size_t currentSpan = *nextIt - *it;
-		if (currentSpan < shortestSpan)
-			shortestSpan = currentSpan;
-	}
-	return shortestSpan;
+	std::vector<size_t> span(container_.size() - 1);
+	std::adjacent_difference(container_.begin(), container_.end(), span.begin());
+
+	return *std::min_element(span.begin(), span.end());
 }
 
 size_t Span::longestSpan() const
