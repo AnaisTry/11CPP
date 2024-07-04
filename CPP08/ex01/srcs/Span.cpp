@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:14:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/04 18:40:37 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:28:35 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <climits>
 #include <exception>
-#include <stdexcept>
+#include <stdexcept> // logic_error, runtime_error
 #include <algorithm> // min_element
 #include <numeric> // adjacent_difference
 #include <vector>
@@ -120,4 +120,14 @@ size_t Span::longestSpan() const
 		throw std::logic_error("Not enough elements for span detection");
 		
 	return *container_.rbegin() - *container_.begin();
+}
+
+void Span::addRange(std::multiset<int>::iterator begin, std::multiset<int>::iterator end)
+{
+	size_t rangeSize = std::distance(begin, end); // implicit cast
+
+	if (container_.size() + rangeSize > maxN_)
+		throw std::runtime_error("Adding this range exceeds maximum allowed size");
+
+	container_.insert(begin, end);
 }
