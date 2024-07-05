@@ -15,7 +15,7 @@
 #include <climits>
 #include <exception>
 #include <stdexcept> // logic_error, runtime_error
-#include <algorithm> // min_element 
+#include <algorithm> // min_element
 #include <numeric> // adjacent_difference
 #include <vector>
 #include <cstdlib> // rand, srand
@@ -28,7 +28,7 @@ Span::Span() : maxN_(INT_MAX)
 
 Span::Span(unsigned int maxN) : maxN_(maxN)
 {
-	std::cout << "Span container of max " << maxN_ << " integers created" 
+	std::cout << "Span container of max " << maxN_ << " integers created"
 		<< std::endl;
 }
 
@@ -49,7 +49,7 @@ Span::Span(const Span& other)
 Span& Span::operator=(Span const& other)
 {
 	std::cout << "Span assignment operator called" << std::endl;
-	if (this != &other) 
+	if (this != &other)
 	{
 		this->maxN_ = other.maxN_;
 		this->container_ = other.container_;
@@ -61,7 +61,7 @@ void Span::addNumber(int number)
 {
 	if (container_.size() < maxN_)
 		container_.insert(number);
-	else 
+	else
 		throw std::exception();
 }
 
@@ -93,15 +93,15 @@ void Span::printContainer() const
 // {
 // 	if (container_.size() < 2)
 // 		throw std::logic_error("Not enough elements for span detection");
-	
-	 
+
+
 // 	std::multiset<int>::iterator it;
 // 	it = container_.begin();
 // 	std::multiset<int>::iterator nextIt;
 // 	nextIt = ++container_.begin();
 
 // 	size_t shortestSpan = *nextIt - *it; // implicit cast
-	
+
 // 	for (; nextIt != container_.end(); ++it, ++nextIt)
 // 	{
 // 		size_t currentSpan = *nextIt - *it;
@@ -113,24 +113,25 @@ void Span::printContainer() const
 
 /*
 	returns the smallest difference between two numbers stored in the container
-	copying the result of the differences in the vector and returning 
+	copying the result of the differences in the vector and returning
 	the smallest difference
+	adjacent_difference stores the first input, so we need to skip it to avoid wrong results
 */
 size_t Span::shortestSpan() const
 {
 	if (container_.size() < 2)
 		throw std::logic_error("Not enough elements for span detection");
 
-	std::vector<size_t> span(container_.size() - 1);
+	std::vector<size_t> span(container_.size());
 	std::adjacent_difference(container_.begin(), container_.end(), span.begin());
 
-	return *std::min_element(span.begin(), span.end());
+	return *std::min_element(span.begin() + 1, span.end());
 }
 
 size_t Span::longestSpan() const
 {
 	if (container_.size() < 2)
 		throw std::logic_error("Not enough elements for span detection");
-		
+
 	return *container_.rbegin() - *container_.begin();
 }
