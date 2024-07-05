@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:14:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/05 11:47:04 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/05 19:27:02 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <iostream>
 #include <climits>
-#include <exception>
 #include <stdexcept> // logic_error, runtime_error
 #include <algorithm> // min_element
 #include <numeric> // adjacent_difference
@@ -62,7 +61,7 @@ void Span::addNumber(int number)
 	if (container_.size() < maxN_)
 		container_.insert(number);
 	else
-		throw std::exception();
+		throw std::runtime_error("The container is full, can't add more elements");
 }
 
 void Span::addRange(size_t rangeSize)
