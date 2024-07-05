@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:16:44 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/04 19:32:49 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:15:45 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ int main()
 	std::cout << sp.shortestSpan() << std::endl; 
 	std::cout << sp.longestSpan() << std::endl; 
 
-	Span numbers = Span(10001);
-	for (int i = 0; i <= 10000; ++i)
-		numbers.addNumber(i);
+
 
 	
 	return 0; 

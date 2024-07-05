@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:20:10 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/04 19:08:42 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:03:57 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Span
 		Span& operator=(const Span& other);
 
 		void addNumber(int number);
-		void addRange(std::multiset<int>::iterator begin, std::multiset<int>::iterator end);
+		void addRange(size_t rangeSize);
 		void printContainer() const;
 		size_t shortestSpan() const;
 		size_t longestSpan() const;

@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:14:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/04 19:28:35 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:08:59 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,12 +122,11 @@ size_t Span::longestSpan() const
 	return *container_.rbegin() - *container_.begin();
 }
 
-void Span::addRange(std::multiset<int>::iterator begin, std::multiset<int>::iterator end)
+void Span::addRange(size_t rangeSize)
 {
-	size_t rangeSize = std::distance(begin, end); // implicit cast
 
 	if (container_.size() + rangeSize > maxN_)
 		throw std::runtime_error("Adding this range exceeds maximum allowed size");
 
-	container_.insert(begin, end);
+	
 }
