@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:14:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/05 11:45:16 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:47:04 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,18 @@ void Span::addNumber(int number)
 		throw std::exception();
 }
 
+void Span::addRange(size_t rangeSize)
+{
+
+	if (container_.size() + rangeSize > maxN_)
+		throw std::runtime_error("Adding this range exceeds maximum allowed size");
+
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
+
+	for (size_t i = 0; i < rangeSize; ++i)
+		container_.insert(std::rand());
+}
+
 void Span::printContainer() const
 {
 	std::multiset<int>::iterator it;
@@ -121,16 +133,4 @@ size_t Span::longestSpan() const
 		throw std::logic_error("Not enough elements for span detection");
 		
 	return *container_.rbegin() - *container_.begin();
-}
-
-void Span::addRange(size_t rangeSize)
-{
-
-	if (container_.size() + rangeSize > maxN_)
-		throw std::runtime_error("Adding this range exceeds maximum allowed size");
-
-	std::srand(static_cast<unsigned int>(std::time(NULL)));
-
-	for (size_t i = 0; i < rangeSize; ++i)
-		container_.insert(std::rand());
 }
