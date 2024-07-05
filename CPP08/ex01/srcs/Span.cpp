@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:14:38 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/05 11:08:59 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:28:02 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 #include <climits>
 #include <exception>
 #include <stdexcept> // logic_error, runtime_error
-#include <algorithm> // min_element
+#include <algorithm> // min_element, generate, 
 #include <numeric> // adjacent_difference
 #include <vector>
+#include <cstdlib> // rand, srand
 
 // Default constructor
 Span::Span() : maxN_(INT_MAX)
@@ -128,5 +129,6 @@ void Span::addRange(size_t rangeSize)
 	if (container_.size() + rangeSize > maxN_)
 		throw std::runtime_error("Adding this range exceeds maximum allowed size");
 
-	
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
+	std::generate(container_.end - (rangeSize)), container_.end(), std::rand);	
 }
