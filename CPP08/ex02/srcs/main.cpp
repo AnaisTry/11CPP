@@ -6,13 +6,14 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 20:54:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/08 15:35:27 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/09 00:29:50 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <iostream>
 # include <list>
+# include <limits>
 
 #define GREEN   "\033[32m"
 #define BLUE    "\033[34m"
@@ -22,7 +23,7 @@ int main()
 {
 	// test mutanstack
 	
-	std::cout << GREEN << "Test default constructor" << RESET << std::endl;
+	std::cout << GREEN << "Test mutantStack default constructor" << RESET << std::endl;
 	MutantStack<int> mstack;
 	std::cout << std::endl << GREEN << "Test push, pop, top and size" << RESET << std::endl;
 	std::cout << BLUE << "push and top" << RESET << std::endl;
@@ -42,6 +43,9 @@ int main()
 	std::cout << "add number : " << mstack.top() << std::endl;
 	mstack.push(0);
 	std::cout << "add number : " << mstack.top() << std::endl;
+	mstack.push(INT_MAX);
+	std::cout << "add number : " << mstack.top() << std::endl;
+	mstack.push(INT_MIN);	
 
 	std::cout << std::endl << GREEN << "Test iterators" << RESET << std::endl;
 	MutantStack<int>::iterator it = mstack.begin();
@@ -67,48 +71,49 @@ int main()
 
 	// test list
 
-	std::cout << GREEN << "Test default constructor" << RESET << std::endl;
+	std::cout<< std::endl << GREEN << "Test list default constructor" << RESET << std::endl;
 	std::list<int> lst;
-	std::cout << std::endl << GREEN << "Test push_back, pop, top and size" << RESET << std::endl;
-	std::cout << BLUE << "push_back and top" << RESET << std::endl;
+	std::cout << std::endl << GREEN << "Test push_back, pop_back, back and size" << RESET << std::endl;
+	std::cout << BLUE << "push_back and back" << RESET << std::endl;
 	lst.push_back(5);
-	std::cout << "add number : " << lst.top() << std::endl; 
+	std::cout << "add number : " << lst.back() << std::endl; 
 	lst.push_back(17);
-	std::cout << "add number : " << lst.top() << std::endl;
-	std::cout << "number on the top of the list : "<< lst.top() << std::endl;
-	std::cout << BLUE << "pop and size" << RESET << std::endl;
-	lst.pop();
+	std::cout << "add number : " << lst.back() << std::endl;
+	std::cout << "number on the back of the list : "<< lst.back() << std::endl;
+	std::cout << BLUE << "pop_back and size" << RESET << std::endl;
+	lst.pop_back();
 	std::cout << "the size of the lst is now : "<< lst.size() << std::endl;
 	lst.push_back(3);
-	std::cout << "add number : " << lst.top() << std::endl;
+	std::cout << "add number : " << lst.back() << std::endl;
 	lst.push_back(5);
-	std::cout << "add number : " << lst.top() << std::endl;
+	std::cout << "add number : " << lst.back() << std::endl;
 	lst.push_back(737);
-	std::cout << "add number : " << lst.top() << std::endl;
+	std::cout << "add number : " << lst.back() << std::endl;
 	lst.push_back(0);
-	std::cout << "add number : " << lst.top() << std::endl;
+	std::cout << "add number : " << lst.back() << std::endl;
+	std::cout << "add number : " << lst.back() << std::endl;
+	lst.push_back(INT_MAX);
+	std::cout << "add number : " << lst.back() << std::endl;
+	lst.push_back(INT_MIN);
 
 	std::cout << std::endl << GREEN << "Test iterators" << RESET << std::endl;
-	list<int>::iterator it = lst.begin();
-	list<int>::iterator ite = lst.end();
+	std::list<int>::iterator lit = lst.begin();
+	std::list<int>::iterator lite = lst.end();
 	std::cout << BLUE << "Increment and decrement" << RESET << std::endl;
-	++it;
-	--it;
+	++lit;
+	--lit;
 	std::cout << "The numbers in the lst are:" << std::endl;
-	while (it != ite)
+	while (lit != lite)
 	{
-	std::cout << *it << std::endl;
-	++it;
+	std::cout << *lit << std::endl;
+	++lit;
 	}	
 
 	std::cout << std::endl << GREEN << "Test copy constructor and assignment operator" << RESET << std::endl;
-	std::cout << BLUE << "mutantStack copy constructor" << RESET << std::endl;
-	list<int> lcopy(lst);
-
-	std::cout << BLUE << "inherited list copy constructor" << RESET << std::endl;
+	std::cout << BLUE << "list copy constructor" << RESET << std::endl;
 	lst.push_back(1);
-	std::list<int> s(lst);
-	std::cout << s.top() << std::endl;
+	std::list<int> l(lst);
+	std::cout << l.back() << std::endl;
 
 	return 0;
 }	
