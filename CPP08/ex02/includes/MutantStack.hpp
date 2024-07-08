@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 00:16:36 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/06 00:54:16 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:43:53 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 # include <deque>
 
 template <typename T>
-class MutantStack : public std::stack<T>
+class MutantStack : public std::stack<T, std::deque<T> >
 {
 	public:
 		// Default constructor
-		MutantStack() : std::stack<T>() 
+		MutantStack() : std::stack<T, std::deque<T> >() 
 		{
 			std::cout << "MutantStack default constructor called" << std::endl;
 		}
 
 		// Copy constructor
-		MutantStack(MutantStack const &other) : std::stack<T>(other) 
+		MutantStack(MutantStack const &other) : std::stack<T, std::deque<T> >(other) 
 		{
 			std::cout << "MutantStack copy constructor called" << std::endl;
 			*this = other;
@@ -39,7 +39,7 @@ class MutantStack : public std::stack<T>
 		{
 			std::cout << "MutantStack assignment operator called" << std::endl;
 			if (this != &other)
-				std::stack<T>::operator=(other);
+				std::stack<T, std::deque<T> >::operator=(other);
 			return *this;
 		}
 
@@ -49,21 +49,66 @@ class MutantStack : public std::stack<T>
 			std::cout << "MutantStack destructor called" << std::endl;
 		}
 
+		// Iterators
 		typedef typename std::deque<T>::iterator iterator;
+		typedef typename std::deque<T>::const_iterator const_iterator;
 
 		iterator begin()
 		{
-			return std::stack<T>::c.begin();
+			return this->c.begin();
 		}
 
 		iterator end()
 		{
-			return std::stack<T>::c.end();
+			return this->c.end();
 		}
 
-		private:
-			std::stack<T> _stack;
-};
+		const_iterator begin() const
+		{
+			return this->c.begin();
+		}
 
+		const_iterator end() const
+		{
+			return this->c.end();
+		}
+
+		// Member functions
+
+		void empty()
+		{
+			return this->c.empty();
+		}
+
+		size_t size()
+		{
+			return this->c.size();
+		}
+
+		T top()
+		{
+			return this->c.back();
+		}
+		
+		void push(T value)
+		{
+			this->c.push_back(value);
+		}
+
+		void emplace(T value)
+		{
+			this->c.emplace_back(value);
+		}
+
+		void pop()
+		{
+			this->c.pop_back();
+		}
+
+		void swap(MutantStack &other)
+		{
+			this->c.swap(other.c);
+		}
+};
 
 #endif
