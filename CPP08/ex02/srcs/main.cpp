@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 20:54:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/09 00:29:50 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/09 16:38:37 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ int main()
 	
 	std::cout << GREEN << "Test mutantStack default constructor" << RESET << std::endl;
 	MutantStack<int> mstack;
+	std::cout << mstack.size() << std::endl;
+	try{
+		std::cout << mstack.top() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	
+	}
 	std::cout << std::endl << GREEN << "Test push, pop, top and size" << RESET << std::endl;
 	std::cout << BLUE << "push and top" << RESET << std::endl;
 	mstack.push(5);
@@ -69,7 +78,7 @@ int main()
 	std::stack<int> s(mstack);
 	std::cout << s.top() << std::endl;
 
-	// test list
+	// compare with list
 
 	std::cout<< std::endl << GREEN << "Test list default constructor" << RESET << std::endl;
 	std::list<int> lst;

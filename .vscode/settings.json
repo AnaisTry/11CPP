@@ -67,6 +67,11 @@
 		"variant": "cpp",
 		"iomanip": "cpp",
 		"fstream": "cpp",
-		"execution": "cpp"
+		"execution": "cpp",
+		"__tree": "cpp",
+		"deque": "cpp",
+		"list": "cpp",
+		"set": "cpp",
+		"stack": "cpp"
 	}
 }

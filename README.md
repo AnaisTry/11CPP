@@ -92,6 +92,21 @@ dynamic_cast<type>(variable)
 
 https://www.quantstart.com/articles/C-Standard-Template-Library-Part-I-Containers/
 
+### Iterators :
+
+https://www.quantstart.com/articles/C-Standard-Template-Library-Part-II-Iterators/
+
+In C++ containers, providing both an iterator and a const iterator is a common practice to offer flexibility in how the container can be used. Here's why both are important:
+
+Iterator: Allows reading and modifying the elements of the container. It's useful when you want to iterate over the elements of the container and change them.
+
+Const Iterator: Only allows reading the elements of the container, not modifying them. It's useful for iterating over the elements of the container when you want to ensure the elements are not changed, either for safety reasons or because the context requires the container to remain unchanged.
+
+### Algorithm :
+
+https://www.quantstart.com/articles/C-Standard-Template-Library-Part-III-Algorithms/
+
+
 ## Best practices for organizing and structuring classes in C++:
 
 1. Encapsulation: Keep data members private, and provide public getter and setter methods if necessary. This hides the internal representation of the class and makes it easier to change the implementation without affecting other parts of the code.
