@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 20:54:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/09 16:38:37 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/09 17:26:09 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@ int main()
 	
 	std::cout << GREEN << "Test mutantStack default constructor" << RESET << std::endl;
 	MutantStack<int> mstack;
-	std::cout << mstack.size() << std::endl;
-	try{
-		std::cout << mstack.top() << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	
-	}
 	std::cout << std::endl << GREEN << "Test push, pop, top and size" << RESET << std::endl;
 	std::cout << BLUE << "push and top" << RESET << std::endl;
 	mstack.push(5);
@@ -123,6 +114,21 @@ int main()
 	lst.push_back(1);
 	std::list<int> l(lst);
 	std::cout << l.back() << std::endl;
+
+	// other tests
+	std::cout << std::endl << GREEN << "Mutantstack with str" << RESET << std::endl;
+	MutantStack<std::string> mstackstr;
+	mstackstr.push("hello");
+	mstackstr.push("world");
+	mstackstr.push("!");
+	MutantStack<std::string>::iterator itstr = mstackstr.begin();
+	MutantStack<std::string>::iterator itestr = mstackstr.end();
+	while (itstr != itestr)
+	{
+		std::cout << *itstr << std::endl;
+		++itstr;
+	}
+	
 
 	return 0;
 }	
