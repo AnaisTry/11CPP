@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 00:16:36 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/09 17:45:23 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/09 18:00:56 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ class MutantStack : public std::stack<T, std::deque<T> >
 
 		// Member functions
 
-		// void empty()
+		// bool empty()
 		// {
 		// 	return this->c.empty();
 		// }
