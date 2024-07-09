@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 20:54:51 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/09 17:26:09 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/09 17:56:41 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,9 @@ int main()
 	// other tests
 	std::cout << std::endl << GREEN << "Mutantstack with str" << RESET << std::endl;
 	MutantStack<std::string> mstackstr;
+
+	std::cout << std::endl << BLUE << "test iterators empty and push" << RESET << std::endl;
+	std::cout << "Mstackstr is empty : " << std::boolalpha <<  mstackstr.empty() << std::endl;
 	mstackstr.push("hello");
 	mstackstr.push("world");
 	mstackstr.push("!");
@@ -128,7 +131,18 @@ int main()
 		std::cout << *itstr << std::endl;
 		++itstr;
 	}
-	
+	std::cout << "Mstackstr is empty : " << std::boolalpha <<  mstackstr.empty() << std::endl;
+
+	std::cout << std::endl << BLUE << "test copy constructor and const iterators" << RESET << std::endl;
+	const MutantStack<std::string> conststack(mstackstr);
+	MutantStack<std::string>::const_iterator cit = conststack.begin();
+	MutantStack<std::string>::const_iterator cite = conststack.end();
+	while(cit != cite)
+	{
+		std::cout << *cit << std::endl;
+		++cit;
+	}
+	std::cout << std::endl;
 
 	return 0;
 }	

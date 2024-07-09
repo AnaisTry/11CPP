@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 00:16:36 by angassin          #+#    #+#             */
-/*   Updated: 2024/07/08 14:43:53 by angassin         ###   ########.fr       */
+/*   Updated: 2024/07/09 17:45:23 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,40 +75,30 @@ class MutantStack : public std::stack<T, std::deque<T> >
 
 		// Member functions
 
-		void empty()
-		{
-			return this->c.empty();
-		}
+		// void empty()
+		// {
+		// 	return this->c.empty();
+		// }
 
-		size_t size()
-		{
-			return this->c.size();
-		}
+		// size_t size()
+		// {
+		// 	return this->c.size();
+		// }
 
-		T top()
-		{
-			return this->c.back();
-		}
+		// T top()
+		// {
+		// 	return this->c.back();
+		// }
 		
-		void push(T value)
-		{
-			this->c.push_back(value);
-		}
+		// void push(T value)
+		// {
+		// 	this->c.push_back(value);
+		// }
 
-		void emplace(T value)
-		{
-			this->c.emplace_back(value);
-		}
-
-		void pop()
-		{
-			this->c.pop_back();
-		}
-
-		void swap(MutantStack &other)
-		{
-			this->c.swap(other.c);
-		}
+		// void pop()
+		// {
+		// 	this->c.pop_back();
+		// }
 };
 
 #endif
