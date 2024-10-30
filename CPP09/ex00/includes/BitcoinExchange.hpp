@@ -1,21 +1,29 @@
-#ifndef CLASS_NAME_HPP
-# define CLASS_NAME_HPP
+#ifndef BITCOINEXCHANGE_HPP
+# define BITCOINEXCHANGE_HPP
 
-#include <iostream>
+# include <iostream>
+# include <map>
+# include <string>
+# include <fstream>
+# include <sstream>
 
-class class_name
+# define RED "\033[31m"
+# define WHITE "\033[37m"
+class BitcoinExchange
 {
 	public:
-		class_name();
-		virtual ~class_name();
-		class_name(const class_name& other);
-		class_name& operator=(const class_name& other);
+		BitcoinExchange();
+		virtual ~BitcoinExchange();
+		BitcoinExchange(const BitcoinExchange& other);
+		BitcoinExchange& operator=(const BitcoinExchange& other);
 
-	 protected:
-		// Protected members
+		void	loadBitcoinRates(const std::string& filename);
+		double	getBitcoinRate(const std::string& date, double amount) const;
+
+		static void	parseLine(const std::string& line, const char& separator, std::string& date, double& value);
 
 	 private:
-		// Private members
+		std::map<std::string, double> bitcoinRates_;
 };
 
 #endif
