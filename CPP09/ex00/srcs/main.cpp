@@ -6,13 +6,13 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:31:03 by angassin          #+#    #+#             */
-/*   Updated: 2024/10/30 13:01:07 by angassin         ###   ########.fr       */
+/*   Updated: 2024/10/31 18:19:46 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-int main(int argc, char *argv[], char *envp[])
+int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
@@ -35,23 +35,22 @@ int main(int argc, char *argv[], char *envp[])
 
 		while(std::getline(input, line))
 		{
-			std::istringstream	iss(line);
-			if (std::getline(iss, date, '|') && std::getline(iss, valueStr))
+			try
 			{
-				date.erase(0, date.find_first_not_of(" \t"));
-				date.erase(0, date.find_last_not_of(" \t") + 1);
-
-				double	result = exchange.getBitcoinRate(date, value);
-				
+				BitcoinExchange::parseLine(line, ',', date, value);
+				double result = exchange.getBitcoinRate(date, value);
+				std::cout << date << " => " << value << " = " << result << std::endl;
+			}
+			catch (const std::runtime_error& e)
+			{
+				std::cout << e.what() << '\n';
 			}
 		}
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cout << e.what() << '\n';
 	}
-	
-
 	
 	return 0;
 }

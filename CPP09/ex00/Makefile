@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
+#    By: angassin <angassin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 19:00:06 by angassin          #+#    #+#              #
-#    Updated: 2024/09/24 13:15:58 by angassin         ###   ########.fr        #
+#    Updated: 2024/10/31 18:19:29 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes -MMD -MP
 
 SRC_DIR = srcs
 
-SRCS = srcs/main.cpp, srcs/BitcoinExchange.cpp
+SRCS = srcs/main.cpp srcs/BitcoinExchange.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
