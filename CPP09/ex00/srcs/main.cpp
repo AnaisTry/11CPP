@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:31:03 by angassin          #+#    #+#             */
-/*   Updated: 2024/10/31 18:19:46 by angassin         ###   ########.fr       */
+/*   Updated: 2024/11/01 01:08:37 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ int main(int argc, char *argv[])
 		std::string	line, date, valueStr;
 		double	value;
 
+		std::getline(input, line);
+
 		while(std::getline(input, line))
 		{
 			try
 			{
-				BitcoinExchange::parseLine(line, ',', date, value);
+				BitcoinExchange::parseLine(line, '|', date, value);
 				double result = exchange.getBitcoinRate(date, value);
 				std::cout << date << " => " << value << " = " << result << std::endl;
 			}
