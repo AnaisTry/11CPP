@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:31:03 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/01 01:08:37 by angassin         ###   ########.fr       */
+/*   Updated: 2024/11/02 00:38:52 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 		if (!input.is_open())
 			throw std::runtime_error("Error: could not open file." + std::string(argv[1]));
 
-		std::string	line, date, valueStr;
+		std::string	line, date;
 		double	value;
 
 		std::getline(input, line);
@@ -40,6 +40,10 @@ int main(int argc, char *argv[])
 			try
 			{
 				BitcoinExchange::parseLine(line, '|', date, value);
+				if (value < 0)
+					throw std::runtime_error("Error: not a positive number.");
+				if (value > 1000)
+					throw std::runtime_error("Error: too large a number.");
 				double result = exchange.getBitcoinRate(date, value);
 				std::cout << date << " => " << value << " = " << result << std::endl;
 			}

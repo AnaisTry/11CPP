@@ -20,13 +20,22 @@ void	BitcoinExchange::loadBitcoinRates(const std::string& filename)
 	std::string		line;
 	
 	std::getline(file,line);
-
+	std::cout << "line: " << line << std::endl;
 	while(std::getline(file,line))
 	{
-		std::string	date, separator;
-		double	rate;
-		parseLine(line, ',', date, rate);
-		bitcoinRates_[date] = rate;
+		try
+		{
+			std::string	date, separator;
+			double	rate;
+			parseLine(line, ',', date, rate);
+			bitcoinRates_[date] = rate;
+		}
+		catch(const std::exception& e)
+		{
+			std::cout << "Error parsing line: " << line << " - " << e.what() << '\n';
+		}
+		
+		
 	}
 		
 }
@@ -37,7 +46,7 @@ double	BitcoinExchange::getBitcoinRate(const std::string& date, double amount) c
 	if (it == bitcoinRates_.end() || it->first != date)
 	{
 		if (it == bitcoinRates_.begin())
-			throw	std::runtime_error("Error: no valid date found for" + date);
+			throw	std::runtime_error("Error: no valid date found for " + date);
 		--it;
 	}
 	return it->second * amount;
@@ -62,10 +71,8 @@ void	BitcoinExchange::parseLine(const std::string& line, const char& separator, 
 			std::istringstream valueStream(valueStr);
 			if (!(valueStream >> value))
 				throw std::runtime_error("Error: invalid rate in line: " + line);
-			if (value < 0)
-				throw std::runtime_error("Error: not a positive number.");
-			if (value > 1000)
-				throw std::runtime_error("Error: too large a number.");
+			//  std::cout << RED << "Parsed line: date = " << date << ", value = " << value << WHITE << std::endl;
+
 		} 
 		else
 			throw std::runtime_error("Error: bad input => " + line);
