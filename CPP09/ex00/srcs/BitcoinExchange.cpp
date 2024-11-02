@@ -20,7 +20,7 @@ void	BitcoinExchange::loadBitcoinRates(const std::string& filename)
 	std::string		line;
 	
 	std::getline(file,line);
-	std::cout << "line: " << line << std::endl;
+	// std::cout << "line: " << line << std::endl;
 	while(std::getline(file,line))
 	{
 		try
@@ -34,10 +34,7 @@ void	BitcoinExchange::loadBitcoinRates(const std::string& filename)
 		{
 			std::cout << "Error parsing line: " << line << " - " << e.what() << '\n';
 		}
-		
-		
-	}
-		
+	}	
 }
 		
 double	BitcoinExchange::getBitcoinRate(const std::string& date, double amount) const
@@ -65,8 +62,8 @@ void	BitcoinExchange::parseLine(const std::string& line, const char& separator, 
 			valueStr.erase(0, valueStr.find_first_not_of(" \t"));
 			valueStr.erase(valueStr.find_last_not_of(" \t") + 1);
 
-			// if (!isValidDate(date))
-			// 	throw std::runtime_error("Error: bad input => " + line);
+			if (!isValidDate(date))
+				throw std::runtime_error("Error: bad input => " + line);
 
 			std::istringstream valueStream(valueStr);
 			if (!(valueStream >> value))
@@ -76,5 +73,28 @@ void	BitcoinExchange::parseLine(const std::string& line, const char& separator, 
 		} 
 		else
 			throw std::runtime_error("Error: bad input => " + line);
-	
+}
+
+bool	BitcoinExchange::isValidDate(const std::string& date)
+{
+	std::istringstream	iss(date);
+	int	year, month, day;
+	char	sep1, sep2;
+
+	if (iss >> year >> sep1 >> month >> sep2 >> day && sep1 == '-' && sep2 == '-')
+	{
+		if (year >= 2000 && year <= 2050 && month >= 1 && month <= 12 && day >=1 && day <= 31)
+		{
+			if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+				return false;
+			if (month == 2)
+			{
+				bool	isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+				if (day > 29 || (day == 29 && !isLeap))
+					return false;
+			}
+			return true;
+		}
+	}
+	return false;
 }

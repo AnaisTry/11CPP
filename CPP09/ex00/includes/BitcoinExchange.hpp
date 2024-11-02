@@ -21,9 +21,10 @@ class BitcoinExchange
 		double	getBitcoinRate(const std::string& date, double amount) const;
 
 		static void	parseLine(const std::string& line, const char& separator, std::string& date, double& value);
-
+		static bool	isValidDate(const std::string& date);
 	 private:
 		std::map<std::string, double> bitcoinRates_;
+		
 };
 
 #endif

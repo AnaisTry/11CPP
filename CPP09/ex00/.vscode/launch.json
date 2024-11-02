@@ -9,7 +9,7 @@
 			"request": "launch",
 			"name": "Debug",
 			"program": "${workspaceFolder}/btc",
-			"args": ["input.txt"],
+			"args": ["not_leap.txt"],
 			"cwd": "${workspaceFolder}"
 		}
 	]
