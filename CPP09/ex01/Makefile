@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
+#    By: angassin <angassin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 19:00:06 by angassin          #+#    #+#              #
-#    Updated: 2024/11/04 14:15:57 by angassin         ###   ########.fr        #
+#    Updated: 2024/11/04 16:52:11 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes -MMD -MP
 
 SRC_DIR = srcs
 
-SRCS = srcs/main.cpp 
+SRCS = srcs/main.cpp srcs/RPN.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
