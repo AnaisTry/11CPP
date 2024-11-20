@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/20 22:19:50 by angassin         ###   ########.fr       */
+/*   Updated: 2024/11/20 23:32:11 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ class PmergeMe
 
 			for (int i = 1; i < argc; ++i)
 			{
+				std::string	arg(argv[i]);
+				if (arg.find(' ') != std::string::npos)
+					throw std::invalid_argument("Invalid input: no spaces allowed");
+					
 				int	num;
 				std::istringstream	iss(argv[i]);
 				iss >> num;
