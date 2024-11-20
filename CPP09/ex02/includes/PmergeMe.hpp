@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/20 18:03:48 by angassin         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:46:47 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ class PmergeMe
 		}
 
 		template <typename Container>
-		void	printResult(const Container& numbers, const std::string& containerName, double timeTaken)
+		void	printResult(const Container& numbers, const std::string& containerName, double time) const
 		{
-			
-			
+			std::cout << "Time to process a range of " << numbers.size() <<
+				"elements with std::" << containerName << ": " << time << " ms" << std::endl;
 		}
 
 	 private:

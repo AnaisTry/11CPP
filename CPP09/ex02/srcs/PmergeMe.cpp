@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:12:59 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/20 17:44:58 by angassin         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:16:27 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ const std::deque<int>& PmergeMe::getNbDeque() const
 
 void PmergeMe::sortVector()
 {
-	std::sort(nbVector_.begin(), nbVector_.end());
+	mergeInsertionSort(nbVector_);
 }
 
 void PmergeMe::sortDeque()
 {
-	std::sort(nbDeque_.begin(), nbDeque_.end());
+	std::mergeInsertionSort(nbDeque_);
 }
-
