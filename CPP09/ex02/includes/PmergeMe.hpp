@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/19 16:10:55 by angassin         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:03:48 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,42 @@ class PmergeMe
 {
 	public:
 
-		PmergeMe(int argc, char* argv[]);
+		PmergeMe();
 		virtual ~PmergeMe();
 		PmergeMe(const PmergeMe& other);
 		PmergeMe& operator=(const PmergeMe& other);
 
+		const std::vector<int>& getNbVector() const;
+		const std::deque<int>& getNbDeque() const;
 		void sortVector();
 		void sortDeque();
+
+		template <typename Container>
+		void parseInput(int argc, char* argv[], Container& container)
+		{
+			if (argc != 2)
+				throw std::invalid_argument("Usage: ./PmergeMe [positive integers]");
+
+			for (int i = 1; i < argc; ++i)
+			{
+				int	num;
+				std::istringstream	iss(argv[i]);
+				iss >> num;
+				if(iss.fail() || num <= 0)
+					throw std::invalid_argument("Invalid input: positive integers required");
+				
+				container.push_back(num);
+			}
+		}
+
+		template <typename Container, typename ParseFunction>
+		double measureParseTime(int argc, char* argv[], Container& container, ParseFunction parseFunction)
+		{
+			std::clock_t start = std::clock();
+			(this->*parseFunction)(argc, argv, container);
+			std::clock_t end = std::clock();
+			return 1000.0 * (end - start) / CLOCKS_PER_SEC;
+		}
 
 		// The double is used to return the time taken to sort the container in decimal
 		template <typename Container, typename SortFunction>
@@ -40,7 +69,7 @@ class PmergeMe
 			// sortFunction(numbers);
 			(this->*sortFunction)(numbers);
 			std::clock_t end = std::clock();
-			return static_cast<double>(end - start) / CLOCKS_PER_SEC;
+			return 1000.0 * (end - start) / CLOCKS_PER_SEC;
 		}
 
 		template <typename Container>
@@ -54,8 +83,8 @@ class PmergeMe
 		template <typename Container>
 		void	printResult(const Container& numbers, const std::string& containerName, double timeTaken)
 		{
-			std::cout << containerName << " sorted in " << timeTaken << " seconds" << " :" << std::endl;
-			printContainer(numbers);
+			
+			
 		}
 
 	 private:
