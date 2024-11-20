@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:12:59 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/20 18:16:27 by angassin         ###   ########.fr       */
+/*   Updated: 2024/11/20 22:07:34 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,22 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 	return *this;
 }
 
-const std::vector<int>& PmergeMe::getNbVector() const
+std::vector<int>& PmergeMe::getNbVector()
 {
 	return nbVector_;
 }
 
-const std::deque<int>& PmergeMe::getNbDeque() const
+std::deque<int>& PmergeMe::getNbDeque()
 {
 	return nbDeque_;
 }
 
-void PmergeMe::sortVector()
+void PmergeMe::sortVector(std::vector<int>& numbers)
 {
-	mergeInsertionSort(nbVector_);
+	mergeInsertionSort(numbers);
 }
 
-void PmergeMe::sortDeque()
+void PmergeMe::sortDeque(std::deque<int>& numbers)
 {
-	std::mergeInsertionSort(nbDeque_);
+	mergeInsertionSort(numbers);
 }

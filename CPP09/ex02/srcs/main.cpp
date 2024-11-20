@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:52:19 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/20 18:43:05 by angassin         ###   ########.fr       */
+/*   Updated: 2024/11/20 20:03:30 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char* argv[])
 			&PmergeMe::sortDeque);
 
 		std::cout << "After: ";
-		pmergeMe.printContainer(pmergeMe.getNbVector);
+		pmergeMe.printContainer(pmergeMe.getNbVector());
 
 		pmergeMe.printResult(pmergeMe.getNbVector(), "vector", vectorParsingTime + vectorTime);
 		pmergeMe.printResult(pmergeMe.getNbDeque(), "deque", dequeParsingTime + dequeTime);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/20 18:46:47 by angassin         ###   ########.fr       */
+/*   Updated: 2024/11/20 22:19:50 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ class PmergeMe
 		PmergeMe(const PmergeMe& other);
 		PmergeMe& operator=(const PmergeMe& other);
 
-		const std::vector<int>& getNbVector() const;
-		const std::deque<int>& getNbDeque() const;
-		void sortVector();
-		void sortDeque();
+		std::vector<int>& getNbVector();
+		std::deque<int>& getNbDeque();
+		void sortVector(std::vector<int>& numbers);
+		void sortDeque(std::deque<int>& numbers);
 
 		template <typename Container>
 		void parseInput(int argc, char* argv[], Container& container)
 		{
-			if (argc != 2)
+			if (argc < 2)
 				throw std::invalid_argument("Usage: ./PmergeMe [positive integers]");
 
 			for (int i = 1; i < argc; ++i)
@@ -73,7 +73,7 @@ class PmergeMe
 		}
 
 		template <typename Container>
-		void	printContainer(Container& numbers)
+		void	printContainer(Container& numbers) const
 		{
 			for (typename Container::iterator it = numbers.begin(); it != numbers.end(); it++)
 				std::cout << *it << " ";
@@ -84,7 +84,7 @@ class PmergeMe
 		void	printResult(const Container& numbers, const std::string& containerName, double time) const
 		{
 			std::cout << "Time to process a range of " << numbers.size() <<
-				"elements with std::" << containerName << ": " << time << " ms" << std::endl;
+				" element(s) with std::" << containerName << ": " << time << " ms" << std::endl;
 		}
 
 	 private:
@@ -95,7 +95,11 @@ class PmergeMe
 		void parseInput(int argc, char* argv[]);
 
 		template <typename Container>
-		void	mergeInsertionSort(Container& numbers){}
+		void	mergeInsertionSort(Container& numbers)
+		{
+			if (numbers.size() <= 1)
+				return;
+		}
 
 };
 
