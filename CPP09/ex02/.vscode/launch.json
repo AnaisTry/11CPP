@@ -9,7 +9,7 @@
 			"request": "launch",
 			"name": "Debug",
 			"program": "${workspaceFolder}/PmergeMe",
-			"args": ["9", "5", "2", "8"],
+			"args": ["9", "5", "2", "8", "6", "4"],
 			"cwd": "${workspaceFolder}"
 		}
 	]

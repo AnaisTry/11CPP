@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/04 16:56:57 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:41:57 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,9 +137,9 @@ class PmergeMe
 		{
 			if (numbers.size() < 2)
 				return;
+			bool is_odd = numbers.size() % 2 != 0;
 			Container	temp(numbers.size());
-			mergeSort(numbers, temp, 0, numbers.size() - 1);
-			// mergeSort(numbers, temp, 0, (numbers.size() / 2) - 1);
+			mergeSort(numbers, temp, 0, numbers.size() - 1 - (is_odd ? 1 : 0));
 		}
 		
 		/*
@@ -165,176 +165,42 @@ class PmergeMe
 			3. Copy the remaining elements of the right subarray if any
 			4. Copy the merged elements back into the original container
 		*/
-		// template <typename Container>
-		// void	mergeHalves(Container& numbers, Container& temp,
-		// 	size_t	leftPos, size_t rightPos, size_t rightEnd)
-		// {
-		// 	size_t	leftEnd = rightPos - 1;
-		// 	size_t	tempPos = leftPos;
-		// 	size_t	nbElements = rightEnd - leftPos + 1;
-
-		// 	while (leftPos <= leftEnd && rightPos <= rightEnd)
-		// 	{
-		// 		if (numbers[leftPos++] <= numbers[rightPos])
-		// 		{
-		// 			temp[tempPos++] = numbers[leftPos++];
-		// 			// temp[tempPos++] = numbers[leftPos++];
-		// 		}
-		// 		else
-		// 		{
-		// 			temp[tempPos++] = numbers[rightPos++];
-		// 			// temp[tempPos++] = numbers[rightPos++];
-		// 		}
-		// 	}
-
-		// 	while (leftPos <= leftEnd)
-		// 	{
-		// 		temp[tempPos++] = numbers[leftPos++];
-		// 		// temp[tempPos++] = numbers[leftPos++];
-		// 	}
-
-		// 	while (rightPos <= rightEnd)
-		// 	{
-		// 		temp[tempPos++] = numbers[rightPos++];
-		// 		// temp[tempPos++] = numbers[rightPos++];
-		// 	}
-		// 	for (size_t i = 0; i < nbElements; ++i, --rightEnd)
-		// 		numbers[rightEnd] = temp[rightEnd];
-		// }
-
-// template <typename Container>
-// void mergeHalves(Container& numbers, Container& temp, size_t left, size_t mid, size_t right)
-// {
-//     size_t leftPos = left * 2;
-//     size_t rightPos = (mid + 1) * 2;
-//     size_t tempPos = left * 2;
-//     size_t leftEnd = (mid + 1) * 2;
-//     size_t rightEnd = (right + 1) * 2;
-
-//     while (leftPos < leftEnd && rightPos < rightEnd)
-//     {
-//         if (numbers[leftPos + 1] <= numbers[rightPos + 1])
-//         {
-//             temp[tempPos] = numbers[leftPos];
-//             temp[tempPos + 1] = numbers[leftPos + 1];
-//             leftPos += 2;
-//         }
-//         else
-//         {
-//             temp[tempPos] = numbers[rightPos];
-//             temp[tempPos + 1] = numbers[rightPos + 1];
-//             rightPos += 2;
-//         }
-//         tempPos += 2;
-//     }
-
-//     while (leftPos < leftEnd)
-//     {
-//         temp[tempPos] = numbers[leftPos];
-//         temp[tempPos + 1] = numbers[leftPos + 1];
-//         leftPos += 2;
-//         tempPos += 2;
-//     }
-// 	while (rightPos < rightEnd)
-//     {
-//         temp[tempPos] = numbers[rightPos];
-//         temp[tempPos + 1] = numbers[rightPos + 1];
-//         rightPos += 2;
-//         tempPos += 2;
-//     }
-
-//     for (size_t i = left * 2; i < rightEnd; i++)
-//     {
-//         numbers[i] = temp[i];
-//     }
-// }
-	template <typename Container>
-	void mergeHalves(Container& numbers, Container& temp, size_t left, size_t mid, size_t right)
-	{
-		size_t leftPos = left;
-		size_t rightPos = (mid + 1);
-		size_t tempPos = leftPos;
-		size_t leftEnd = rightPos;
-		size_t rightEnd = (right + 1);
-		
-		while (leftPos < leftEnd && rightPos < rightEnd)
+		template <typename Container>
+		void mergeHalves(Container& numbers, Container& temp, size_t left, size_t mid, size_t right)
 		{
-			if (numbers[leftPos + 1] <= numbers[rightPos + 1])
+			size_t leftPos = left;
+			size_t rightPos = (mid + 1);
+			size_t tempPos = leftPos;
+			size_t leftEnd = rightPos;
+			size_t rightEnd = (right + 1);
+			
+			while (leftPos < leftEnd && rightPos < rightEnd)
+			{
+				if (numbers[leftPos] <= numbers[rightPos])
+				{
+					temp[tempPos++] = numbers[leftPos++];
+					temp[tempPos++] = numbers[leftPos++];
+				}
+				else
+				{
+					temp[tempPos++] = numbers[rightPos++];
+					temp[tempPos++] = numbers[rightPos++];
+				}
+			}
+			while (leftPos < leftEnd)
 			{
 				temp[tempPos++] = numbers[leftPos++];
 				temp[tempPos++] = numbers[leftPos++];
 			}
-			else
+			while (rightPos < rightEnd)
 			{
 				temp[tempPos++] = numbers[rightPos++];
 				temp[tempPos++] = numbers[rightPos++];
 			}
+			for (size_t i = left * 2; i < rightEnd; ++i)
+			{
+				numbers[i] = temp[i];
+			}
 		}
-		while (leftPos < leftEnd)
-		{
-			temp[tempPos++] = numbers[leftPos++];
-			temp[tempPos++] = numbers[leftPos++];
-		}
-		while (rightPos < rightEnd)
-		{
-			temp[tempPos++] = numbers[rightPos++];
-			temp[tempPos++] = numbers[rightPos++];
-		}
-		for (size_t i = left * 2; i < rightEnd; ++i)
-		{
-			numbers[i] = temp[i];
-		}
-	}
-// template <typename Container>
-// void mergeHalves(Container& numbers, Container& temp, size_t left, size_t mid, size_t right)
-// {
-//     size_t leftPos = left * 2;
-//     size_t rightPos = (mid + 1) * 2;
-//     size_t tempPos = left * 2;
-//     size_t leftEnd = (mid + 1) * 2;
-//     size_t rightEnd = (right + 1) * 2;
-
-//     // Merge the two subarrays while comparing the second element of each pair
-//     while (leftPos < leftEnd && rightPos < rightEnd)
-//     {
-//         if (numbers[leftPos + 1] <= numbers[rightPos + 1])
-//         {
-//             temp[tempPos] = numbers[leftPos];
-//             temp[tempPos + 1] = numbers[leftPos + 1];
-//             leftPos += 2;
-//         }
-//         else
-//         {
-//             temp[tempPos] = numbers[rightPos];
-//             temp[tempPos + 1] = numbers[rightPos + 1];
-//             rightPos += 2;
-//         }
-//         tempPos += 2;
-//     }
-
-//     // Copy the remaining elements of the left subarray if any
-//     while (leftPos < leftEnd)
-//     {
-//         temp[tempPos] = numbers[leftPos];
-//         temp[tempPos + 1] = numbers[leftPos + 1];
-//         leftPos += 2;
-//         tempPos += 2;
-//     }
-
-//     // Copy the remaining elements of the right subarray if any
-//     while (rightPos < rightEnd)
-//     {
-//         temp[tempPos] = numbers[rightPos];
-//         temp[tempPos + 1] = numbers[rightPos + 1];
-//         rightPos += 2;
-//         tempPos += 2;
-//     }
-
-//     // Copy the merged elements back into the original array
-//     for (size_t i = left * 2; i < rightEnd; ++i)
-//     {
-//         numbers[i] = temp[i];
-//     }
-// }
 };
 #endif
