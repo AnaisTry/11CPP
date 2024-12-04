@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/03 18:28:44 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:58:42 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ class PmergeMe
 		{
 			if (left < right)
 			{
-				size_t	mid = (left + right) / 2;
+				size_t	mid = left + (right - left) / 2;
 				mergeSort(numbers, temp, left, mid);
 				mergeSort(numbers, temp, mid + 1, right);
 				mergeHalves(numbers, temp, left, mid + 1, right);
