@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/04 15:58:42 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:56:57 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,12 +149,12 @@ class PmergeMe
 		template <typename Container>
 		void	mergeSort(Container& numbers, Container& temp, size_t left, size_t right)
 		{
-			if (left < right)
+			if (left + 1 < right)
 			{
 				size_t	mid = left + (right - left) / 2;
 				mergeSort(numbers, temp, left, mid);
 				mergeSort(numbers, temp, mid + 1, right);
-				mergeHalves(numbers, temp, left, mid + 1, right);
+				mergeHalves(numbers, temp, left, mid, right);
 			}
 		}
 
@@ -175,7 +175,7 @@ class PmergeMe
 
 		// 	while (leftPos <= leftEnd && rightPos <= rightEnd)
 		// 	{
-		// 		if (numbers[leftPos] <= numbers[rightPos])
+		// 		if (numbers[leftPos++] <= numbers[rightPos])
 		// 		{
 		// 			temp[tempPos++] = numbers[leftPos++];
 		// 			// temp[tempPos++] = numbers[leftPos++];
@@ -251,11 +251,11 @@ class PmergeMe
 	template <typename Container>
 	void mergeHalves(Container& numbers, Container& temp, size_t left, size_t mid, size_t right)
 	{
-		size_t leftPos = left * 2;
-		size_t rightPos = (mid + 1) * 2;
-		size_t tempPos = left * 2;
-		size_t leftEnd = mid + 1;
-		size_t rightEnd = right + 1;
+		size_t leftPos = left;
+		size_t rightPos = (mid + 1);
+		size_t tempPos = leftPos;
+		size_t leftEnd = rightPos;
+		size_t rightEnd = (right + 1);
 		
 		while (leftPos < leftEnd && rightPos < rightEnd)
 		{
