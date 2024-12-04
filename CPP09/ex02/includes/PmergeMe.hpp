@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/04 17:41:57 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/04 19:07:15 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ class PmergeMe
 			
 			while (leftPos < leftEnd && rightPos < rightEnd)
 			{
-				if (numbers[leftPos] <= numbers[rightPos])
+				if (numbers[leftPos + 1] <= numbers[rightPos + 1])
 				{
 					temp[tempPos++] = numbers[leftPos++];
 					temp[tempPos++] = numbers[leftPos++];
