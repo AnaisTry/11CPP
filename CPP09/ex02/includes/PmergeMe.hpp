@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/28 21:48:41 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:28:44 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ class PmergeMe
 		std::vector<int> nbVector_;
 		std::deque<int> nbDeque_;
 
-		void	parseInput(int argc, char* argv[]);
 		
 		// Ford-Johnson merge-insertion sort algorithm
 		template <typename Container>
@@ -139,8 +138,8 @@ class PmergeMe
 			if (numbers.size() < 2)
 				return;
 			Container	temp(numbers.size());
-			// mergeSort(numbers, temp, 0, numbers.size() - 1);
-			mergeSort(numbers, temp, 0, (numbers.size() / 2) - 1);
+			mergeSort(numbers, temp, 0, numbers.size() - 1);
+			// mergeSort(numbers, temp, 0, (numbers.size() / 2) - 1);
 		}
 		
 		/*
@@ -176,28 +175,34 @@ class PmergeMe
 
 		// 	while (leftPos <= leftEnd && rightPos <= rightEnd)
 		// 	{
-		// 		if (numbers[leftPos + 1] <= numbers[rightPos + 1])
+		// 		if (numbers[leftPos] <= numbers[rightPos])
 		// 		{
 		// 			temp[tempPos++] = numbers[leftPos++];
-		// 			temp[tempPos++] = numbers[leftPos++];
+		// 			// temp[tempPos++] = numbers[leftPos++];
 		// 		}
 		// 		else
 		// 		{
 		// 			temp[tempPos++] = numbers[rightPos++];
-		// 			temp[tempPos++] = numbers[rightPos++];
+		// 			// temp[tempPos++] = numbers[rightPos++];
 		// 		}
 		// 	}
 
 		// 	while (leftPos <= leftEnd)
 		// 	{
 		// 		temp[tempPos++] = numbers[leftPos++];
-		// 		temp[tempPos++] = numbers[leftPos++];
+		// 		// temp[tempPos++] = numbers[leftPos++];
 		// 	}
 
+		// 	while (rightPos <= rightEnd)
+		// 	{
+		// 		temp[tempPos++] = numbers[rightPos++];
+		// 		// temp[tempPos++] = numbers[rightPos++];
+		// 	}
 		// 	for (size_t i = 0; i < nbElements; ++i, --rightEnd)
 		// 		numbers[rightEnd] = temp[rightEnd];
 		// }
-		// 		template <typename Container>
+
+// template <typename Container>
 // void mergeHalves(Container& numbers, Container& temp, size_t left, size_t mid, size_t right)
 // {
 //     size_t leftPos = left * 2;
@@ -249,10 +254,9 @@ class PmergeMe
 		size_t leftPos = left * 2;
 		size_t rightPos = (mid + 1) * 2;
 		size_t tempPos = left * 2;
-		size_t leftEnd = (mid + 1) * 2;
-		size_t rightEnd = (right + 1) * 2;
-
-		// Merge the two subarrays while comparing the second element of each pair
+		size_t leftEnd = mid + 1;
+		size_t rightEnd = right + 1;
+		
 		while (leftPos < leftEnd && rightPos < rightEnd)
 		{
 			if (numbers[leftPos + 1] <= numbers[rightPos + 1])
@@ -266,22 +270,16 @@ class PmergeMe
 				temp[tempPos++] = numbers[rightPos++];
 			}
 		}
-
-		// Copy the remaining elements of the left subarray if any
 		while (leftPos < leftEnd)
 		{
 			temp[tempPos++] = numbers[leftPos++];
 			temp[tempPos++] = numbers[leftPos++];
 		}
-
-		// Copy the remaining elements of the right subarray if any
 		while (rightPos < rightEnd)
 		{
 			temp[tempPos++] = numbers[rightPos++];
 			temp[tempPos++] = numbers[rightPos++];
 		}
-
-		// Copy the merged elements back into the original array
 		for (size_t i = left * 2; i < rightEnd; ++i)
 		{
 			numbers[i] = temp[i];
