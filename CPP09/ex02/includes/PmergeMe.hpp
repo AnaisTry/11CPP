@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/05 18:07:30 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/05 19:26:35 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,15 @@ class PmergeMe
 		template <typename Container>
 		void	mergeInsertionSort(Container& numbers)
 		{
-			if (numbers.size() <= 1)
-				return;
+			Container	main;
+			Container	pending;
 			
-			sortPairs(numbers);
-			mergeSortPairs(numbers);
-			
+			if (numbers.size() > 1)
+			{
+				sortPairs(numbers);
+				mergeSortPairs(numbers);
+				createChains(numbers, main, pending);
+			}
 		}
 
 		// Sorts the pairs leaving the odd number if there is one
@@ -129,7 +132,6 @@ class PmergeMe
 
 		/* 
 			Merges the pairs based on the value of the last number of the pair,
-			using a temporary container to store the pairs sorted
 			with a merge sort algorithm
 		*/ 
 		template <typename Container>
@@ -166,7 +168,6 @@ class PmergeMe
 			2. Merge the two subarrays while comparing the last number of the pairs,
 			cursor is used to place the sorted pairs in the container
 			3. If there are any remaining pairs in the subarrays, they are added to the container 
-		
 		*/
 		template <typename Container, typename Iterator>
 		void mergeHalves(Container& numbers, Iterator begin, Iterator mid, Iterator end)
@@ -181,7 +182,7 @@ class PmergeMe
 
 			while (leftIt != leftHalf.end() && rightIt != rightHalf.end())
 			{
-				if (*leftIt < *rightIt)
+				if (*(leftIt + 1) < *(rightIt + 1))
 				{
 					*cursor = *leftIt;
 					++leftIt;
@@ -212,6 +213,20 @@ class PmergeMe
 				++rightIt;
 				++cursor;
 			}
+		}
+
+		template <typename Container>
+		void createChains(Container& numbers, Container& main, Container& pending)
+		{
+			typename Container::iterator it = numbers.begin();
+			for (; it != numbers.end(); it++)
+			{
+				if (distance(numbers.begin(), it) % 2 == 0)
+					main.push_back(*it);
+				else
+					pending.push_back(*it);
+			}
+		
 		}
 
 		template <typename Container> Container next(Container it, int steps)
