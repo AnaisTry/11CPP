@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/05 19:26:35 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/05 19:32:20 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,7 +221,7 @@ class PmergeMe
 			typename Container::iterator it = numbers.begin();
 			for (; it != numbers.end(); it++)
 			{
-				if (distance(numbers.begin(), it) % 2 == 0)
+				if (distance(numbers.begin(), it) % 2 == 1)
 					main.push_back(*it);
 				else
 					pending.push_back(*it);
