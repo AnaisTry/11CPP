@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/05 11:46:17 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/05 18:07:30 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,74 +137,99 @@ class PmergeMe
 		{
 			if (numbers.size() < 3)
 				return;
-			bool is_odd = numbers.size() % 2 != 0;
-			Container	temp(numbers.size());
-			mergeSort(numbers, temp, 0, numbers.size() - 1 - (is_odd ? 1 : 0));
+			bool is_odd = numbers.size() % 2 == 1;
+			mergeSort(numbers, numbers.begin(), numbers.end() - (is_odd));
 		}
 		
 		/*
 			Recursively divides the container in halves until the size is 1
 			Then merges the halves in a sorted manner
 		*/
-		template <typename Container>
-		void	mergeSort(Container& numbers, Container& temp, size_t left, size_t right)
+		template <typename Container, typename Iterator>
+		void	mergeSort(Container& numbers, Iterator begin, Iterator end)
 		{
-			if (left + 1 < right)
+			size_t nb_items = distance(begin, end);
+			if (nb_items > 3)
 			{
-				size_t	mid = left + (right - left) / 2;
-				mergeSort(numbers, temp, left, mid);
-				mergeSort(numbers, temp, mid + 1, right);
-				mergeHalves(numbers, temp, left, mid, right);
+				size_t	half = nb_items / 2;
+				bool	is_odd = half % 2 == 1;
+				Iterator	mid = next(begin, half + is_odd);
+				mergeSort(numbers, begin, mid);
+				mergeSort(numbers, mid, end);
+				mergeHalves(numbers, begin, mid, end);
 			}
 		}
 
 		/*
 			Merges the two subarrays of pairs
-			1. Merge the two subarrays while comparing the last number of the pairs
-			2. Copy the remaining elements of the left subarray if any
-			3. Copy the remaining elements of the right subarray if any
-			4. Copy the merged elements back into the original container
+			1. creates two subarrays from the original array
+			2. Merge the two subarrays while comparing the last number of the pairs,
+			cursor is used to place the sorted pairs in the container
+			3. If there are any remaining pairs in the subarrays, they are added to the container 
+		
 		*/
-		template <typename Container>
-		void mergeHalves(Container& numbers, Container& temp, size_t left, size_t mid, size_t right)
+		template <typename Container, typename Iterator>
+		void mergeHalves(Container& numbers, Iterator begin, Iterator mid, Iterator end)
 		{
-			// size_t leftPos = left;
-			// size_t rightPos = (mid + 1);
-			// size_t tempPos = leftPos;
-			// size_t leftEnd = rightPos;
-			// size_t rightEnd = (right + 1);
-		  
-			size_t leftPos = left;
-    		size_t rightPos = mid + 1;
-    		size_t tempPos = left;
+			(void) numbers;
+			Container leftHalf(begin, mid);
+			Container rightHalf(mid, end);
 
-			while (leftPos <= mid && rightPos <= right)
+			Iterator cursor = begin;
+			Iterator leftIt = leftHalf.begin();
+			Iterator rightIt = rightHalf.begin();
+
+			while (leftIt != leftHalf.end() && rightIt != rightHalf.end())
 			{
-				if (numbers[leftPos + 1] <= numbers[rightPos + 1])
+				if (*leftIt < *rightIt)
 				{
-					temp[tempPos++] = numbers[leftPos++];
-					temp[tempPos++] = numbers[leftPos++];
+					*cursor = *leftIt;
+					++leftIt;
+					++cursor;
+					*cursor = *leftIt;
+					++leftIt;
 				}
 				else
 				{
-					temp[tempPos++] = numbers[rightPos++];
-					temp[tempPos++] = numbers[rightPos++];
+					*cursor = *rightIt;
+					++rightIt;
+					++cursor;
+					*cursor = *rightIt;
+					++rightIt;
 				}
+				++cursor;
 			}
-			while (leftPos <= mid)
+
+			while (leftIt != leftHalf.end())
 			{
-				temp[tempPos++] = numbers[leftPos++];
-				temp[tempPos++] = numbers[leftPos++];
+				*cursor = *leftIt;
+				++leftIt;
+				++cursor;
 			}
-			while (rightPos <= right)
+			while (rightIt != rightHalf.end())
 			{
-				temp[tempPos++] = numbers[rightPos++];
-				temp[tempPos++] = numbers[rightPos++];
+				*cursor = *rightIt;
+				++rightIt;
+				++cursor;
 			}
-			for (size_t i = left; i <= right; ++i)
+		}
+
+		template <typename Container> Container next(Container it, int steps)
+		{
+			std::advance(it, steps);
+			return it;
+		}
+
+		template <typename Iterator>
+		typename std::iterator_traits<Iterator>::difference_type distance(Iterator first, Iterator last)
+		{
+			typename std::iterator_traits<Iterator>::difference_type dist = 0;
+			while (first != last)
 			{
-				numbers[i] = temp[i];
+				++first;
+				++dist;
 			}
+			return dist;
 		}
 };
 #endif
