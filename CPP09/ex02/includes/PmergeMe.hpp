@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/04 19:07:15 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:46:17 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ class PmergeMe
 		template <typename Container>
 		void	mergeSortPairs(Container& numbers)
 		{
-			if (numbers.size() < 2)
+			if (numbers.size() < 3)
 				return;
 			bool is_odd = numbers.size() % 2 != 0;
 			Container	temp(numbers.size());
@@ -168,13 +168,17 @@ class PmergeMe
 		template <typename Container>
 		void mergeHalves(Container& numbers, Container& temp, size_t left, size_t mid, size_t right)
 		{
+			// size_t leftPos = left;
+			// size_t rightPos = (mid + 1);
+			// size_t tempPos = leftPos;
+			// size_t leftEnd = rightPos;
+			// size_t rightEnd = (right + 1);
+		  
 			size_t leftPos = left;
-			size_t rightPos = (mid + 1);
-			size_t tempPos = leftPos;
-			size_t leftEnd = rightPos;
-			size_t rightEnd = (right + 1);
-			
-			while (leftPos < leftEnd && rightPos < rightEnd)
+    		size_t rightPos = mid + 1;
+    		size_t tempPos = left;
+
+			while (leftPos <= mid && rightPos <= right)
 			{
 				if (numbers[leftPos + 1] <= numbers[rightPos + 1])
 				{
@@ -187,17 +191,17 @@ class PmergeMe
 					temp[tempPos++] = numbers[rightPos++];
 				}
 			}
-			while (leftPos < leftEnd)
+			while (leftPos <= mid)
 			{
 				temp[tempPos++] = numbers[leftPos++];
 				temp[tempPos++] = numbers[leftPos++];
 			}
-			while (rightPos < rightEnd)
+			while (rightPos <= right)
 			{
 				temp[tempPos++] = numbers[rightPos++];
 				temp[tempPos++] = numbers[rightPos++];
 			}
-			for (size_t i = left * 2; i < rightEnd; ++i)
+			for (size_t i = left; i <= right; ++i)
 			{
 				numbers[i] = temp[i];
 			}
