@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:12:59 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/06 14:22:43 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:25:08 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void PmergeMe::sortDeque(std::deque<int>& numbers)
 	mergeInsertionSort(numbers);
 }
 
+/*
+	Returns a vector that contains the Jacobstahl sequence up to maxSize
+*/
 std::vector<size_t> PmergeMe::generateJacobstahl(size_t maxSize) const
 {
 	std::vector<size_t> jacobstahl;

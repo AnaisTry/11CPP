@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/06 16:14:06 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:18:26 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ class PmergeMe
 		double measureSortTime(Container& numbers, SortFunction sortFunction)
 		{
 			std::clock_t start = std::clock();
-			// sortFunction(numbers);
 			(this->*sortFunction)(numbers);
 			std::clock_t end = std::clock();
 			return 1000.0 * (end - start) / CLOCKS_PER_SEC;
@@ -244,7 +243,6 @@ class PmergeMe
 			4. Loop over the pending chain to insert the numbers in the main chain
 				with a bynary-search (lower_bound)
 			5. Security loop in case there are remaining numbers in the pending chain
-
 		*/
 		template <typename Container>
 		void insertionSort(Container& main, Container& pending)
