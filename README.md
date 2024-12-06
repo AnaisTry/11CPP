@@ -161,3 +161,10 @@ Input validation is crucial for ensuring that your program behaves correctly and
 5. Use exceptions for error handling: By default, C++ streams don't throw exceptions when an error occurs. However, you can enable exceptions by calling the exceptions method (e.g., `std::cin.exceptions(std::istream::failbit | std::istream::badbit)`). This will cause the stream to throw an exception of type `std::ios_base::failure` when an error occurs, which you can catch and handle in a try-catch block.
 
 6. Provide feedback to the user: If an input operation fails, it's a good idea to let the user know what went wrong. You can do this by printing an error message to the standard error stream (`std::cerr`).
+
+## Ford-Johnson algorithm :
+
+https://seriouscomputerist.atariverse.com/media/pdf/book/Art%20of%20Computer%20Programming%20-%20Volume%203%20(Sorting%20&%20Searching).pdf
+
+https://dev.to/emuminov/human-explanation-and-step-by-step-visualisation-of-the-ford-johnson-algorithm-5g91
+
