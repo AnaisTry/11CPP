@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:31:03 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/02 00:38:52 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/06 17:56:19 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		std::cout << "Error: could not open file." << std::endl;
-		std::cout << RED << "Usage: " << argv[0] << " path/to/config-file" << WHITE << std::endl;
+		std::cout << RED << "Usage: " << argv[0] << " path/to/input-file" << WHITE << std::endl;
 		return 1;
 	}
 

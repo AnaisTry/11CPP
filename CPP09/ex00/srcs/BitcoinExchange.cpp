@@ -20,7 +20,6 @@ void	BitcoinExchange::loadBitcoinRates(const std::string& filename)
 	std::string		line;
 	
 	std::getline(file,line);
-	// std::cout << "line: " << line << std::endl;
 	while(std::getline(file,line))
 	{
 		try
