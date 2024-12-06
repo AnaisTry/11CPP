@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/06 15:57:10 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:14:06 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,6 +235,17 @@ class PmergeMe
 		
 		}
 
+		/*
+			Insert the pending numbers in the main container in a sorted manner
+			1. Insert the first number of the pending container in the main container
+				and move the iterator of the pending chain to the next number
+			2. Generate the Jacobstahl sequence of the size of the pending container
+			3. Loop over the Jacobstahl determining the number of items to insert in the main chain
+			4. Loop over the pending chain to insert the numbers in the main chain
+				with a bynary-search (lower_bound)
+			5. Security loop in case there are remaining numbers in the pending chain
+
+		*/
 		template <typename Container>
 		void insertionSort(Container& main, Container& pending)
 		{
@@ -249,7 +260,7 @@ class PmergeMe
 			typename Container::iterator cursor;
 			size_t insertedAmount = 1;
 
-			for(size_t i = 1; i < jacobstahl.size(); ++i)
+			for (size_t i = 1; i < jacobstahl.size(); ++i)
 			{
 				size_t jn = jacobstahl[i];
 				size_t itemsToInsert = std::min(jn, maxSize - insertedAmount);
@@ -262,11 +273,10 @@ class PmergeMe
 					main.insert(cursor, *itPend);
 					++itPend;
 					++insertedAmount;
-					// std::cout << "Index of itPend: " << distance(pending.begin(), itPend) << std::endl;
 				}
 			}
 
-			while(itPend != pending.end())
+			while (itPend != pending.end())
 			{
 				cursor = std::lower_bound(main.begin(), main.end(), *itPend);
 				main.insert(cursor, *itPend);
