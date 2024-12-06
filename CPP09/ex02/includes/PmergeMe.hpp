@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:08 by angassin          #+#    #+#             */
-/*   Updated: 2024/12/05 19:32:20 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:57:10 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdexcept>
 # include <cstdlib> // atof
 # include <ctime> // clock_t
-# include <algorithm> // swap
+# include <algorithm> // swap, lower_bound
 
 class PmergeMe
 {
@@ -99,6 +99,8 @@ class PmergeMe
 		std::vector<int> nbVector_;
 		std::deque<int> nbDeque_;
 
+		std::vector<size_t> generateJacobstahl(size_t maxSize) const;
+
 		
 		// Ford-Johnson merge-insertion sort algorithm
 		template <typename Container>
@@ -112,6 +114,10 @@ class PmergeMe
 				sortPairs(numbers);
 				mergeSortPairs(numbers);
 				createChains(numbers, main, pending);
+				insertionSort(main, pending);
+
+				numbers.clear();
+				numbers.insert(numbers.end(), main.begin(), main.end());
 			}
 		}
 
@@ -227,6 +233,45 @@ class PmergeMe
 					pending.push_back(*it);
 			}
 		
+		}
+
+		template <typename Container>
+		void insertionSort(Container& main, Container& pending)
+		{
+			if (pending.empty())
+				return;
+
+			main.insert(main.begin(), pending.front());
+
+			typename Container::iterator itPend = pending.begin() + 1;
+			size_t maxSize = pending.size();
+			std::vector<size_t> jacobstahl = generateJacobstahl(maxSize);
+			typename Container::iterator cursor;
+			size_t insertedAmount = 1;
+
+			for(size_t i = 1; i < jacobstahl.size(); ++i)
+			{
+				size_t jn = jacobstahl[i];
+				size_t itemsToInsert = std::min(jn, maxSize - insertedAmount);
+				typename Container::iterator itPendEnd = itPend;
+        		std::advance(itPendEnd, itemsToInsert);
+				
+				while (itPend != itPendEnd)
+				{
+					cursor = std::lower_bound(main.begin(), main.end(), *itPend);
+					main.insert(cursor, *itPend);
+					++itPend;
+					++insertedAmount;
+					// std::cout << "Index of itPend: " << distance(pending.begin(), itPend) << std::endl;
+				}
+			}
+
+			while(itPend != pending.end())
+			{
+				cursor = std::lower_bound(main.begin(), main.end(), *itPend);
+				main.insert(cursor, *itPend);
+				++itPend;
+			}
 		}
 
 		template <typename Container> Container next(Container it, int steps)

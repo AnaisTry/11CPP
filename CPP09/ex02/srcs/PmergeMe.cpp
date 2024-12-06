@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:12:59 by angassin          #+#    #+#             */
-/*   Updated: 2024/11/20 22:35:48 by angassin         ###   ########.fr       */
+/*   Updated: 2024/12/06 14:22:43 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,18 @@ void PmergeMe::sortVector(std::vector<int>& numbers)
 void PmergeMe::sortDeque(std::deque<int>& numbers)
 {
 	mergeInsertionSort(numbers);
+}
+
+std::vector<size_t> PmergeMe::generateJacobstahl(size_t maxSize) const
+{
+	std::vector<size_t> jacobstahl;
+	jacobstahl.push_back(0);
+	jacobstahl.push_back(1);
+	size_t i = 2;
+	while (jacobstahl.back() < maxSize)
+	{
+		jacobstahl.push_back(jacobstahl[i - 1] * 2 + 1);
+		++i;
+	}
+	return jacobstahl;
 }
